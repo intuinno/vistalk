@@ -1,11 +1,12 @@
 from django.conf.urls import patterns, include, url
 
+
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
+    # Examples:ddd
     # url(r'^$', 'vistalk3.views.home', name='home'),
     # url(r'^vistalk3/', include('vistalk3.foo.urls')),
 
@@ -14,4 +15,6 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
      url(r'^admin/', include(admin.site.urls)),
+
+     url(r'^polls/',include('polls.urls',namespace="polls")),
 )
