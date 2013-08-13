@@ -2,3 +2,7 @@
 	 color: green;
 }
 
+body {
+	background: white url("images/images.jpeg") no-repeat right bottom;
+}
+
