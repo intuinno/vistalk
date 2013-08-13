@@ -141,6 +141,8 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'polls',
+    'blog',
+    'wordconfuse',
 )
 
 # A sample logging configuration. The only tangible logging
