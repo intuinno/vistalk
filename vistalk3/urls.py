@@ -17,6 +17,8 @@ urlpatterns = patterns('',
      url(r'^admin/', include(admin.site.urls)),
 
      url(r'^polls/',include('polls.urls',namespace="polls")),
-     url(r'^$','blog.views.index'),
-     url(r'^(?P<slug>[\w\-]+)/$','blog.views.post'),
+     url(r'^wordconfuse/',include('wordconfuse.urls',namespace="wordconfuse")),
+     url(r'^blog/',include('blog.urls',namespace="blog")),
+     # url(r'^$','blog.views.index'),
+     # url(r'^(?P<slug>[\w\-]+)/$','blog.views.post'),
 )
