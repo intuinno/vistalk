@@ -115,7 +115,7 @@ def gameover(request):
             'delta': game_time,
             'count': count,
         }
-        return render_to_response('gameover.html',
+        return render_to_response('wordconfuse/gameover.html',
                 {
                     'form':form,
                     'hs':hs,
@@ -133,10 +133,10 @@ def new_hs(request):
         g.username = form.cleaned_data['username']
         g.save()
         hs = GameScores.objects.filter(username__isnull=False).order_by('-count', 'time_delta')[0:6]
-        return render_to_response('hs.html', { 'hs':hs, })
+        return render_to_response('wordconfuse/hs.html', { 'hs':hs, })
     return HttpResponse('Derp, you need to post the username')
 
 def hs(request):
     hs = GameScores.objects.filter(username__isnull=False).order_by('-count', 'time_delta')[0:6]
-    return render_to_response('hs.html', { 'hs': hs, })
+    return render_to_response('wordconfuse/hs.html', { 'hs': hs, })
 

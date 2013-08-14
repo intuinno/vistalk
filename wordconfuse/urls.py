@@ -5,7 +5,7 @@ from wordconfuse import views
 
 urlpatterns = patterns('', 
 
-		url(r'^$',TemplateView.as_view(template_name="index.html")),
+		url(r'^$',TemplateView.as_view(template_name="wordconfuse/index.html")),
 		url(r'^get_words$', views.get_words, name= 'get_words'),
 		url(r'^gameover$', views.gameover, name='gameover'),
 		url(r'^new_hs$', views.new_hs, name='new_hs'),
