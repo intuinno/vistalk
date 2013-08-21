@@ -9,20 +9,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>Movievis</title>
+    <title>YelpVis</title>
     <link rel="stylesheet" href="{% static 'movievis/css/my.css' %}"/>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0-rc.1/jquery.mobile-1.3.0-rc.1.min.css"/>
 
     <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.3.0-rc.1/jquery.mobile-1.3.0-rc.1.min.js"></script>
-
     <script type="text/javascript" src="{% static 'movievis/js/jquery.tipsy.js' %}"></script>
     <script type="text/javascript" src="{% static 'movievis/js/jqm.autoComplete-1.5.1.js' %}"></script>
     <script type="text/javascript" src="{% static 'movievis/js/queue.min.js' %}"></script>
 
     <link href="{% static 'movievis/css/tipsy.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'movievis/css/visdock.css' %}" rel="stylesheet" type="text/css"/>
 
-    <script>
+     <script>
         window.STATIC_URL = '{{ STATIC_PREFIX }}'
     </script>
 
@@ -33,44 +33,69 @@
     <script type="text/javascript" src="{% static 'movievis/js/parallelspaces.js' %}"></script>
     <link href="{% static 'movievis/css/parallelspaces.css' %}" rel="stylesheet" type="text/css"/>
 
+    <!-- Javascript files for Visdock -->
+    <script type="text/javascript" src="{% static 'movievis/js/2D.js' %}"></script>
+    <script type="text/javascript" src="{% static 'movievis/js/IntersectionUtilities.js' %}"></script>
+    <script type="text/javascript" src="{% static 'movievis/js/UtilitiesLibrary.js' %}"></script>
+    <script type="text/javascript" src="{% static 'movievis/js/visdock.js' %}"></script>
 
+
+    <!-- User-generated css -->
+    <style>
+    </style>
+
+    <!-- User-generated js -->
+    <script></script>
 </head>
 <body>
 {% block login %}{% endblock %}
 
 <!-- Home -->
+<div class="fb-root">
+    <script src="//connect.facebook.net/en_US/all.js"></script>
+</div>
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 <div data-role="page" id="page1">
-<div data-theme="b" data-role="header">
+<div data-theme="b" data-role="header" data-position="fixed">
     <a data-role="button" id="resetButton" class="ui-btn-left"> Reset </a>
-    <a data-role="button" href="#page1" class="ui-btn-right"> Help </a>
+    <a data-role="button" href="http://www.intuinno.com/parallelspaces.html" class="ui-btn-right"> Help </a>
 
-    <h3> MovieVis - Explore, Talk &amp; Share Insignts about movies and yourself</h3>
+    <h3> YelpVis -
+        Publish your findings
+        <a data-role="button" id="facebook" data-inline="true">
+            FaceBook
+        </a>
+        <a data-role="button" id="twitter" href="http://twitter.com/share" data-inline="true" href="#page1">
+            Twitter
+        </a></h3>
 </div>
 <div data-role="content">
 <!-- <div>
-    <h1><span> <span style="font-family: 'serif', sans-serif;"> Movievis </span> &nbsp; <span style="font-family: helvetica; font-size: medium;"> Explore, Discover, Talk &amp; Share about Movies and Yourself </span> </span></h1>
+    <h1><span> <span style="font-family: 'serif', sans-serif;"> YelpVis </span> &nbsp; <span style="font-family: helvetica; font-size: medium;"> Explore hidden insignts in Yelp Dataset </span> </span></h1>
 </div> -->
 <div id="middle" class="ui-grid-a">
-    <div class="ui-block-a SpaceTitle">
+    <div class="ui-block-a">
         <div id="movieTitle">
-            <b> Movie Space
-            </b>
-
-
+            <b> Word Space </b>
         </div>
         <div class="searchBox">
 
-            <input type="text" id="searchMovie" placeholder="Search movies by name">
+            <input type="text" id="searchWord" placeholder="Search Word by name">
             <ul id="suggestions" data-role="listview" data-inset="true" data-filter-theme="d"></ul>
 
 
         </div>
     </div>
-    <div class="ui-block-b SpaceTitle">
-        <div>
-            <p style="text-align: center;">
-                <b> User Space </b>
-            </p>
+    <div class="ui-block-b">
+        <div id="wordTitle">
+            <b> Business Space </b>
+        </div>
+        <div class="searchBox">
+
+            <input type="text" id="searchBusiness" placeholder="Search Business by name">
+            <ul id="suggestionsBusiness" data-role="listview" data-inset="true" data-filter-theme="d"></ul>
+
+
         </div>
     </div>
     <div class="ui-block-a" id="movieCanvas">
@@ -93,9 +118,11 @@
                     <label for="movieXAxisMenu"> X Axis: </label>
                     <select id="movieXAxisMenu" name="">
                         <option value="sim1"> Similarity</option>
-                        <option value="relDate"> Release Date</option>
                         <option value="avgReview"> Average Review</option>
                         <option value="numReview"> Number of Review</option>
+                        <option value="useful"> Number of Useful</option>
+                        <option value="funny"> Number of Funny</option>
+                        <option value="cool"> Number of Cool</option>
                     </select>
                 </div>
             </div>
@@ -104,9 +131,11 @@
                     <label for="movieYAxisMenu"> Y Axis: </label>
                     <select id="movieYAxisMenu" name="">
                         <option value="sim2"> Similarity</option>
-                        <option value="relDate"> Release Date</option>
                         <option value="avgReview"> Average Review</option>
                         <option value="numReview"> Number of Review</option>
+                        <option value="useful"> Number of Useful</option>
+                        <option value="funny"> Number of Funny</option>
+                        <option value="cool"> Number of Cool</option>
                     </select>
                 </div>
             </div>
@@ -119,10 +148,8 @@
                     <label for="userXAxisMenu"> X Axis: </label>
                     <select id="userXAxisMenu" name="">
                         <option value="sim1"> Similarity</option>
-                        <option value="age"> Age</option>
-                        <option value="job"> Job</option>
                         <option value="location"> Location</option>
-                        <option value="gender"> Gender</option>
+                        <option value="category"> Category</option>
                         <option value="avgReview"> Average Review</option>
                         <option value="numReview"> Number of Review</option>
                     </select>
@@ -133,9 +160,7 @@
                     <label for="userYAxisMenu"> Y Axis: </label>
                     <select id="userYAxisMenu" name="">
                         <option value="sim2"> Similarity</option>
-                        <option value="age"> Age</option>
-                        <option value="job"> Job</option>
-                        <option value="gender"> Gender</option>
+                        <option value="category"> Category</option>
                         <option value="avgReview"> Average Review</option>
                         <option value="numReview"> Number of Review</option>
                     </select>
@@ -169,6 +194,7 @@
                     </div>
                 </div>
                 <div class="ui-block-b">
+
                     <div data-role="fieldcontain" id="contourONDiv" class="deok">
                         <fieldset data-role="controlgroup">
 
@@ -330,12 +356,13 @@
                         <br>
                     </b>
                 </p>
+
             </div>
             <div data-role="rangeslider">
                 <label for="range-1a">Ratings</label>
-                <input type="range" name="range-1a" id="range-1a" min="0.5" max="5" value="4" step="0.5">
+                <input type="range" name="range-1a" id="range-1a" min="1" max="500" value="100" step="1">
                 <label for="range-1b">Ratings</label>
-                <input type="range" name="range-1b" id="range-1b" min="0.5" max="5" value="5" step="0.5">
+                <input type="range" name="range-1b" id="range-1b" min="1" max="1000" value="1000" step="1">
             </div>
         </div>
         <div data-role="collapsible">
@@ -346,7 +373,8 @@
             <div>
                 <p>
                     <b>
-                        When in Group mode, selecting new entity will add to the collection. &nbsp;The
+                        When you selected multiple entities, the corresponding entities in other spaces will be added to
+                        the collection. &nbsp;The
                         selection criteria will be applied either logical OR or logical And.
                     </b>
                 </p>
@@ -355,17 +383,13 @@
                 <fieldset data-role="controlgroup" data-type="horizontal">
                     <legend>
                     </legend>
-                    <input id="radio7" name="" value="ind" type="radio" checked="checked">
-                    <label for="radio7">
-                        Individual
-                    </label>
-                    <input id="radio8" name="" value="groupOR" type="radio">
+                    <input id="radio8" name="groupMode" value="union" type="radio">
                     <label for="radio8">
-                        Group OR
+                        Union
                     </label>
-                    <input id="radio9" name="" value="groupAND" type="radio">
+                    <input id="radio9" name="groupMode" value="common" type="radio" checked="checked">
                     <label for="radio9">
-                        Group AND
+                        Common
                     </label>
                 </fieldset>
             </div>
@@ -376,32 +400,42 @@
 <div>
 
     <a href="#" id="saveas">Generate download Preview</a>
+    <a href="#" id="savejson">Save json</a>
+    <a href="#" id="loadjson">Load json</a>
+</div>
 
 </div>
 
 <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'movievis'; // required: replace example with your forum shortname
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'movievis'; // required: replace example with your forum shortname
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 </div>
+
 <div data-theme="b" data-role="footer" data-position="fixed">
-    <a data-role="button" data-inline="true" href="#page1" class="ui-btn-right"> Button </a>
     <a data-role="button" data-theme="e" href="http://www.intuinno.com" class="ui-btn-right"> intuinno </a>
 
     <h3> by intuinno </h3>
     <a data-role="button" data-theme="e" href="https://engineering.purdue.edu/pivot/"
        class="ui-btn-left"> PivotLab </a>
+
+    <!--canvas id="canvas" width="500" height="300">NO CANVAS FOR YOU</canvas-->
+
+
 </div>
 
 

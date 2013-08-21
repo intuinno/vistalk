@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../YelpVis/YelpVis/3javascript/yelpvis-2space/public/.idea/public.iml" filepath="$PROJECT_DIR$/../YelpVis/YelpVis/3javascript/yelpvis-2space/public/.idea/public.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/vistalk3.iml" filepath="$PROJECT_DIR$/.idea/vistalk3.iml" />
     </modules>
   </component>
