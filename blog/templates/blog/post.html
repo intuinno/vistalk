@@ -1,5 +1,5 @@
 {% extends 'blog/base.html' %}
-
+{% load comments %}
 {% block title %}{{post.title}}{% endblock %}
 
 {% block content %}
@@ -17,5 +17,8 @@
 		{{post.description}}
 	</p>
 	{{post.content|safe}}
+{% render_comment_form for post %}
+{% get_comment_count for post as comment_count %}
+{% render_comment_list for post %}
 </article>
 {% endblock %}

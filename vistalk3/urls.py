@@ -19,6 +19,8 @@ urlpatterns = patterns('',
      url(r'^polls/',include('polls.urls',namespace="polls")),
      url(r'^wordconfuse/',include('wordconfuse.urls',namespace="wordconfuse")),
      url(r'^blog/',include('blog.urls',namespace="blog")),
+     url(r'^comments/',include('django.contrib.comments.urls')),
+     url(r'^movievis/',include('movievis.urls',namespace="movievis")),
      # url(r'^$','blog.views.index'),
      # url(r'^(?P<slug>[\w\-]+)/$','blog.views.post'),
 )
