@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb854282-6c21-465a-a581-758ce6266812" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movievis/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wordconfuse/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movievis/templates/movievis/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movievis/urls.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/movievis/templates/base.html" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/wordconfuse/static/img/betterlucknexttime.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/wordconfuse/static/img/congratulations.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/wordconfuse/static/img/gameover.png" afterPath="" />
@@ -1655,11 +1652,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/wordconfuse/templates/wordconfuse.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/wordconfuse/templates/wordconfuse.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wordconfuse/Tutorial/wordconfuse" afterPath="$PROJECT_DIR$/wordconfuse/Tutorial/wordconfuse" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/templates/blog/base.html" afterPath="$PROJECT_DIR$/blog/templates/blog/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/templates/blog/post.html" afterPath="$PROJECT_DIR$/blog/templates/blog/post.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistalk3/settings.py" afterPath="$PROJECT_DIR$/vistalk3/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistalk3/urls.py" afterPath="$PROJECT_DIR$/vistalk3/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movievis/views.py" afterPath="$PROJECT_DIR$/movievis/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="vistalk3.iws" />
@@ -1674,7 +1667,7 @@
     <file path="/wordconfuse.js" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376490153626" ignored="false" />
     <file path="/base.html" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376714919316" ignored="false" />
     <file path="/gameover.html" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376504853366" ignored="false" />
-    <file path="/views.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377058265596" ignored="false" />
+    <file path="/views.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377099837843" ignored="false" />
     <file path="/models.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376959965842" ignored="false" />
     <file path="/admin.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376943893172" ignored="false" />
     <file path="/post.html" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376527961163" ignored="false" />
@@ -1722,10 +1715,30 @@
       <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/movievis/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="19" selection-start="841" selection-end="841" vertical-scroll-proportion="0.6666667">
+            <state line="15" column="41" selection-start="569" selection-end="569" vertical-scroll-proportion="0.5297398">
               <folding>
                 <element signature="e#27#93#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/movievis/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="26" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/movievis/templates/movievis/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="395" column="0" selection-start="15234" selection-end="15234" vertical-scroll-proportion="-198.82143">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1790,9 +1803,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="742" />
+    <option name="x" value="44" />
     <option name="y" value="22" />
-    <option name="width" value="698" />
+    <option name="width" value="1396" />
     <option name="height" value="878" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -2261,14 +2274,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="742" y="22" width="698" height="878" extended-state="6" />
+    <frame x="44" y="22" width="1396" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39110428" sideWeight="0.74670184" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18888889" sideWeight="0.74670184" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37780547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -2367,15 +2380,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movievis/templates/movievis/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="395" column="0" selection-start="15234" selection-end="15234" vertical-scroll-proportion="0.5366569">
-          <folding>
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wordconfuse/templates/wordconfuse/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="10" selection-start="1504" selection-end="1504" vertical-scroll-proportion="0.73049647">
@@ -2446,15 +2450,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movievis/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="26" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wordconfuse/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="25" selection-start="51" selection-end="118" vertical-scroll-proportion="0.0">
@@ -2482,9 +2477,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/movievis/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="26" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movievis/templates/movievis/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="395" column="0" selection-start="15234" selection-end="15234" vertical-scroll-proportion="-198.82143">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/movievis/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="19" selection-start="841" selection-end="841" vertical-scroll-proportion="0.6666667">
+        <state line="15" column="41" selection-start="569" selection-end="569" vertical-scroll-proportion="0.5297398">
           <folding>
             <element signature="e#27#93#0" expanded="true" />
           </folding>

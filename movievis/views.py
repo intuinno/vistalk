@@ -10,10 +10,10 @@ from django.core import serializers
 from movievis.models import CommentState
 
 def detail(request, comment_id):
-    # comment = get_object_or_404(CommentState, pk=comment_id)
-    comment = serializers.serialize('json',CommentState.objects.all())
+    comment = get_object_or_404(CommentState, pk=comment_id)
+    # comment = json.dumps(CommentState.objects.get(pk=comment_id))
     # return HttpResponse(json.dumps(comment.content), content_type="application/json")
-    return HttpResponse(comment, content_type="application/json")
+    return HttpResponse(comment.vis_state, content_type="application/json")
 
 @csrf_exempt
 def save_comment(request):
