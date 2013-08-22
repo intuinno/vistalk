@@ -2635,10 +2635,10 @@ $('#page1').live('pageinit', function () {
 
         }
 
-        for (i = 0; i < AnnotatedByAreaTool.lines.length; i++) {
-            json_class.annotationlines[i] = AnnotatedByAreaTool.lines[i];
-            json_class.annotationtext[i] = AnnotatedByAreaTool.text[i];
-        }
+//        for (i = 0; i < AnnotatedByAreaTool.lines.length; i++) {
+//            json_class.annotationlines[i] = AnnotatedByAreaTool.lines[i];
+//            json_class.annotationtext[i] = AnnotatedByAreaTool.text[i];
+//        }
 
         $.ajax({
             url: "save_json",

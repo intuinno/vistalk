@@ -1455,17 +1455,9 @@ var AnnotatedByPointTool = {
                          annotation.remove();
                          QueryManager.annotation[parseInt(this.getAttributeNS(null,"id"))].remove();
                          });*/
+json_class.annotationtext = newText;
+                        VisDock.SaveAsJson();
 
-                        $.ajax({
-                            url: "save_json",
-                            type: 'POST',
-                            contentType: 'application/json; charset=utf-8',
-                            data: JSON.stringify(json_class),
-                            dataType: 'text',
-                            success: function (result) {
-                                alert(result.Result);
-                            }
-                        });
                     }
                 }
                 label.on("mousemove", null);
@@ -1795,6 +1787,7 @@ var AnnotatedByAreaTool = {
                         var newText = window.prompt("Please enter the text you want to annotate");
                         if (newText != null && newText != "") {
                             div.text(newText);
+                            json_class.annotationtext = newText;
                             VisDock.SaveAsJson();
                             QueryManager.names[parseInt(this.getAttributeNS(null, "class"))].text(newText);
                             /*span = div.append("xhtml:span").attr("class", "close-btn").attr("id", this.getAttributeNS(null,"class"));
