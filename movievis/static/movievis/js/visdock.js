@@ -45,7 +45,7 @@ colorchoose[5] = ["#9999FF", "#99CC00", "#99CC33", "#99CC66", "#99CC99", "#99CCC
 
 var PointerTool = {
     name: "Pointer",
-    image: "images/cursor.png",
+    image: STATIC_URL + "movievis/images/cursor.png",
     select: function () {
         console.log("select: " + PointerTool.name);
         Toolbox.setTool(PointerTool);
@@ -60,7 +60,7 @@ var PointerTool = {
 
 var RectangleTool = {
     name: "Rect",
-    image: "images/Rectangle.png",
+    image: STATIC_URL + "movievis/images/Rectangle.png",
     start: 0,
     bbox: null,
     panel1: null,
@@ -217,7 +217,7 @@ var RectangleTool = {
 
 var EllipseTool = {
     name: "Ellipse",
-    image: "images/Ellipse.png",
+    image: STATIC_URL + "movievis/images/Ellipse.png",
     start: 0,
     bellipse: null,
     panel1: null,
@@ -338,7 +338,7 @@ var EllipseTool = {
 
 var LassoTool = {
     name: "Lasso",
-    image: "images/Lasso.png",
+    image: STATIC_URL + "movievis/images/Lasso.png",
     start: 0,
     segments: 0,
     dragging: 0,
@@ -504,7 +504,7 @@ var LassoTool = {
 
 var Straight = {
     name: "Straight",
-    image: "images/straight_line.png",
+    image: STATIC_URL + "movievis/images/straight_line.png",
     start: 0,
     Line: null,
     panel1: null,
@@ -610,7 +610,7 @@ var Straight = {
 
 var Polyline = {
     name: "Polyline",
-    image: "images/PolyLine.png",
+    image: STATIC_URL + "movievis/images/PolyLine.png",
     start: 0,
     before: 0,
     segments: 0,
@@ -766,7 +766,7 @@ var Polyline = {
 
 var Freeselect = {
     name: "Freeselect",
-    image: "images/free_select.png",
+    image: STATIC_URL + "movievis/images/free_select.png",
     start: 0,
     segments: 0,
     dragging: 0,
@@ -916,7 +916,7 @@ var Freeselect = {
 
 var PolygonTool = {
     name: "Polygon",
-    image: "images/polygon.png",
+    image: STATIC_URL + "movievis/images/polygon.png",
     start: 0,
     before: 0,
     segments: 0,
@@ -1078,7 +1078,7 @@ var PolygonTool = {
 
 var PanZoomTool = {
     name: "PanZoom",
-    image: "images/Pan.png",
+    image: STATIC_URL + "movievis/images/Pan.png",
     start: null,
     panel1: null,
     panel2: null,
@@ -1273,7 +1273,7 @@ var PanZoomTool = {
 
 var RotateTool = {
     name: "Rotate",
-    image: "images/rotate.png",
+    image: STATIC_URL + "movievis/images/rotate.png",
     start: null,
 
     select: function () {
@@ -1298,7 +1298,7 @@ var RotateTool = {
 
 var AnnotatedByPointTool = {
     name: "AbyPoint",
-    image: "images/AnP.png",
+    image: STATIC_URL + "movievis/images/AnP.png",
     start: null,
     end: [],
     isDrag: false,
@@ -1494,7 +1494,7 @@ json_class.annotationtext = newText;
 
 var AnnotatedByAreaTool = {
     name: "AbyArea",
-    image: "images/AnA.png",
+    image: STATIC_URL + "movievis/images/AnA.png",
     start: 0,
     segments: 0,
     dragging: 0,
@@ -2203,16 +2203,16 @@ var Toolbox = {
                 .attr("y", yPos - 2)
                 .attr("width", 15)
                 .attr("height", 15)
-                .attr("xlink:href", "images/checkbox_yes.png")
+                .attr("xlink:href", STATIC_URL + "movievis/images/checkbox_yes.png")
                 .on("click", function () {
                     if (Toolbox.inclusive == true) {
                         Toolbox.inclusive = false;//alert("0")
-                        checked.attr("xlink:href", "images/checkbox_no.png")
+                        checked.attr("xlink:href", STATIC_URL + "movievis/images/checkbox_no.png")
                         //checked.setAttributeNS(null,"xlink:href", "images/checkbox_no.png")
                     }
                     else {
                         Toolbox.inclusive = true;//alert("1")
-                        checked.attr("xlink:href", "images/checkbox_yes.png")
+                        checked.attr("xlink:href", STATIC_URL + "movievis/images/checkbox_yes.png")
                         //checked.setAttributeNS(null,"xlink:href", "images/checkbox_yes.png")	
                     }
 
@@ -2715,7 +2715,7 @@ var QueryManager = {
             .attr("y", (0))
             .attr("width", 20)
             .attr("height", 20)
-            .attr("xlink:href", "images/Delete.png")
+            .attr("xlink:href", STATIC_URL + "movievis/images/Delete.png")
             .on("mousedown", function () {
                 //QueryManager.trashtoggle=1;
                 //QueryManager.uniontoggle=0;
@@ -2823,7 +2823,7 @@ var QueryManager = {
             .attr("y", (-2))
             .attr("width", 24)
             .attr("height", 24)
-            .attr("xlink:href", "images/or.png")
+            .attr("xlink:href", STATIC_URL + "movievis/images/or.png")
             .on("mousedown", function () {//alert(QueryManager.querytoggle)
                 //QueryManager.trashtoggle=0;
                 //QueryManager.uniontoggle=1;
@@ -2912,7 +2912,7 @@ var QueryManager = {
             .attr("y", (-2))
             .attr("width", 24)
             .attr("height", 24)
-            .attr("xlink:href", "images/and.png")
+            .attr("xlink:href", STATIC_URL + "movievis/images/and.png")
             .on("mousedown", function () {//alert(QueryManager.querytoggle)
                 //QueryManager.trashtoggle=0;
                 //QueryManager.uniontoggle=1;
@@ -3014,7 +3014,7 @@ var QueryManager = {
             .attr("y", (-2))
             .attr("width", 24)
             .attr("height", 24)
-            .attr("xlink:href", "images/xor.png")
+            .attr("xlink:href", STATIC_URL + "movievis/images/xor.png")
             .on("mousedown", function () {//alert(QueryManager.querytoggle)
                 //QueryManager.trashtoggle=0;
                 //QueryManager.uniontoggle=1;

@@ -1656,13 +1656,12 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/wordconfuse/templates/wordconfuse.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/wordconfuse/templates/wordconfuse.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wordconfuse/Tutorial/wordconfuse" afterPath="$PROJECT_DIR$/wordconfuse/Tutorial/wordconfuse" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js" afterPath="$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movievis/static/movievis/js/visdock.js" afterPath="$PROJECT_DIR$/movievis/static/movievis/js/visdock.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="vistalk3.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377120563675" ignored="false" />
+    <file path="/Dummy.txt" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377462324576" ignored="false" />
     <file path="/a.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376450499120" ignored="false" />
     <file path="/fragment.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376504152859" ignored="false" />
     <file path="/index.html" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376709411962" ignored="false" />
@@ -1678,7 +1677,7 @@
     <file path="/post.html" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376527961163" ignored="false" />
     <file path="/settings.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376543716420" ignored="false" />
     <file path="/parallelspaces.js" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377105294915" ignored="false" />
-    <file path="/visdock.js" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377121033866" ignored="false" />
+    <file path="/visdock.js" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377462676301" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1734,22 +1733,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parallelspaces.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="parallelspaces.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2637" column="10" selection-start="84876" selection-end="85094" vertical-scroll-proportion="0.47201946">
+            <state line="1502" column="0" selection-start="49576" selection-end="49576" vertical-scroll-proportion="-3.6">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="visdock.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="visdock.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/visdock.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1443" column="92" selection-start="51369" selection-end="51378" vertical-scroll-proportion="-6.64">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state line="2209" column="96" selection-start="83195" selection-end="83199" vertical-scroll-proportion="0.4469357">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1813,15 +1810,16 @@
         <option value="$PROJECT_DIR$/wordconfuse/views.py" />
         <option value="$PROJECT_DIR$/movievis/views.py" />
         <option value="$PROJECT_DIR$/movievis/templates/movievis/base.html" />
-        <option value="$PROJECT_DIR$/movievis/static/movievis/js/visdock.js" />
         <option value="$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js" />
+        <option value="$PROJECT_DIR$/movievis/static/movievis/js/visdock.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1440" />
-    <option name="width" value="1920" />
-    <option name="height" value="1200" />
+    <option name="x" value="44" />
+    <option name="y" value="22" />
+    <option name="width" value="1396" />
+    <option name="height" value="878" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1849,6 +1847,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1952,6 +1951,32 @@
               <option name="myItemId" value="movievis" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vistalk3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vistalk3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="movievis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="movievis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1991,7 +2016,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2205,18 +2229,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="0" width="1920" height="1200" extended-state="0" />
+    <frame x="44" y="22" width="1396" height="878" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13767342" sideWeight="0.82222223" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14148147" sideWeight="0.74670184" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37780547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17777778" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17777778" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2388,18 +2412,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/visdock.js">
+    <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1443" column="92" selection-start="51369" selection-end="51378" vertical-scroll-proportion="-6.64">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="1502" column="0" selection-start="49576" selection-end="49576" vertical-scroll-proportion="-3.6">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js">
+    <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/visdock.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2637" column="10" selection-start="84876" selection-end="85094" vertical-scroll-proportion="0.47201946">
+        <state line="2209" column="96" selection-start="83195" selection-end="83199" vertical-scroll-proportion="0.4469357">
           <folding />
         </state>
       </provider>
