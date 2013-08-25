@@ -1,5 +1,5 @@
 from django.contrib import admin
-from movievis.models import MovievisState, MovievisCommentState
+from yelpvis.models import  YelpvisCommentState
 
 
 class CommentStateAdmin(admin.ModelAdmin):
@@ -9,6 +9,6 @@ class CommentStateAdmin(admin.ModelAdmin):
 	date_hierarchy='pub_date'
 
 
-admin.site.register(MovievisCommentState,CommentStateAdmin)
+admin.site.register(YelpvisCommentState,CommentStateAdmin)
 
 

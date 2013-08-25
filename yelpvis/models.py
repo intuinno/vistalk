@@ -5,7 +5,7 @@ import collections
 
 # Create your models here.
 
-class MovievisState(models.Model):
+class YelpvisState(models.Model):
 	title=models.CharField(max_length=255)
 	slug=models.SlugField(unique=True,max_length=255)
 	description = models.CharField(max_length=255)
@@ -22,7 +22,7 @@ class MovievisState(models.Model):
 	def get_absolute_url(self):
 		return reverse('blog:post', args=[self.slug])
 
-class MovievisCommentState(models.Model):
+class YelpvisCommentState(models.Model):
     content=models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
     vis_state = JSONField()

@@ -144,7 +144,8 @@ INSTALLED_APPS = (
     'blog',
     'wordconfuse',
     'django.contrib.comments',
-    'movievis'
+    'movievis',
+    'yelpvis',
 )
 
 # A sample logging configuration. The only tangible logging

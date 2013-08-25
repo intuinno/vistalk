@@ -21,6 +21,7 @@ urlpatterns = patterns('',
      url(r'^blog/',include('blog.urls',namespace="blog")),
      url(r'^comments/',include('django.contrib.comments.urls')),
      url(r'^movievis/',include('movievis.urls',namespace="movievis")),
+     url(r'^yelpvis/',include('yelpvis.urls',namespace='yelpvis')),
      # url(r'^$','blog.views.index'),
      # url(r'^(?P<slug>[\w\-]+)/$','blog.views.post'),
 )

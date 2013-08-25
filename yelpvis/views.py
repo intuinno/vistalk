@@ -7,10 +7,10 @@ import json
 from django.shortcuts import render, get_object_or_404
 from django.core import serializers
 
-from movievis.models import MovievisCommentState
+from yelpvis.models import YelpvisCommentState
 
 def detail(request, comment_id):
-    comment = get_object_or_404(MovievisCommentState, pk=comment_id)
+    comment = get_object_or_404(YelpvisCommentState, pk=comment_id)
     # comment = json.dumps(CommentState.objects.get(pk=comment_id))
     # return HttpResponse(json.dumps(comment.content), content_type="application/json")
     return HttpResponse(comment.vis_state, content_type="application/json")
@@ -20,7 +20,7 @@ def save_comment(request):
     if request.is_ajax():
         if request.method == 'POST':
             print 'Raw Data: "%s"' % request.body
-            c = MovievisCommentState(content="thest",vis_state=request.body)
+            c = YelpvisCommentState(content="thest",vis_state=request.body)
             c.save()
 
     return HttpResponse("OK")
