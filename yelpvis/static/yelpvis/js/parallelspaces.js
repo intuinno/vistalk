@@ -1841,10 +1841,10 @@ var zoomUser = d3.behavior.zoom().x(x).y(y).on("zoom", zoomedUser);
     var SumContour = null;
 
     function updateContour(Space, SelectionStates) {
-        data_2D = null;
-        SumContour = null;
+
+
+
         var mySelectionStates = SelectionStates;
-        numLevelForContour = numLevelForContour;
 
         if (Space === 'movie') {
 
@@ -1942,25 +1942,12 @@ var zoomUser = d3.behavior.zoom().x(x).y(y).on("zoom", zoomedUser);
 
             }
 
+
+
             var data2D = science.stats.kde2D(tempDataX, tempDataY, tempDataZ, XCoord, YCoord, XStep / bandwidth, YStep / bandwidth);
-            if (data_2D == null) {
-                data_2D = data2D;
 
-            } else {
-                for (var i = 0; i < data_2D.length; i++) {
-                    for (var j = 0; j < data_2D.length; j++) {
-                        data_2D[i][j] = data_2D[i][j] + data2D[i][j];
-                    }
-                }
-
-            }
-
-            var minTemp = d3.min(data2D, function (d) {
-                return d3.min(d);
-            });
-            var maxTemp = d3.max(data2D, function (d) {
-                return d3.max(d);
-            });
+            var minTemp = d3.min(data2D, function(d) { return d3.min(d);});
+            var maxTemp = d3.max(data2D, function (d) { return d3.max(d);});
 
             if (minTemp < min) {
 
@@ -1977,8 +1964,8 @@ var zoomUser = d3.behavior.zoom().x(x).y(y).on("zoom", zoomedUser);
             return data2D;
 
         });
-        /*
-         selectedData2D.map(function(data2D, i) {
+
+        selectedData2D.map(function(data2D, i) {
 
          var c = new Conrec(), zs = d3.range(min, max, (max - min) / numLevelForContour);
 
@@ -1986,117 +1973,62 @@ var zoomUser = d3.behavior.zoom().x(x).y(y).on("zoom", zoomedUser);
 
          mySelectionStates.querySetsList[i].contourList = c.contourList();
 
-         }); */
+         });
 
-        selectedData2D.map(function (data_2D, i) {
+        var j;
 
-            var c = new Conrec(), zs = d3.range(min, max, (max - min) / numLevelForContour);
-
-            c.contour(data_2D, 0, XCoord.length - 1, 0, YCoord.length - 1, XCoord, YCoord, zs.length, zs);
-            var l = numLevelForContour;
-
-            while (c.contourList().length <= 5 && l < 100) {
-                l = l * 2;
-                var c = new Conrec(), zs = d3.range(min, max, (max - min) / (l));
-
-                c.contour(data_2D, 0, XCoord.length - 1, 0, YCoord.length - 1, XCoord, YCoord, zs.length, zs);
-            }
-
-            SumContour = c.contourList();
-
-        });
-
-        for (var j = 0; j < 10; j++)
+         for ( j = 0; j < 10; j++)
             colourCategory[j] = d3.scale.linear().domain([min, max]).range(["#fff", ordinalColor(j)]);
 
-        var contourGroup = myContourGroup.selectAll("g").data(mySelectionStates.querySetsList, function (d) {
-            return d.assignedClass;
-        });
 
-        //var contourPath = myContourGroup.append("g")
+        var contourGroup = myContourGroup.selectAll("g")
+                        .data(mySelectionStates.querySetsList, function(d) {return d.assignedClass;});
 
-        //contourPath.enter().append("g");
+            contourGroup.enter().append("g");
 
-        contourGroup.enter().append("g");
-        /*
-         var transx, transy;
-         if (Space == 'user'){
-         //Scalexy = PanZoomTool.zoomMovieScale;
 
-         transx = PanZoomTool.zoomUserTranslate[0];
-         transy = PanZoomTool.zoomUserTranslate[1];
-         } else {
-         transx = PanZoomTool.zoomMovieTranslate[0];
-         transy = PanZoomTool.zoomMovieTranslate[1];
-         }*/
+             contourGroup.each(function (d, i) {
 
-        /////////////////////////
-        // Doug's Original Code
-        ////////////////////////
-
-        /*var contour_paths = myContourGroup.append("g")//select(contourGroup).append("path").data(SumContour, function(d){
-         return d.level;
-         })*/
-
-        //var contour_Paths = contourPath.selectAll("path").data(SumContour, function(d){
-
-        /*
-         var contour_Paths = d3.select(this).selectAll("path").data(SumContour, function(d){
-         return d.level;
-         })
-
-         contour_Paths.enter().append("path")
-         contour_Paths.style("fill",function(d){
-         return colourCategory[0](d.level);
-         }).transition().delay(200).duration(300).attr("d", d3.svg.line().x(function(d) {
-         return +(d.x);
-         //return (transx/PanZoomTool.zoomMovieScale);
-         }).y(function(d) {
-         return +(d.y);
-         //return (transy/PanZoomTool.zoomMovieScale);
-         })).attr("fill-opacity", 0.01).transition().duration(300).attr("fill-opacity", 0.8)
-         */
-        var k = 0;
-        contourGroup.each(function (d, i) {
-            //if (k == 0){
             var f = d.assignedClass;
 
-            var paths = d3.select(this).selectAll("path").data(SumContour, function (d) {
-                return d.level;
-            });
 
-            /*var paths = d3.select(this).selectAll("path").data(d.contourList, function(d) {
+            var paths = d3.select(this).selectAll("path").data(d.contourList, function(d) {
              return d.level;
-             });*/
-            paths.enter().append("path")
-            //.attr("transform","translate("+ (transx/PanZoomTool.zoomMovieScale) + "," + (transy/PanZoomTool.zoomMovieScale) + ")");;
+             });
+
+
+                            paths.enter()
+                                .append("path");
+
 
             paths.style("fill",function (d) {
-                return colourCategory[8](d.level);
-                //return colourCategory[f](d.level);
-            }).transition().delay(200).duration(300).attr("d", d3.svg.line().x(function (d) {
+
+                                    return colourCategory[f](d.level);
+                                }).transition().delay(200).duration(300)
+                                 .attr("d", d3.svg.line().x(function(d) {
                     return +(d.x);
                     //return (transx/PanZoomTool.zoomMovieScale);
                 }).y(function (d) {
                         return +(d.y);
-                        //return (transy/PanZoomTool.zoomMovieScale);
-                    })).attr("fill-opacity", 0.01).transition().duration(300).attr("fill-opacity", 0.8)
-                .attr("opacity", "0.5")
-                .attr("stroke", "black")
+                                })).attr("fill-opacity",0.01)
+                                .transition().duration(300)
+                                .attr("fill-opacity",0.8);
 
             //.attr("transform","translate("+ (transx) + "," + (transy) + ")");
 
-            k++;
-            paths.exit().remove();
-            //}
+
+
+
+
+                               paths.exit()
+                                .remove();
+
         });
 
 
         contourGroup.exit().remove();
 
-
-    }
-
+          }
     $(function () {
 
         $("#searchWord").autocomplete({

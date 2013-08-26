@@ -1694,13 +1694,8 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/wordconfuse/templates/wordconfuse.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/wordconfuse/templates/wordconfuse.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wordconfuse/Tutorial/wordconfuse" afterPath="$PROJECT_DIR$/wordconfuse/Tutorial/wordconfuse" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movievis/templates/movievis/base.html" afterPath="$PROJECT_DIR$/movievis/templates/movievis/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yelpvis/templates/yelpvis/base.html" afterPath="$PROJECT_DIR$/yelpvis/templates/yelpvis/base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js" afterPath="$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js" afterPath="$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movievis/static/movievis/js/visdock.js" afterPath="$PROJECT_DIR$/movievis/static/movievis/js/visdock.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yelpvis/static/yelpvis/js/visdock.js" afterPath="$PROJECT_DIR$/yelpvis/static/yelpvis/js/visdock.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="vistalk3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1719,7 +1714,7 @@
     <file path="/admin.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377464732964" ignored="false" />
     <file path="/post.html" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376527961163" ignored="false" />
     <file path="/settings.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377464019548" ignored="false" />
-    <file path="/parallelspaces.js" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377484506024" ignored="false" />
+    <file path="/parallelspaces.js" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377486398398" ignored="false" />
     <file path="/visdock.js" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377484155826" ignored="false" />
     <file path="/a.dummy" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377463825252" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -1750,19 +1745,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parallelspaces.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="parallelspaces.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2755" column="66" selection-start="88597" selection-end="88597" vertical-scroll-proportion="0.4832347">
+            <state line="2055" column="11" selection-start="63510" selection-end="68792" vertical-scroll-proportion="-21.56">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="parallelspaces.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Google Drive/Project/ParallelSpacesProject/WebCode/public/js/parallelspaces.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="742" column="31" selection-start="20881" selection-end="20886" vertical-scroll-proportion="-13.52">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="parallelspaces.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2757" column="16" selection-start="89173" selection-end="89223" vertical-scroll-proportion="-4.4">
+            <state line="2030" column="11" selection-start="68262" selection-end="68262" vertical-scroll-proportion="0.018737672">
               <folding />
             </state>
           </provider>
@@ -1791,7 +1795,7 @@
       <file leaf-file-name="visdock.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/yelpvis/static/yelpvis/js/visdock.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1737" column="11" selection-start="63732" selection-end="63879" vertical-scroll-proportion="-8.363636">
+            <state line="1751" column="43" selection-start="64319" selection-end="64328" vertical-scroll-proportion="-14.409091">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -1831,8 +1835,8 @@
         <option value="$USER_HOME$/Downloads/parallelspaces.js" />
         <option value="$PROJECT_DIR$/yelpvis/static/yelpvis/js/visdock.js" />
         <option value="$PROJECT_DIR$/movievis/static/movievis/js/visdock.js" />
-        <option value="$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js" />
         <option value="$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js" />
+        <option value="$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js" />
       </list>
     </option>
   </component>
@@ -2079,7 +2083,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/parallelspaces.js" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Google Drive/Project/ParallelSpacesProject/WebCode/public/js/parallelspaces.js" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
@@ -2382,13 +2386,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vistalk3/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="14" selection-start="5087" selection-end="5087" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/movievis/templates/movievis/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="170" column="0" selection-start="7373" selection-end="7373" vertical-scroll-proportion="-6.4174175">
@@ -2474,15 +2471,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yelpvis/static/yelpvis/js/visdock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1737" column="11" selection-start="63732" selection-end="63879" vertical-scroll-proportion="-8.363636">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/visdock.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1735" column="41" selection-start="63733" selection-end="63733" vertical-scroll-proportion="0.0">
@@ -2492,16 +2480,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js">
+    <entry file="file://$USER_HOME$/Google Drive/Project/ParallelSpacesProject/WebCode/public/js/parallelspaces.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2757" column="16" selection-start="89173" selection-end="89223" vertical-scroll-proportion="-4.4">
+        <state line="742" column="31" selection-start="20881" selection-end="20886" vertical-scroll-proportion="-13.52">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2755" column="66" selection-start="88597" selection-end="88597" vertical-scroll-proportion="0.4832347">
+        <state line="2055" column="11" selection-start="63510" selection-end="68792" vertical-scroll-proportion="-21.56">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yelpvis/static/yelpvis/js/visdock.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1751" column="43" selection-start="64319" selection-end="64328" vertical-scroll-proportion="-14.409091">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2030" column="11" selection-start="68262" selection-end="68262" vertical-scroll-proportion="0.018737672">
           <folding />
         </state>
       </provider>
