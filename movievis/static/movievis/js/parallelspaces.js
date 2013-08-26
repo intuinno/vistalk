@@ -48,7 +48,7 @@ if (typeof Object.create !== 'function') {
 
 $('#page1').live('pageinit', function () {
 
-    var PSmin = 1, PSmax = 100;
+	var PSmin = 4, PSmax = 5;
 
     $("#range-1a").on("change", function (event) {
 
@@ -106,7 +106,27 @@ $('#page1').live('pageinit', function () {
     var w = 600;
     var h = 600;
     var margin = 20;
-    var categoryList = ['Mexican', 'Vegetarian', 'Breakfast & Brunch', 'American', 'Asian', 'Italian', 'Hotels & Travel', 'Arts & Entertainment', 'Nightlife', 'etc'];
+   var jobList = ['administrator',
+    'artist',
+    'doctor',
+    'educator',
+    'engineer',
+    'entertainment',
+    'executive',
+    'healthcare',
+    'homemaker',
+    'lawyer',
+    'librarian',
+    'marketing',
+    'none',
+    'other',
+    'programmer',
+    'retired',
+    'salesman',
+    'scientist',
+    'student',
+    'technician',
+    'writer'];
 
     var drawspace = null;
 
@@ -349,27 +369,42 @@ $('#page1').live('pageinit', function () {
                 //svgMovieGroup.attr('transform','translate('+PanZoomTool.zoomMovieTranslate+")scale("+PanZoomTool.zoomMovieScale+")")
                 //svgMovieSelectionGroup.attr('transform','translate(0,0)scale(1)')
                 //alert("here")
+                x.domain(xDomainExtent);
+                y.domain(yDomainExtent);
 
-
-                updateDisplay('movie', selectionStatesUser);
+                var correction = document.getElementsByClassName("movieSelectionSVGGroup")[0];
+                correction.setAttributeNS(null,"transform","translate("+
+                PanZoomTool.zoomMovieTranslate+")scale("+PanZoomTool.zoomMovieScale+")")
+                //updateDisplay('movie', selectionStatesUser);
                 updateDisplay('user', selectionStatesMovie);
-                if (PanZoomTool.zoomUserScale != 1) {
-                    var correction = document.getElementsByClassName("userSelectionSVGGroup");
-                    //correction[0].setAttributeNS(null,"transform","translate(0,0)scale(1)")
-                }
+
+				svgMovie.select(".x.axis").call(xAxis);
+				svgMovie.select(".y.axis").call(yAxis);
+				svgUserGroup.attr("transform", "translate(" + PanZoomTool.zoomUserTranslate
+					 + ")scale(" + PanZoomTool.zoomUserScale + ")");
+				svgUser.select(".x.axis").call(xAxisUser);
+				svgUser.select(".y.axis").call(yAxisUser);
+
                 //updateDisplay('user', selectionStatesMovie);
 
             } else {
                 selectionStatesUser.add(tempQuerySet);
+                x.domain(xDomainExtent);
+                y.domain(yDomainExtent);
 
+                var correction = document.getElementsByClassName("movieSelectionSVGGroup")[0];
+                correction.setAttributeNS(null,"transform","translate("+
+                PanZoomTool.zoomMovieTranslate+")scale("+PanZoomTool.zoomMovieScale+")")
 
-                updateDisplay('user', selectionStatesMovie);
+               // updateDisplay('user', selectionStatesMovie);
                 updateDisplay('movie', selectionStatesUser);
-                if (PanZoomTool.zoomMovieScale != 1) {
-                    var correction = document.getElementsByClassName("movieSelectionSVGGroup");
-                    //correction[0].setAttributeNS(null,"transform","translate(0,0)scale(1)")
-                }
-                //updateDisplay('movie', selectionStatesUser);
+
+				var correction = document.getElementsByClassName("userSelectionSVGGroup")[0]
+				var correction2 = document.getElementsByClassName("movieSelectionSVGGroup")[0]
+				//correction.setAttributeNS(null,"transform","translate("+
+				//PanZoomTool.zoomUserTranslate+")scale("+PanZoomTool.zoomUserScale+")")
+				correction2.setAttributeNS(null,"transform","translate("+
+				PanZoomTool.zoomMovieTranslate+")scale("+PanZoomTool.zoomMovieScale+")")
 
 
             }
@@ -560,24 +595,33 @@ $('#page1').live('pageinit', function () {
                 y.domain(yDomainExtent);
                 //updateDisplay('movie', selectionStatesUser);
 
-                var correction = document.getElementsByClassName("movieSelectionSVGGroup")[0]
+                var correction = document.getElementsByClassName("movieSelectionSVGGroup")[0];
                 correction.setAttributeNS(null, "transform", "translate(" +
                     PanZoomTool.zoomMovieTranslate + ")scale(" + PanZoomTool.zoomMovieScale + ")")
                 updateDisplay('user', selectionStatesMovie);
-                updateDisplay('movie', selectionStatesUser);
+
+                if (PanZoomTool.zoomUserScale != 1) {
+
+                    //correction[0].setAttributeNS(null,"transform","translate(0,0)scale(1)")
+                }
+                //updateDisplay('user', selectionStatesMovie);
+
             } else {
                 selectionStatesUser.add(tempQuerySet);
 
                 x.domain(xDomainExtent);
                 y.domain(yDomainExtent);
                 //updateDisplay('user', selectionStatesMovie);
-
-                var correction = document.getElementsByClassName("userSelectionSVGGroup")[0]
-
-                //correction.setAttributeNS(null,"transform","translate("+
-                //PanZoomTool.zoomUserTranslate+")scale("+PanZoomTool.zoomUserScale+")")
-
                 updateDisplay('movie', selectionStatesUser);
+                var correction = document.getElementsByClassName("movieSelectionSVGGroup")[0]
+
+                var correction = document.getElementsByClassName("movieSelectionSVGGroup")[0];
+                correction.setAttributeNS(null,"transform","translate("+
+                PanZoomTool.zoomMovieTranslate+")scale("+PanZoomTool.zoomMovieScale+")")
+
+                updateDisplay('user', selectionStatesMovie);
+                updateDisplay('movie', selectionStatesUser);
+
                 //updateDisplay('user', selectionStatesMovie);
 
             }
@@ -1037,6 +1081,100 @@ $('#page1').live('pageinit', function () {
 
     }
 
+ function updateZoom(space, selectionState) {
+
+        var mySelectionState = selectionState;
+
+        var mySelectionGroup, myQueryGroup, xSelect, ySelect, rSelect, xQuery, yQuery, rQuery;
+
+        var transQx, transQy, scalQxy, transSx, transSy2, scalSxy;
+
+        var tool = d3.select("#legend").selectAll("g")
+
+        var det = d3.mouse(tool[0][0])
+        var isMovie;
+
+          		if (det < 0) {
+            mySelectionGroup = svgMovieSelectionGroup;
+            myQueryGroup = svgUserSelectionGroup;
+            xSelect = xValue;
+            ySelect = yValue;
+            rSelect = rMovieScale;
+
+            xQuery = xValueUser;
+            yQuery = yValueUser;
+            rQuery = rUserScale;
+
+		} else {
+            mySelectionGroup = svgUserSelectionGroup;
+            myQueryGroup = svgMovieSelectionGroup;
+
+            xSelect = xValueUser;
+            ySelect = yValueUser;
+            rSelect = rUserScale;
+
+            xQuery = xValue;
+            yQuery = yValue;
+            rQuery = rMovieScale;
+
+        }
+
+
+        //Selection Space Halo
+        //Update + enter
+        //Bind
+        if ((mySelectionGroup.selectAll(".selectionG")[0].length !== 0 ) || (mySelectionState.querySetsList.length !== 0 )) {
+
+            var selectedEntity = mySelectionGroup.selectAll(".selectionG").data(mySelectionState.querySetsList, function (d) {
+                return +d.assignedClass;
+
+            });
+
+            //Enter
+            selectedEntity.enter().append("g").classed("selectionG", true);
+
+            //Enter + Update
+            selectedEntity.each(function (d, i) {
+
+                var color = ordinalColor(d.assignedClass);
+
+                //Bind
+                var selectionCircle = d3.select(this).selectAll("circle").data(d.selection);
+
+                //Enter Append
+                selectionCircle.enter().append("circle");
+                //selectionCircle.attr("transform","translate(0,0)scale(1)")
+                //Enter + Update
+                selectionCircle.attr("cx",function (d) {
+
+                    return (xSelect(d))//+transSx);
+                }).attr("cy",function (d) {
+                        return (ySelect(d))//+transSy);
+                    }).attr("r",function (d) {
+
+                        return rSelect(+d.numReview);
+                    }).attr("fill", color).attr("stroke", color).classed("selectedCircle", true)
+                    .attr("opacity", "0.5")
+                    .attr("stroke-width", "5")
+                    .attr("stroke-opacity", "0.5")
+
+
+                selectionCircle.exit().remove();
+
+            });
+
+            //Exit Remove
+            selectedEntity.exit().remove();
+
+        }
+
+
+        updateContour(space, mySelectionState)
+
+
+    }
+
+
     function updateLegend(space, selectionState) {
 
         var myImage;
@@ -1334,8 +1472,7 @@ $('#page1').live('pageinit', function () {
         return y(+d.Y);
     }
     //variables for Geo mapping
-    var proj = d3.geo.albers();
-    //.center([33.390792,-112.012504]);
+	var proj = d3.geo.albersUsa();
     var path = d3.geo.path().projection(proj);
     var wasLocation = false;
     var wasYAxisUser, wasYValueUser, wasYScaleUser;
@@ -1406,7 +1543,7 @@ $('#page1').live('pageinit', function () {
     var SelectedData = [];
 
 
-    d3.csv(STATIC_URL + "movievis/data/business_word.csv", function (ratingsCSV) {
+    d3.csv(STATIC_URL + "movievis/data/ratings.csv", function (ratingsCSV) {
 
         ratings = ratingsCSV;
         userLength = ratings.length;
@@ -1420,7 +1557,7 @@ $('#page1').live('pageinit', function () {
 
     })
 
-    d3.csv(STATIC_URL + "movievis/data/word.csv", function (movieCSV) {
+    d3.csv(STATIC_URL + "movievis/data/movieSpaceNoNormal.csv", function (movieCSV) {
 
         movieData = movieCSV;
 
@@ -1453,11 +1590,11 @@ $('#page1').live('pageinit', function () {
         $('.movieCircle').tipsy({
             gravity: 'w',
             html: true,
-            fade: false,
-            delayOut: 0,
+			fade : true,
+			delayOut : 1000,
             title: function () {
                 var d = this.__data__, c = d.title;
-                return c;
+				return '<a href="' + d.url + '" target="_blank ">' + c + '</a>';
             }
         });
 
@@ -1474,10 +1611,11 @@ $('#page1').live('pageinit', function () {
 
     //var scaleticks = d3.select("tick major");
 
-    var zoomUser = d3.behavior.zoom().x(xScaleUser).y(yScaleUser).on("zoom", zoomedUser);
-
+//	var zoomUser = d3.behavior.zoom().x(xScaleUser).y(yScaleUser).on("zoom", zoomedUser);
+var zoomUser = d3.behavior.zoom().x(x).y(y).on("zoom", zoomedUser);
     PanZoomTool.zoomUser = zoomUser;
-    PanZoomTool.nozoomUser = d3.behavior.zoom().x(xScaleUser).y(yScaleUser).on("zoom", null);
+//	PanZoomTool.nozoomUser = d3.behavior.zoom().x(xScaleUser).y(yScaleUser).on("zoom", null);
+	PanZoomTool.nozoomUser = d3.behavior.zoom().x(x).y(y).on("zoom", null);
 
     var svgUser = d3.select("#userCanvas").append("svg").attr("height", h).attr("viewBox", "0 0 " + w + " " + h).attr("title", "User Space").attr("transform", "translate(" + margin + "," + margin + ")").append("svg:g");
 
@@ -1507,7 +1645,7 @@ $('#page1').live('pageinit', function () {
     var panel1 = d3.selectAll("#IDsvgMovie")//document.getElementById("IDsvgMovie")
     var panel2 = d3.selectAll("#IDsvgUser")//document.getElementById("IDsvgUser")
 
-    d3.csv(STATIC_URL + "movievis/data/business.csv", function (userCSV) {
+    d3.csv(STATIC_URL + "movievis/data/userSpaceNoNormal.csv", function (userCSV) {
 
         userData = userCSV;
 
@@ -1537,21 +1675,21 @@ $('#page1').live('pageinit', function () {
                 return fillUserScale(+d.avgReview);
             });
 
-        $('.userCircle').tipsy({
-            gravity: 'w',
-            html: true,
-            fade: false,
-            delayOut: 0,
-            title: function () {
-                var d = this.__data__;
-                return d.name;
-            }
-        });
+       $('.userCircle').tipsy({
+			gravity : 'w',
+			html : true,
+			fade : true,
+			delayOut : 1000,
+			title : function() {
+				var d = this.__data__;
+				return d.age + ', ' + d.sex + ', ' + d.job;
+			}
+		});
 
     })
     function zoomedMovie() {
         //
-        //svgMovieContourGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+        svgMovieContourGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
         //svgMovieSelectionGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
         d3.selectAll(".movieSelectionSVGGroup").attr("transform", "translate(0,0)scale(" + 1 + ")")
         PanZoomTool.zoomMovieScale = d3.event.scale;
@@ -1597,35 +1735,25 @@ $('#page1').live('pageinit', function () {
                 "transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
         }
 
-        svgMovieGroup.attr("transform", "translate(" + d3.event.translate + "),scale(" + d3.event.scale + ")");
+		svgMovieGroup.attr("transform", "translate(" + PanZoomTool.zoomMovieTranslate + "),scale(" + PanZoomTool.zoomMovieScale + ")");
+
         svgMovie.select(".x.axis").call(xAxis);
         svgMovie.select(".y.axis").call(yAxis);
 
-        var tool = d3.select("#legend").selectAll("g")
 
-        var det = d3.mouse(tool[0][0])
 
-        if (det[0] < 0) {
 
-            //updateDisplay('user', selectionStatesMovie);
-            //RectangleTool.drawspace = RectangleTool.panel1;
-            //alert("user")
-        }
-        else {
-            //updateDisplay('movie', selectionStatesUser);
-            //RectangleTool.drawspace = RectangleTool.panel2;
-            //alert("movie")
-        }
-        //
-        if (isMovieSelected) {
-            //updateDisplay('user', selectionStatesMovie);
+        if (~isMovieSelected) {
+            updateZoom('user', selectionStatesMovie);
         } else {
-            //updateDisplay('user',)
+            updateZoom('movie',selectionStatesUser)
         }
-
+        var svgMovieSelection = document.getElementsByClassName("movieSelectionSVGGroup")[0]
+        svgMovieSelection.setAttributeNS(null,"transform", "translate("+
+        PanZoomTool.zoomMovieTranslate + ")scale(" + PanZoomTool.zoomMovieScale + ")");
         isPanZoom = 1;
-        updateDisplay('user', selectionStatesMovie);
-        updateDisplay('movie', selectionStatesUser);
+        //updateDisplay('user', selectionStatesMovie);
+        //updateDisplay('movie', selectionStatesUser);
         isPanZoom = 0;
 
     }
@@ -1657,11 +1785,19 @@ $('#page1').live('pageinit', function () {
 
     function zoomedUser() {
         //
-        //svgUserContourGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+        svgUserContourGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
         //svgUserSelectionGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
 //alert("hello user")
+		d3.selectAll(".userSelectionSVGGroup").attr("transform","translate(0,0)scale("+1+")")
         var panel1 = d3.selectAll("#IDsvgMovie")//document.getElementById("IDsvgMovie")
         var panel2 = d3.selectAll("#IDsvgUser")//document.getElementById("IDsvgUser")
+
+        var svgUserSelection = document.getElementsByClassName("userSelectionSVGGroup")[0]
+        if (svgUserSelection.length > 0){
+            svgUserSelection.setAttributeNS(null,"transform","translate("+d3.event.translate+")scale("+d3.event.scale + ")");
+
+        }
+
 
         PanZoomTool.zoomUserScale = d3.event.scale;
         PanZoomTool.zoomUserTranslate = d3.event.translate;
@@ -1670,32 +1806,28 @@ $('#page1').live('pageinit', function () {
         //svgMovieSelectionGroup.attr("transform", "scale(" + d3.event.scale + ")");
 
         //userSelectionSVGgroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")")
-        d3.selectAll(".userSelectionSVGGroup").attr("transform", "translate(0,0)scale(" + 1 + ")")
+        //d3.selectAll(".userSelectionSVGGroup").attr("transform", "translate(0,0)scale(" + 1 + ")")
         svgUserGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
 
         svgUser.select(".x.axis").call(xAxisUser);
         svgUser.select(".y.axis").call(yAxisUser);
 
-        var tool = d3.select("#legend").selectAll("g")
-        //alert(tool)
-        var det = d3.mouse(tool[0][0])
-        if (det[0] < 0) {
-            //updateDisplay('user', selectionStatesMovie);
-
-            //RectangleTool.drawspace = RectangleTool.panel1;
-            //alert("user2")
-        }
-        else {
+		isPanZoom = 1;
             //updateDisplay('movie', selectionStatesUser);
 
-            //RectangleTool.drawspace = RectangleTool.panel2;
-            //alert("movie2")
+		if (~isMovieSelected){
+			updateZoom('user',selectionStatesMovie)
+		}else{
+			updateZoom('movie',selectionStatesUser)
         }
 
-        isPanZoom = 1;
-        updateDisplay('movie', selectionStatesUser);
-        updateDisplay('user', selectionStatesMovie);
+		//updateDisplay('user', selectionStatesMovie);
         isPanZoom = 0;
+		var svgUserSelection = document.getElementsByClassName("userSelectionSVGGroup")[0]
+
+		svgUserSelection.setAttributeNS(null,"transform", "translate(" +
+		PanZoomTool.zoomUserTranslate + ")scale(" + PanZoomTool.zoomUserScale + ")");
+
     }
 
     /*
@@ -1992,7 +2124,7 @@ $('#page1').live('pageinit', function () {
 
     $(function () {
 
-        $("#searchWord").autocomplete({
+		$("#searchMovie").autocomplete({
             source: movieTitle,
             target: $('#suggestions'),
 
@@ -2002,8 +2134,8 @@ $('#page1').live('pageinit', function () {
             callback: function (e) {
 
                 var $a = $(e.currentTarget);
-                $('#searchWord').val($a.text());
-                $('#searchWord').autocomplete('clear');
+				$('#searchMovie').val($a.text());
+				$('#searchMovie').autocomplete('clear');
 
                 var index = movieTitleOrig.indexOf($a.text());
 
@@ -2095,47 +2227,19 @@ $('#page1').live('pageinit', function () {
 
                 break;
 
-            case 'useful':
+				case 'relDate':
 
-                x = d3.scale.linear().range([margin, w - margin]);
+					var timeFormat = d3.time.format("%e-%b-%Y");
 
-                xDomainExtent = d3.extent(movieData, function (d) {
-                    return +d.useful_count;
-                });
+					xDomainExtent = d3.extent(movieData, function(d){ return timeFormat.parse(d.date); });
 
-                xValue = function (d) {
-                    return x(+d.useful_count);
-                }
+					x = d3.time.scale().range([margin, w - margin]);
 
+                    	xValue = function (d) {
+						return x((timeFormat.parse(d.date)));
+					};
                 break;
 
-            case 'cool':
-
-                x = d3.scale.linear().range([margin, w - margin]);
-
-                xDomainExtent = d3.extent(movieData, function (d) {
-                    return +d.cool_count;
-                });
-
-                xValue = function (d) {
-                    return x(+d.cool_count);
-                }
-
-                break;
-
-            case 'funny':
-
-                x = d3.scale.linear().range([margin, w - margin]);
-
-                xDomainExtent = d3.extent(movieData, function (d) {
-                    return +d.funny_count;
-                });
-
-                xValue = function (d) {
-                    return x(+d.funny_count);
-                }
-
-                break;
 
         }
 
@@ -2210,47 +2314,20 @@ $('#page1').live('pageinit', function () {
 
                 break;
 
-            case 'cool':
+				case 'relDate':
 
-                y = d3.scale.linear().range([h - margin, margin]);
+					var timeFormat = d3.time.format("%e-%b-%Y");
 
-                yDomainExtent = d3.extent(movieData, function (d) {
-                    return +d.cool_count;
-                });
+					yDomainExtent = d3.extent(movieData, function(d){ return timeFormat.parse(d.date); });
 
-                yValue = function (d) {
-                    return y(+d.cool_count);
-                }
+					y = d3.time.scale().range([ h - margin, margin]);
 
-                break;
+					yValue = function (d) {
+						return y((timeFormat.parse(d.date)));
+					};
 
-            case 'funny':
+					break;
 
-                y = d3.scale.linear().range([h - margin, margin]);
-
-                yDomainExtent = d3.extent(movieData, function (d) {
-                    return +d.funny_count;
-                });
-
-                yValue = function (d) {
-                    return y(+d.funny_count);
-                }
-
-                break;
-
-            case 'useful':
-
-                y = d3.scale.linear().range([h - margin, margin]);
-
-                yDomainExtent = d3.extent(movieData, function (d) {
-                    return +d.useful_count;
-                });
-
-                yValue = function (d) {
-                    return y(+d.useful_count);
-                }
-
-                break;
 
         }
 
@@ -2293,8 +2370,8 @@ $('#page1').live('pageinit', function () {
 
             var locationGroup = svgUserSelectionGroup.append("g").attr("id", "states");
 
-            proj.translate([8300, -2300]);
-            proj.scale(40000);
+            proj.translate([310,250]);
+            proj.scale(600);
 
             d3.select("#states").selectAll("path").data(myStates.features).enter().append("path").attr("d", path);
 
@@ -2375,17 +2452,45 @@ $('#page1').live('pageinit', function () {
 
                     break;
 
-                case 'category':
+				case 'age':
 
-                    xScaleUser = d3.scale.ordinal().rangePoints([margin, w - margin], 1);
+					xScaleUser = d3.scale.linear().range([margin, w - margin]);
 
-                    xDomainExtentUser = categoryList;
+					xDomainExtentUser = d3.extent(userData, function(d){return +d.age;});
 
-                    xValueUser = function (d) {
-                        return xScaleUser(d.category);
-                    }
+					xValueUser = function (d) {
+						return xScaleUser(+d.age);
+					};
 
-                    break;
+
+					break;
+
+				case 'gender':
+
+					xScaleUser = d3.scale.ordinal().rangePoints([margin, w - margin],1);
+
+					xDomainExtentUser = ['M','F'];
+
+					xValueUser = function (d) {
+						return xScaleUser(d.sex);
+					};
+
+
+
+					break;
+
+				case 'job':
+
+					xScaleUser = d3.scale.ordinal().rangePoints([margin, w - margin],1);
+
+					xDomainExtentUser = jobList;
+
+					xValueUser = function (d) {
+						return xScaleUser(d.job);
+					};
+
+
+					break;
 
             }
 
@@ -2647,7 +2752,8 @@ $('#page1').live('pageinit', function () {
             data: JSON.stringify(json_class),
             dataType: 'text',
             success: function (result) {
-                alert(result.Result);
+                console.log(result);
+                alert("The comment has been submitted to Server.")
             }
         });
 

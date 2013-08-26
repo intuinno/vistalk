@@ -349,27 +349,39 @@ $('#page1').live('pageinit', function () {
                 //svgMovieGroup.attr('transform','translate('+PanZoomTool.zoomMovieTranslate+")scale("+PanZoomTool.zoomMovieScale+")")
                 //svgMovieSelectionGroup.attr('transform','translate(0,0)scale(1)')
                 //alert("here")
+                x.domain(xDomainExtent);
+                y.domain(yDomainExtent);
 
-
-                updateDisplay('movie', selectionStatesUser);
+                var correction = document.getElementsByClassName("movieSelectionSVGGroup")[0];
+                correction.setAttributeNS(null,"transform","translate("+
+                PanZoomTool.zoomMovieTranslate+")scale("+PanZoomTool.zoomMovieScale+")")
+                //updateDisplay('movie', selectionStatesUser);
                 updateDisplay('user', selectionStatesMovie);
-                if (PanZoomTool.zoomUserScale != 1) {
-                    var correction = document.getElementsByClassName("userSelectionSVGGroup");
-                    //correction[0].setAttributeNS(null,"transform","translate(0,0)scale(1)")
-                }
+
+				svgMovie.select(".x.axis").call(xAxis);
+				svgMovie.select(".y.axis").call(yAxis);
+				svgUserGroup.attr("transform", "translate(" + PanZoomTool.zoomUserTranslate
+					 + ")scale(" + PanZoomTool.zoomUserScale + ")");
+				svgUser.select(".x.axis").call(xAxisUser);
+				svgUser.select(".y.axis").call(yAxisUser);
+
                 //updateDisplay('user', selectionStatesMovie);
 
             } else {
                 selectionStatesUser.add(tempQuerySet);
+                x.domain(xDomainExtent);
+                y.domain(yDomainExtent);
 
 
-                updateDisplay('user', selectionStatesMovie);
+               // updateDisplay('user', selectionStatesMovie);
                 updateDisplay('movie', selectionStatesUser);
-                if (PanZoomTool.zoomMovieScale != 1) {
-                    var correction = document.getElementsByClassName("movieSelectionSVGGroup");
-                    //correction[0].setAttributeNS(null,"transform","translate(0,0)scale(1)")
-                }
-                //updateDisplay('movie', selectionStatesUser);
+
+				var correction = document.getElementsByClassName("userSelectionSVGGroup")[0]
+				var correction2 = document.getElementsByClassName("movieSelectionSVGGroup")[0]
+				//correction.setAttributeNS(null,"transform","translate("+
+				//PanZoomTool.zoomUserTranslate+")scale("+PanZoomTool.zoomUserScale+")")
+				correction2.setAttributeNS(null,"transform","translate("+
+				PanZoomTool.zoomMovieTranslate+")scale("+PanZoomTool.zoomMovieScale+")")
 
 
             }
@@ -555,30 +567,38 @@ $('#page1').live('pageinit', function () {
 
             if (isMovieSelected) {
                 selectionStatesMovie.add(tempQuerySet);
-
+                //svgMovieGroup.attr('transform','translate('+PanZoomTool.zoomMovieTranslate+")scale("+PanZoomTool.zoomMovieScale+")")
+                //svgMovieSelectionGroup.attr('transform','translate(0,0)scale(1)')
+                //alert("here")
                 x.domain(xDomainExtent);
                 y.domain(yDomainExtent);
-                //updateDisplay('movie', selectionStatesUser);
 
-                var correction = document.getElementsByClassName("movieSelectionSVGGroup")[0]
-                correction.setAttributeNS(null, "transform", "translate(" +
-                    PanZoomTool.zoomMovieTranslate + ")scale(" + PanZoomTool.zoomMovieScale + ")")
+                var correction = document.getElementsByClassName("movieSelectionSVGGroup")[0];
+                correction.setAttributeNS(null,"transform","translate("+
+                PanZoomTool.zoomMovieTranslate+")scale("+PanZoomTool.zoomMovieScale+")")
+                //updateDisplay('movie', selectionStatesUser);
                 updateDisplay('user', selectionStatesMovie);
-                updateDisplay('movie', selectionStatesUser);
+
+                if (PanZoomTool.zoomUserScale != 1) {
+
+                    //correction[0].setAttributeNS(null,"transform","translate(0,0)scale(1)")
+                }
+                //updateDisplay('user', selectionStatesMovie);
+
             } else {
                 selectionStatesUser.add(tempQuerySet);
-
                 x.domain(xDomainExtent);
                 y.domain(yDomainExtent);
-                //updateDisplay('user', selectionStatesMovie);
 
-                var correction = document.getElementsByClassName("userSelectionSVGGroup")[0]
+                var correction = document.getElementsByClassName("movieSelectionSVGGroup")[0];
+                correction.setAttributeNS(null,"transform","translate("+
+                PanZoomTool.zoomMovieTranslate+")scale("+PanZoomTool.zoomMovieScale+")")
 
-                //correction.setAttributeNS(null,"transform","translate("+
-                //PanZoomTool.zoomUserTranslate+")scale("+PanZoomTool.zoomUserScale+")")
-
+                updateDisplay('user', selectionStatesMovie);
                 updateDisplay('movie', selectionStatesUser);
-                //updateDisplay('user', selectionStatesMovie);
+
+                //updateDisplay('movie', selectionStatesUser);
+
 
             }
 
@@ -780,6 +800,8 @@ $('#page1').live('pageinit', function () {
             }
         }
     }
+
+
 
     function updateDisplay(space, selectionState) {
 
@@ -1034,6 +1056,96 @@ $('#page1').live('pageinit', function () {
          + "," + (0) + ")scale("+1+")")
          updateContour(space, mySelectionState);*/
         // updateLegend(space, mySelectionState);
+
+    }
+      function updateZoom(space, selectionState) {
+
+        var mySelectionState = selectionState;
+
+        var mySelectionGroup, myQueryGroup, xSelect, ySelect, rSelect, xQuery, yQuery, rQuery;
+
+        var transQx, transQy, scalQxy, transSx, transSy2, scalSxy;
+
+        var tool = d3.select("#legend").selectAll("g")
+
+        var det = d3.mouse(tool[0][0])
+        var isMovie;
+
+          		if (det < 0) {
+			mySelectionGroup = svgMovieSelectionGroup;
+			myQueryGroup = svgUserSelectionGroup;
+			xSelect = xValue;
+			ySelect = yValue;
+			rSelect = rMovieScale;
+
+			xQuery = xValueUser;
+			yQuery = yValueUser;
+			rQuery = rUserScale;
+
+		} else {
+			mySelectionGroup = svgUserSelectionGroup;
+			myQueryGroup = svgMovieSelectionGroup;
+
+			xSelect = xValueUser;
+			ySelect = yValueUser;
+			rSelect = rUserScale;
+
+			xQuery = xValue;
+			yQuery = yValue;
+			rQuery = rMovieScale;
+
+		}
+
+
+
+        //Selection Space Halo
+        //Update + enter
+        //Bind
+        if ((mySelectionGroup.selectAll(".selectionG")[0].length !== 0 ) || (mySelectionState.querySetsList.length !== 0 )) {
+
+            var selectedEntity = mySelectionGroup.selectAll(".selectionG").data(mySelectionState.querySetsList, function (d) {
+                return +d.assignedClass;
+
+            });
+
+            //Enter
+            selectedEntity.enter().append("g").classed("selectionG", true);
+
+            //Enter + Update
+            selectedEntity.each(function (d, i) {
+
+                var color = ordinalColor(d.assignedClass);
+
+                //Bind
+                var selectionCircle = d3.select(this).selectAll("circle").data(d.selection);
+
+                //Enter Append
+                selectionCircle.enter().append("circle");
+                //selectionCircle.attr("transform","translate(0,0)scale(1)")
+                //Enter + Update
+                selectionCircle.attr("cx",function (d) {
+
+                    return (xSelect(d))//+transSx);
+                }).attr("cy",function (d) {
+                        return (ySelect(d))//+transSy);
+                    }).attr("r",function (d) {
+
+                        return rSelect(+d.numReview);
+                    }).attr("fill", color).attr("stroke", color).classed("selectedCircle", true)
+                    .attr("opacity", "0.5")
+                    .attr("stroke-width", "5")
+                    .attr("stroke-opacity", "0.5")
+
+                selectionCircle.exit().remove();
+
+            });
+
+            //Exit Remove
+            selectedEntity.exit().remove();
+
+        }
+
+        updateContour(space, mySelectionState)
 
     }
 
@@ -1474,10 +1586,11 @@ $('#page1').live('pageinit', function () {
 
     //var scaleticks = d3.select("tick major");
 
-    var zoomUser = d3.behavior.zoom().x(xScaleUser).y(yScaleUser).on("zoom", zoomedUser);
-
+//	var zoomUser = d3.behavior.zoom().x(xScaleUser).y(yScaleUser).on("zoom", zoomedUser);
+var zoomUser = d3.behavior.zoom().x(x).y(y).on("zoom", zoomedUser);
     PanZoomTool.zoomUser = zoomUser;
-    PanZoomTool.nozoomUser = d3.behavior.zoom().x(xScaleUser).y(yScaleUser).on("zoom", null);
+//	PanZoomTool.nozoomUser = d3.behavior.zoom().x(xScaleUser).y(yScaleUser).on("zoom", null);
+	PanZoomTool.nozoomUser = d3.behavior.zoom().x(x).y(y).on("zoom", null);
 
     var svgUser = d3.select("#userCanvas").append("svg").attr("height", h).attr("viewBox", "0 0 " + w + " " + h).attr("title", "User Space").attr("transform", "translate(" + margin + "," + margin + ")").append("svg:g");
 
@@ -1551,7 +1664,7 @@ $('#page1').live('pageinit', function () {
     })
     function zoomedMovie() {
         //
-        //svgMovieContourGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+        svgMovieContourGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
         //svgMovieSelectionGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
         d3.selectAll(".movieSelectionSVGGroup").attr("transform", "translate(0,0)scale(" + 1 + ")")
         PanZoomTool.zoomMovieScale = d3.event.scale;
@@ -1597,35 +1710,25 @@ $('#page1').live('pageinit', function () {
                 "transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
         }
 
-        svgMovieGroup.attr("transform", "translate(" + d3.event.translate + "),scale(" + d3.event.scale + ")");
+		svgMovieGroup.attr("transform", "translate(" + PanZoomTool.zoomMovieTranslate + "),scale(" + PanZoomTool.zoomMovieScale + ")");
+
         svgMovie.select(".x.axis").call(xAxis);
         svgMovie.select(".y.axis").call(yAxis);
 
-        var tool = d3.select("#legend").selectAll("g")
 
-        var det = d3.mouse(tool[0][0])
 
-        if (det[0] < 0) {
 
-            //updateDisplay('user', selectionStatesMovie);
-            //RectangleTool.drawspace = RectangleTool.panel1;
-            //alert("user")
-        }
-        else {
-            //updateDisplay('movie', selectionStatesUser);
-            //RectangleTool.drawspace = RectangleTool.panel2;
-            //alert("movie")
-        }
-        //
-        if (isMovieSelected) {
-            //updateDisplay('user', selectionStatesMovie);
+        if (~isMovieSelected) {
+            updateZoom('user', selectionStatesMovie);
         } else {
-            //updateDisplay('user',)
+            updateZoom('movie',selectionStatesUser)
         }
-
+        var svgMovieSelection = document.getElementsByClassName("movieSelectionSVGGroup")[0]
+        svgMovieSelection.setAttributeNS(null,"transform", "translate("+
+        PanZoomTool.zoomMovieTranslate + ")scale(" + PanZoomTool.zoomMovieScale + ")");
         isPanZoom = 1;
-        updateDisplay('user', selectionStatesMovie);
-        updateDisplay('movie', selectionStatesUser);
+        //updateDisplay('user', selectionStatesMovie);
+        //updateDisplay('movie', selectionStatesUser);
         isPanZoom = 0;
 
     }
@@ -1657,11 +1760,19 @@ $('#page1').live('pageinit', function () {
 
     function zoomedUser() {
         //
-        //svgUserContourGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+        svgUserContourGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
         //svgUserSelectionGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
 //alert("hello user")
+		d3.selectAll(".userSelectionSVGGroup").attr("transform","translate(0,0)scale("+1+")")
         var panel1 = d3.selectAll("#IDsvgMovie")//document.getElementById("IDsvgMovie")
         var panel2 = d3.selectAll("#IDsvgUser")//document.getElementById("IDsvgUser")
+
+        var svgUserSelection = document.getElementsByClassName("userSelectionSVGGroup")[0]
+        if (svgUserSelection.length > 0){
+            svgUserSelection.setAttributeNS(null,"transform","translate("+d3.event.translate+")scale("+d3.event.scale + ")");
+
+        }
+
 
         PanZoomTool.zoomUserScale = d3.event.scale;
         PanZoomTool.zoomUserTranslate = d3.event.translate;
@@ -1670,32 +1781,28 @@ $('#page1').live('pageinit', function () {
         //svgMovieSelectionGroup.attr("transform", "scale(" + d3.event.scale + ")");
 
         //userSelectionSVGgroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")")
-        d3.selectAll(".userSelectionSVGGroup").attr("transform", "translate(0,0)scale(" + 1 + ")")
+        //d3.selectAll(".userSelectionSVGGroup").attr("transform", "translate(0,0)scale(" + 1 + ")")
         svgUserGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
 
         svgUser.select(".x.axis").call(xAxisUser);
         svgUser.select(".y.axis").call(yAxisUser);
 
-        var tool = d3.select("#legend").selectAll("g")
-        //alert(tool)
-        var det = d3.mouse(tool[0][0])
-        if (det[0] < 0) {
-            //updateDisplay('user', selectionStatesMovie);
-
-            //RectangleTool.drawspace = RectangleTool.panel1;
-            //alert("user2")
-        }
-        else {
+		isPanZoom = 1;
             //updateDisplay('movie', selectionStatesUser);
 
-            //RectangleTool.drawspace = RectangleTool.panel2;
-            //alert("movie2")
+		if (~isMovieSelected){
+			updateZoom('user',selectionStatesMovie)
+		}else{
+			updateZoom('movie',selectionStatesUser)
         }
 
-        isPanZoom = 1;
-        updateDisplay('movie', selectionStatesUser);
-        updateDisplay('user', selectionStatesMovie);
-        isPanZoom = 0;
+		//updateDisplay('user', selectionStatesMovie);
+		isPanZoom = 0;
+		var svgUserSelection = document.getElementsByClassName("userSelectionSVGGroup")[0]
+
+		svgUserSelection.setAttributeNS(null,"transform", "translate(" +
+		PanZoomTool.zoomUserTranslate + ")scale(" + PanZoomTool.zoomUserScale + ")");
+
     }
 
     /*
@@ -2647,7 +2754,8 @@ $('#page1').live('pageinit', function () {
             data: JSON.stringify(json_class),
             dataType: 'text',
             success: function (result) {
-                alert(result.Result);
+                console.log(result);
+                alert("The comment has been submitted to Server.")
             }
         });
 

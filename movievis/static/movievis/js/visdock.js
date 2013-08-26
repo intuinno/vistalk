@@ -1731,8 +1731,9 @@ var AnnotatedByAreaTool = {
             var divHeight = div.style("height");
             /*var span = div.append("xhtml:span").attr("class", "close-btn");
              span.append("xhtml:a").attr("href", "#").text("x");*/
-            var index = QueryManager.addAnnotation("red", 1, "label " + numAnno);
-            label.attr("class", index);
+            // var index = QueryManager.addAnnotation("red", 1, "label " + numAnno);
+            var index = numAnno;
+            label.attr("class", numAnno);
 
             /*span.on("mousedown", function(){
              d3.event.stopPropagation();
@@ -1789,7 +1790,7 @@ var AnnotatedByAreaTool = {
                             div.text(newText);
                             json_class.annotationtext = newText;
                             VisDock.SaveAsJson();
-                            QueryManager.names[parseInt(this.getAttributeNS(null, "class"))].text(newText);
+                        //    QueryManager.names[parseInt(this.getAttributeNS(null, "class"))].text(newText);
                             /*span = div.append("xhtml:span").attr("class", "close-btn").attr("id", this.getAttributeNS(null,"class"));
                              span.append("xhtml:a").attr("href", "#").text("x");
                              span.style("left", (parseInt(div.style("width")) - 32) + "px");
@@ -1802,7 +1803,14 @@ var AnnotatedByAreaTool = {
                              AnnotatedByAreaTool.strpoints = "";
                              AnnotatedByAreaTool.points = [];
                              });*/
-
+ AnnotatedByAreaTool.blasso[0].remove();
+                            AnnotatedByAreaTool.blasso = [];
+                            //AnnotatedByAreaTool.lines[0].remove();
+                            AnnotatedByAreaTool.lines = [];
+                            document.getElementsByClassName("annotation-line")[0].remove();
+                            div.remove();
+                            //this.remove();
+                            NumAnno = 0;
 
 
                         }
