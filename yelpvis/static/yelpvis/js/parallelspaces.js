@@ -7,7 +7,7 @@ window.onload = function () {
     //canvas = document.getElementById("canvas");
     //svg = document.getElementById("svg");
     //alert(canvas)
-    PixelCanvas.init(canvas);
+    // PixelCanvas.init(canvas);
 }
 
 //var json_class = null;
@@ -99,6 +99,15 @@ $('#page1').live('pageinit', function () {
 
         } else {
             isUnion = false;
+        }
+
+         if (isMovieSelected) {
+
+            selectionStatesMovie.requeryCriteria(PSmin, PSmax);
+            updateDisplay('user', selectionStatesMovie);
+        } else {
+            selectionStatesUser.requeryCriteria(PSmin, PSmax);
+            updateDisplay('movie', selectionStatesUser);
         }
 
     });
@@ -318,7 +327,7 @@ $('#page1').live('pageinit', function () {
                 }
 
                 var tempQuerySet = new QuerySets(querySpace, hits, union, num, 'union', PSmin, PSmax, "", $('input[name=contourMode]:checked').val(), isContourOn);
-
+                tempQuerySet.requery(PSmin,PSmax)
             } else {
                 var common = []
                 var first = tempGalaxy[0];
@@ -339,13 +348,14 @@ $('#page1').live('pageinit', function () {
                     VisDock.captured[num] = common;
                 }
                 var tempQuerySet = new QuerySets(querySpace, hits, common, num, 'common', PSmin, PSmax, "", $('input[name=contourMode]:checked').val(), isContourOn);
-
+                tempQuerySet.requery(PSmin,PSmax)
             }
 
             //  var textLegend = d.title + " (Ratings " + PSmin + "-" + PSmax + ") " + $('input[name=contourMode]:checked').val();
 
             if (isMovieSelected) {
                 selectionStatesMovie.add(tempQuerySet);
+                //selectionStatesMovie.requeryCriteria(PSmin, PSmax);
                 //svgMovieGroup.attr('transform','translate('+PanZoomTool.zoomMovieTranslate+")scale("+PanZoomTool.zoomMovieScale+")")
                 //svgMovieSelectionGroup.attr('transform','translate(0,0)scale(1)')
                 //alert("here")
@@ -369,9 +379,13 @@ $('#page1').live('pageinit', function () {
 
             } else {
                 selectionStatesUser.add(tempQuerySet);
+                //selectionStatesUser.requeryCriteria(PSmin, PSmax);
                 x.domain(xDomainExtent);
                 y.domain(yDomainExtent);
 
+                var correction = document.getElementsByClassName("movieSelectionSVGGroup")[0];
+                correction.setAttributeNS(null, "transform", "translate(" +
+                    PanZoomTool.zoomMovieTranslate + ")scale(" + PanZoomTool.zoomMovieScale + ")")
 
                // updateDisplay('user', selectionStatesMovie);
                 updateDisplay('movie', selectionStatesUser);
@@ -391,6 +405,19 @@ $('#page1').live('pageinit', function () {
 
             SelectedData[num] = VisDock.captured[num];
             VisDock.layers[num] = hits;
+
+            var str;
+            var Union;
+            if (isUnion){
+                Union = "U"
+            }else{
+                Union = "C"
+            }
+            if(typeof QueryManager.names[num] != 'undefined'){
+            //if (QueryManager.names[this.assignedClass].length ~= 0){
+                str = PSmin + "-" + PSmax + "," + Union;
+                QueryManager.names[num].text(str)
+            }
 
 
             //var correction2 = document.getElementsByClassName("movieSelectionSVGGroup");
@@ -539,7 +566,7 @@ $('#page1').live('pageinit', function () {
                 }
 
                 var tempQuerySet = new QuerySets(querySpace, hits, union, num, 'union', PSmin, PSmax, "", $('input[name=contourMode]:checked').val(), isContourOn);
-
+                tempQuerySet.requery(PSmin,PSmax)
             } else {
                 var common = []
                 var first = tempGalaxy[0];
@@ -560,7 +587,7 @@ $('#page1').live('pageinit', function () {
                     VisDock.captured[num] = common;
                 }
                 var tempQuerySet = new QuerySets(querySpace, hits, common, num, 'common', PSmin, PSmax, "", $('input[name=contourMode]:checked').val(), isContourOn);
-
+                tempQuerySet.requery(PSmin,PSmax)
             }
 
             //  var textLegend = d.title + " (Ratings " + PSmin + "-" + PSmax + ") " + $('input[name=contourMode]:checked').val();
@@ -599,7 +626,19 @@ $('#page1').live('pageinit', function () {
 
                 //updateDisplay('movie', selectionStatesUser);
 
+            }
 
+            var str;
+            var Union;
+            if (isUnion){
+                Union = "U"
+            }else{
+                Union = "C"
+            }
+            if(typeof QueryManager.names[num] != 'undefined'){
+            //if (QueryManager.names[this.assignedClass].length ~= 0){
+                str = PSmin + "-" + PSmax + "," + Union;
+                QueryManager.names[num].text(str)
             }
 
 
@@ -813,15 +852,16 @@ $('#page1').live('pageinit', function () {
 
         var tool = d3.select("#legend").selectAll("g")
 
-        var det = d3.mouse(tool[0][0])
-        var isMovie;
-        if (det[0] < 0) {
-            isMovie = true;
+//        var det = d3.mouse(tool[0][0])
+//        var isMovie;
+//        if (det[0] < 0) {
+//            isMovie = true;
+//
+//        }
+//        else {
+//            isMovie = false;
+//        }
 
-        }
-        else {
-            isMovie = false;
-        }
 
 
         if (space === "movie") {
@@ -1265,6 +1305,20 @@ $('#page1').live('pageinit', function () {
             this.relationMin = newRelationMin;
             this.relationMax = newRelationMax;
 
+            var str;
+            var Union;
+            if (isUnion){
+                Union = "U"
+            }else{
+                Union = "C"
+            }
+            if(typeof QueryManager.names[this.assignedClass] != 'undefined'){
+            //if (QueryManager.names[this.assignedClass].length ~= 0){
+                str = this.relationMin + "-" + this.relationMax + "," + Union;
+                QueryManager.names[this.assignedClass].text(str)
+            }
+
+
             if (this.query.length === 0) {
                 return [];
             } else if (this.query.length === 1) {
@@ -1300,11 +1354,97 @@ $('#page1').live('pageinit', function () {
 
                 this.selection = tempGalaxy;
 
+            } else {
+
+                var tempGalaxy = [];
+                //var count2 = 0;
+                for (i = 0; i < this.query.length; i++) {
+                    tempGalaxy[i] = [];
+                    //Group mode:  Add to the current selection
+                    if (this.domain === 'movie') {
+                        for (var count = 0; count < userLength; count++) {
+
+                            if (ratings[count][this.query[i].index] >= this.relationMin && ratings[count][this.query[i].index] <= this.relationMax) {
+
+                                tempGalaxy[i].push(userData[count]);
+            }
+        }
+                    } else {
+
+                        for (var count = 0; count < movieLength; count++) {
+
+                            if (ratings[this.query[i].num][count] >= this.relationMin && ratings[this.query[i].num][count] <= this.relationMax) {
+
+                                tempGalaxy[i].push(movieData[count]);
+    }
+                        }
+                    }
+                }
+                var querySpace;
+                if (isMovieSelected) {
+                    querySpace = 'movie';
+                } else {
+                    querySpace = 'user';
+                }
+
+                if (isUnion) {
+
+                    var union = [];
+
+                    for (var j = 0; j < tempGalaxy.length; j++) {
+
+                        for (var k = 0; k < tempGalaxy[j].length; k++) {
+                            if (union.indexOf(tempGalaxy[j][k]) == -1) {
+                                union.push(tempGalaxy[j][k]);
+                            }
+                        }
+                    }
+
+                    //num++;
+                    //QueryManager.addQuery();
+                    //VisDock.captured[num] = union;
+                    //VisDock.selectionHandler.setColor(union);
+                    //QueryManager.querytoggle = [];
+                    /*for (var i = 0; i < num; i++) {
+
+                        QueryManager.querybox[i].attr("style", "fill: white;stroke:black")
+                    }*/
+
+                    //var tempQuerySet = new QuerySets(querySpace, hits, union, num, 'union', PSmin, PSmax, "", $('input[name=contourMode]:checked').val(), isContourOn);
+                    this.selection = union;
+
+                } else {
+                    var common = []
+                    var first = tempGalaxy[0];
+                    for (i = 0; i < tempGalaxy.length; i++) {
+                        var valid = 1;
+                        common = [];
+                        for (var j = 0; j < tempGalaxy[i].length; j++) {
+                            if (first.indexOf(tempGalaxy[i][j]) != -1) {
+                                common.push(tempGalaxy[i][j])
+                            }
+                        }
+                        first = common;
+
+                    }
+                    /*if (common.length != 0) {
+                        //num++;
+                        //QueryManager.addQuery();
+                        VisDock.captured[num] = common;
+                    }
+                    var tempQuerySet = new QuerySets(querySpace, hits, common, num, 'common', PSmin, PSmax, "", $('input[name=contourMode]:checked').val(), isContourOn);
+*/
+                    this.selection = common;
+                }
+
+
             }
         }
     }
 
-    function SelectionStatesSpace() {
+
+        function SelectionStatesSpace()
+    {
 
         this.querySetsList = [];
 
@@ -1376,9 +1516,14 @@ $('#page1').live('pageinit', function () {
 
             var i;
 
-            for (i = 0; i < this.querySetsList.length; i++) {
 
+            //for (i = 0; i < this.querySetsList.length; i++) {
+            for (i=0;i<QueryManager.querytoggle.length; i++){
+                //if (QueryManager.querytoggle[i]){
                 this.querySetsList[i].requery(relMin, relMax);
+                //}
+
+
 
             }
 
@@ -2052,7 +2197,45 @@ var zoomUser = d3.behavior.zoom().x(x).y(y).on("zoom", zoomedUser);
                     return i === index ? this : null;
                 });
 
-                targetObject.on("click")(movieData[index], index);
+                //targetObject.on("click")(movieData[index], index);
+                var count;
+                var tempGalaxy = [];
+                for (count = 0; count < userLength; count++) {
+
+                    if (ratings[count][index] >= PSmin && ratings[count][index] <= PSmax) {
+
+                        tempGalaxy.push(userData[count]);
+                    }
+                }
+
+                var tempQuerySet = new QuerySets('movie', [movieData[index]] , tempGalaxy, num, 'common', PSmin, PSmax, "", $('input[name=contourMode]:checked').val(), isContourOn);
+                selectionStatesMovie.add(tempQuerySet);
+                tempQuerySet.requery(PSmin,PSmax)
+                //updateDisplay('user', selectionStatesMovie);
+                //selectionStatesMovie.legend = this.query[0].title + " (Ratings " + this.relationMin + "-" + this.relationMax + ") " + $('input[name=contourMode]:checked').val();
+
+
+                x.domain(xDomainExtent);
+                y.domain(yDomainExtent);
+
+                var correction = document.getElementsByClassName("movieSelectionSVGGroup")[0];
+                correction.setAttributeNS(null,"transform","translate("+
+                PanZoomTool.zoomMovieTranslate+")scale("+PanZoomTool.zoomMovieScale+")")
+                //updateDisplay('movie', selectionStatesUser);
+                updateDisplay('user', selectionStatesMovie);
+
+				svgMovie.select(".x.axis").call(xAxis);
+				svgMovie.select(".y.axis").call(yAxis);
+				svgUserGroup.attr("transform", "translate(" + PanZoomTool.zoomUserTranslate
+					 + ")scale(" + PanZoomTool.zoomUserScale + ")");
+				svgUser.select(".x.axis").call(xAxisUser);
+				svgUser.select(".y.axis").call(yAxisUser);
+
+
+                //selection = tempGalaxy;
+                isMovieSelected = true;
+                num++;
+                QueryManager.addQuery();
 
             }
         });
@@ -2081,7 +2264,48 @@ var zoomUser = d3.behavior.zoom().x(x).y(y).on("zoom", zoomedUser);
                     return i === index ? this : null;
                 });
 
-                targetObject.on("click")(userData[index], index);
+                //targetObject.on("click")(userData[index], index);
+
+
+                var count;
+                var tempGalaxy = [];
+                for (count = 0; count < userLength; count++) {
+
+                    if (ratings[index][count] >= PSmin && ratings[index][count] <= PSmax) {
+
+                        tempGalaxy.push(movieData[count]);
+                    }
+                }
+
+                var tempQuerySet = new QuerySets('user', [userData[index]] , tempGalaxy, num, 'common', PSmin, PSmax, "", $('input[name=contourMode]:checked').val(), isContourOn);
+                selectionStatesUser.add(tempQuerySet);
+                tempQuerySet.requery(PSmin,PSmax)
+                //updateDisplay('user', selectionStatesMovie);
+                //selectionStatesMovie.legend = this.query[0].title + " (Ratings " + this.relationMin + "-" + this.relationMax + ") " + $('input[name=contourMode]:checked').val();
+
+
+                x.domain(xDomainExtent);
+                y.domain(yDomainExtent);
+
+                var correction = document.getElementsByClassName("movieSelectionSVGGroup")[0];
+                correction.setAttributeNS(null, "transform", "translate(" +
+                    PanZoomTool.zoomMovieTranslate + ")scale(" + PanZoomTool.zoomMovieScale + ")")
+
+               // updateDisplay('user', selectionStatesMovie);
+                updateDisplay('movie', selectionStatesUser);
+
+				var correction = document.getElementsByClassName("userSelectionSVGGroup")[0]
+				var correction2 = document.getElementsByClassName("movieSelectionSVGGroup")[0]
+				//correction.setAttributeNS(null,"transform","translate("+
+				//PanZoomTool.zoomUserTranslate+")scale("+PanZoomTool.zoomUserScale+")")
+				correction2.setAttributeNS(null,"transform","translate("+
+				PanZoomTool.zoomMovieTranslate+")scale("+PanZoomTool.zoomMovieScale+")")
+
+
+                //selection = tempGalaxy;
+                isMovieSelected = false;
+                num++;
+                QueryManager.addQuery();
 
             }
         });
@@ -2634,17 +2858,17 @@ var zoomUser = d3.behavior.zoom().x(x).y(y).on("zoom", zoomedUser);
         if (isMovieSelected) {
             json_class.querySpace = 'movie';
             json_class.isMovie = true;
-            for (i = 0; i < VisDock.layers.length; i++) {
+            for (i = 0; i < selectionStatesMovie.querySetsList.length; i++) {
                 json_class.selectedObject[i] = [];
-                for (j = 0; j < VisDock.layers[i].length; j++) {
-                    json_class.selectedObject[i].push(VisDock.layers[i][j].index)
+                for (j = 0; j < selectionStatesMovie.querySetsList[i].selection.length; j++) {
+                    json_class.selectedObject[i].push(selectionStatesMovie.querySetsList[i].selection[j].num)
                 }
             }
 
-            for (i = 0; i < SelectedData.length; i++) {
+            for (i = 0; i < selectionStatesMovie.querySetsList.length; i++) {
                 json_class.queryObject[i] = [];
-                for (j = 0; j < SelectedData[i].length; j++) {
-                    json_class.queryObject[i].push(SelectedData[i][j].num)
+                for (j = 0; j < selectionStatesMovie.querySetsList[i].query.length; j++) {
+                    json_class.queryObject[i].push(selectionStatesMovie.querySetsList[i].query[j].index)
                 }
             }
 
@@ -2652,22 +2876,22 @@ var zoomUser = d3.behavior.zoom().x(x).y(y).on("zoom", zoomedUser);
             json_class.querySpace = 'user';
             json_class.isMovie = false;
 
-            for (i = 0; i < VisDock.layers.length; i++) {
+            for (i = 0; i < selectionStatesMovie.querySetsList.length; i++) {
                 json_class.selectedObject[i] = [];
-                for (j = 0; j < VisDock.layers[i].length; j++) {
-                    json_class.selectedObject[i].push(VisDock.layers[i][j].num)
+                for (j = 0; j < selectionStatesMovie.querySetsList[i].selection.length; j++) {
+                    json_class.selectedObject[i].push(selectionStatesMovie.querySetsList[i].selection[j].index)
                 }
             }
 
-            for (i = 0; i < SelectedData.length; i++) {
+            for (i = 0; i < selectionStatesMovie.querySetsList.length; i++) {
                 json_class.queryObject[i] = [];
-                for (j = 0; j < SelectedData[i].length; j++) {
-                    json_class.queryObject[i].push(SelectedData[i][j].index)
+                for (j = 0; j < selectionStatesMovie.querySetsList[i].query.length; j++) {
+                    json_class.queryObject[i].push(selectionStatesMovie.querySetsList[i].query[j].num)
                 }
             }
 
         }
-
+        numAnno--;
         for (i = 0; i < AnnotatedByAreaTool.blasso.length; i++) {
             json_class.annotatedlasso[i] = AnnotatedByAreaTool.blasso[i][0][0].getAttributeNS(null, "points");
             json_class.direction[i] = AnnotatedByAreaTool.direction[i];

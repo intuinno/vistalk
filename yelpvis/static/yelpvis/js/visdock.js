@@ -1832,7 +1832,7 @@ var AnnotatedByAreaTool = {
 
 
             // Forward the selection
-            Toolbox.select("Lasso", LassoTool.points, Toolbox.inclusive);
+            //Toolbox.select("Lasso", LassoTool.points, Toolbox.inclusive);
 
             // Remove the bounding box
             //	AnnotatedByAreaTool.blasso.remove();
@@ -3311,6 +3311,13 @@ var QueryManager = {
                     }
 
                 }
+
+                for (var i=0;i < QueryManager.querytoggle.length; i++){
+                    if (index == QueryManager.querytoggle[i]){
+                        QueryManager.querytoggle.splice(i,1)
+                    }
+                }
+
 
                 //var ind2 = index+QueryManager.remove;
                 QueryManager.remove -= 1;//alert(QueryManager.remove)	

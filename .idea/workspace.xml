@@ -1694,12 +1694,17 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/wordconfuse/templates/wordconfuse.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/wordconfuse/templates/wordconfuse.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wordconfuse/Tutorial/wordconfuse" afterPath="$PROJECT_DIR$/wordconfuse/Tutorial/wordconfuse" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movievis/templates/movievis/base.html" afterPath="$PROJECT_DIR$/movievis/templates/movievis/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yelpvis/templates/yelpvis/base.html" afterPath="$PROJECT_DIR$/yelpvis/templates/yelpvis/base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js" afterPath="$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js" afterPath="$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movievis/static/movievis/js/visdock.js" afterPath="$PROJECT_DIR$/movievis/static/movievis/js/visdock.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yelpvis/static/yelpvis/js/visdock.js" afterPath="$PROJECT_DIR$/yelpvis/static/yelpvis/js/visdock.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="vistalk3.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377463520818" ignored="false" />
+    <file path="/Dummy.txt" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377572526040" ignored="false" />
     <file path="/a.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376450499120" ignored="false" />
     <file path="/fragment.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376504152859" ignored="false" />
     <file path="/index.html" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376709411962" ignored="false" />
@@ -1707,15 +1712,15 @@
     <file path="/Python Console" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376492615529" ignored="false" />
     <file path="/Django Console" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376451339270" ignored="false" />
     <file path="/wordconfuse.js" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376490153626" ignored="false" />
-    <file path="/base.html" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377465642208" ignored="false" />
+    <file path="/base.html" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377552722031" ignored="false" />
     <file path="/gameover.html" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376504853366" ignored="false" />
     <file path="/views.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377464627194" ignored="false" />
     <file path="/models.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377464568253" ignored="false" />
     <file path="/admin.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377464732964" ignored="false" />
     <file path="/post.html" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376527961163" ignored="false" />
     <file path="/settings.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377464019548" ignored="false" />
-    <file path="/parallelspaces.js" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377486398398" ignored="false" />
-    <file path="/visdock.js" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377484155826" ignored="false" />
+    <file path="/parallelspaces.js" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377579579179" ignored="false" />
+    <file path="/visdock.js" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377581636669" ignored="false" />
     <file path="/a.dummy" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377463825252" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -1745,57 +1750,28 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yelpvis/templates/yelpvis/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="371" column="0" selection-start="14360" selection-end="14360" vertical-scroll-proportion="-5.428571">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="parallelspaces.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2055" column="11" selection-start="63510" selection-end="68792" vertical-scroll-proportion="-21.56">
+            <state line="2857" column="9" selection-start="93857" selection-end="93857" vertical-scroll-proportion="-10.08">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parallelspaces.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Google Drive/Project/ParallelSpacesProject/WebCode/public/js/parallelspaces.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="742" column="31" selection-start="20881" selection-end="20886" vertical-scroll-proportion="-13.52">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="parallelspaces.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2030" column="11" selection-start="68262" selection-end="68262" vertical-scroll-proportion="0.018737672">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="parallelspaces.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/parallelspaces.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="24" selection-start="417" selection-end="417" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="visdock.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="visdock.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/visdock.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1735" column="41" selection-start="63733" selection-end="63733" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="visdock.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yelpvis/static/yelpvis/js/visdock.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1751" column="43" selection-start="64319" selection-end="64328" vertical-scroll-proportion="-14.409091">
+            <state line="3299" column="50" selection-start="133814" selection-end="133814" vertical-scroll-proportion="0.17035775">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -1830,20 +1806,21 @@
         <option value="$PROJECT_DIR$/yelpvis/views.py" />
         <option value="$PROJECT_DIR$/movievis/admin.py" />
         <option value="$PROJECT_DIR$/yelpvis/admin.py" />
-        <option value="$PROJECT_DIR$/yelpvis/templates/yelpvis/base.html" />
-        <option value="$PROJECT_DIR$/movievis/templates/movievis/base.html" />
         <option value="$USER_HOME$/Downloads/parallelspaces.js" />
         <option value="$PROJECT_DIR$/yelpvis/static/yelpvis/js/visdock.js" />
-        <option value="$PROJECT_DIR$/movievis/static/movievis/js/visdock.js" />
-        <option value="$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js" />
+        <option value="$PROJECT_DIR$/movievis/templates/movievis/base.html" />
+        <option value="$PROJECT_DIR$/yelpvis/templates/yelpvis/base.html" />
         <option value="$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js" />
+        <option value="$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js" />
+        <option value="$PROJECT_DIR$/movievis/static/movievis/js/visdock.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1440" />
-    <option name="width" value="1920" />
-    <option name="height" value="1200" />
+    <option name="x" value="354" />
+    <option name="y" value="22" />
+    <option name="width" value="1396" />
+    <option name="height" value="773" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1871,7 +1848,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2040,6 +2016,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="movievis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vistalk3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vistalk3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="movievis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -2076,19 +2074,20 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Google Drive/Project/ParallelSpacesProject/WebCode/public/js/parallelspaces.js" />
+    <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Google Drive/Project/ParallelSpacesProject/WebCode/public/js/parallelspaces.js" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -2233,8 +2232,8 @@
       <method />
     </configuration>
     <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Django server.vistalk3" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+      <item index="1" class="java.lang.String" itemvalue="Django server.vistalk3" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -2289,15 +2288,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="0" width="1920" height="1200" extended-state="6" />
+    <frame x="354" y="22" width="1396" height="773" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18196371" sideWeight="0.6701847" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18444444" sideWeight="0.6701847" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37780547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -2306,6 +2304,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2386,110 +2385,43 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/movievis/templates/movievis/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="0" selection-start="7373" selection-end="7373" vertical-scroll-proportion="-6.4174175">
-          <folding>
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/movievis/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="272" selection-end="272" vertical-scroll-proportion="0.26027396">
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="10" column="0" selection-start="272" selection-end="272" vertical-scroll-proportion="0.26027396" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/yelpvis/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="617" selection-end="617" vertical-scroll-proportion="0.43120566">
           <folding>
-            <element signature="e#27#93#0" expanded="true" />
+            <element signature="e#27#93#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/yelpvis/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="27" selection-start="60" selection-end="60" vertical-scroll-proportion="0.026027398">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yelpvis/templates/yelpvis/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="425" column="0" selection-start="15591" selection-end="16522" vertical-scroll-proportion="0.5805515">
-          <folding />
-        </state>
+        <state line="1" column="27" selection-start="60" selection-end="60" vertical-scroll-proportion="0.026027398" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/yelpvis/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="7" selection-start="161" selection-end="161" vertical-scroll-proportion="0.10410959">
-          <folding />
-        </state>
+        <state line="7" column="7" selection-start="161" selection-end="161" vertical-scroll-proportion="0.10410959" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/movievis/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="14" selection-start="636" selection-end="636" vertical-scroll-proportion="0.6246575">
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="24" column="14" selection-start="636" selection-end="636" vertical-scroll-proportion="0.6246575" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Google Drive/Project/ParallelSpacesProject/WebCode/public/js/parallelspaces.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js.conflict">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movievis/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="11" selection-start="143" selection-end="143" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/parallelspaces.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="24" selection-start="417" selection-end="417" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/visdock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1735" column="41" selection-start="63733" selection-end="63733" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Google Drive/Project/ParallelSpacesProject/WebCode/public/js/parallelspaces.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="742" column="31" selection-start="20881" selection-end="20886" vertical-scroll-proportion="-13.52">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2055" column="11" selection-start="63510" selection-end="68792" vertical-scroll-proportion="-21.56">
           <folding />
         </state>
       </provider>
@@ -2503,10 +2435,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Downloads/parallelspaces.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="24" selection-start="417" selection-end="417" vertical-scroll-proportion="0.2743022" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movievis/templates/movievis/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="363" column="72" selection-start="14160" selection-end="14160" vertical-scroll-proportion="0.54500496">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Google Drive/Project/ParallelSpacesProject/WebCode/public/js/parallelspaces.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="742" column="31" selection-start="20881" selection-end="20886" vertical-scroll-proportion="0.33333334" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movievis/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="11" selection-start="143" selection-end="143" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2030" column="11" selection-start="68262" selection-end="68262" vertical-scroll-proportion="0.018737672">
+        <state line="2305" column="40" selection-start="79093" selection-end="79093" vertical-scroll-proportion="1.2107843">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yelpvis/templates/yelpvis/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="371" column="0" selection-start="14360" selection-end="14360" vertical-scroll-proportion="-5.428571">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2857" column="9" selection-start="93857" selection-end="93857" vertical-scroll-proportion="-10.08">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/visdock.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3299" column="50" selection-start="133814" selection-end="133814" vertical-scroll-proportion="0.17035775">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
