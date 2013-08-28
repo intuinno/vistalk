@@ -31,7 +31,13 @@ var json_class = {
     annotationlines: [],
     annotationtext: [],
     annotatedpoints: [],
-    direction: []
+    direction: [],
+    contourMode: [],
+    contourOn: [],
+    contourList: [],
+    relationMin: [],
+    relationMax: []
+
 }
 
 if (typeof Object.create !== 'function') {
@@ -46,6 +52,8 @@ if (typeof Object.create !== 'function') {
     };
 }
 
+
+
 $('#page1').live('pageinit', function () {
 
     var PSmin = 4, PSmax = 5;
@@ -54,13 +62,22 @@ $('#page1').live('pageinit', function () {
 
         PSmin = +event.target.value;
 
-        if (isMovieSelected) {
+        if (QueryManager.querytoggle.length == 0) {
+
+                alert("No Query Selected!. Please select Query first!");
+            d3.event.preventDefault();
+            $('#middle').focus();
+
+            } else if (isMovieSelected) {
 
             selectionStatesMovie.requeryCriteria(PSmin, PSmax);
+            //CorrectZoom();
             updateDisplay('user', selectionStatesMovie);
+            CorrectZoom();
         } else {
             selectionStatesUser.requeryCriteria(PSmin, PSmax);
             updateDisplay('movie', selectionStatesUser);
+            CorrectZoom();
         }
     });
 
@@ -68,13 +85,20 @@ $('#page1').live('pageinit', function () {
 
         PSmax = +event.target.value;
 
-        if (isMovieSelected) {
+         if (QueryManager.querytoggle.length == 0) {
+
+                alert("No Query Selected!. Please select Query first!");
+             d3.event.preventDefault();
+             $('#middle').focus();
+            } else if (isMovieSelected) {
 
             selectionStatesMovie.requeryCriteria(PSmin, PSmax);
             updateDisplay('user', selectionStatesMovie);
+             CorrectZoom();
         } else {
             selectionStatesUser.requeryCriteria(PSmin, PSmax);
             updateDisplay('movie', selectionStatesUser);
+             CorrectZoom();
         }
 
     });
@@ -83,7 +107,11 @@ $('#page1').live('pageinit', function () {
 
         bandwidth = +event.target.value;
 
-        if (isMovieSelected) {
+         if (QueryManager.querytoggle.length == 0) {
+
+                alert("No Query Selected!. Please select Query first!");
+             $('#middle').focus();
+            } else if (isMovieSelected) {
 
             updateDisplay('user', selectionStatesMovie);
         } else {
@@ -101,7 +129,11 @@ $('#page1').live('pageinit', function () {
             isUnion = false;
         }
 
-         if (isMovieSelected) {
+         if (QueryManager.querytoggle.length == 0) {
+
+                alert("No Query Selected!. Please select Query first!");
+             $('#middle').focus();
+            } else if (isMovieSelected) {
 
             selectionStatesMovie.requeryCriteria(PSmin, PSmax);
             updateDisplay('user', selectionStatesMovie);
@@ -347,7 +379,7 @@ $('#page1').live('pageinit', function () {
                 }
 
                 var tempQuerySet = new QuerySets(querySpace, hits, union, num, 'union', PSmin, PSmax, "", $('input[name=contourMode]:checked').val(), isContourOn);
-                tempQuerySet.requery(PSmin,PSmax)
+                tempQuerySet.requery(PSmin, PSmax)
             } else {
                 var common = []
                 var first = tempGalaxy[0];
@@ -368,10 +400,11 @@ $('#page1').live('pageinit', function () {
                     VisDock.captured[num] = common;
                 }
                 var tempQuerySet = new QuerySets(querySpace, hits, common, num, 'common', PSmin, PSmax, "", $('input[name=contourMode]:checked').val(), isContourOn);
-                tempQuerySet.requery(PSmin,PSmax)
+                tempQuerySet.requery(PSmin, PSmax)
             }
 
             //  var textLegend = d.title + " (Ratings " + PSmin + "-" + PSmax + ") " + $('input[name=contourMode]:checked').val();
+
 
             if (isMovieSelected) {
                 selectionStatesMovie.add(tempQuerySet);
@@ -381,6 +414,23 @@ $('#page1').live('pageinit', function () {
                 //alert("here")
                 x.domain(xDomainExtent);
                 y.domain(yDomainExtent);
+
+                if (PanZoomTool.zoomMovieScale > 20) {
+                    var factor = 0.05;
+                } else if (PanZoomTool.zoomMovieScale > 1) {
+                    var factor = 1 / PanZoomTool.zoomMovieScale;
+                    ;
+                } else {
+                    var factor = 1;
+                }
+                if (PanZoomTool.zoomUserScale > 20) {
+                    var factor2 = 0.05;
+                } else if (PanZoomTool.zoomUserScale > 1) {
+                    var factor2 = 1 / PanZoomTool.zoomUserScale;
+                    ;
+                } else {
+                    var factor2 = 1;
+                }
 
                 var correction = document.getElementsByClassName("movieSelectionSVGGroup")[0];
                 correction.setAttributeNS(null, "transform", "translate(" +
@@ -394,6 +444,13 @@ $('#page1').live('pageinit', function () {
                     + ")scale(" + PanZoomTool.zoomUserScale + ")");
                 svgUser.select(".x.axis").call(xAxisUser);
                 svgUser.select(".y.axis").call(yAxisUser);
+                svgMovieSelectionGroup.selectAll("circle").attr("r", function (d) {
+                    return rMovieScale(+d.numReview) * factor
+                })
+                svgUserSelectionGroup.selectAll("circle").attr("r", function (d) {
+                    return rUserScale(+d.numReview) * factor2
+                })
+
 
                 //updateDisplay('user', selectionStatesMovie);
 
@@ -402,6 +459,23 @@ $('#page1').live('pageinit', function () {
                 //selectionStatesUser.requeryCriteria(PSmin, PSmax);
                 x.domain(xDomainExtent);
                 y.domain(yDomainExtent);
+
+                if (PanZoomTool.zoomUserScale > 20) {
+                    var factor = 0.05;
+                } else if (PanZoomTool.zoomUserScale > 1) {
+                    var factor = 1 / PanZoomTool.zoomUserScale;
+                    ;
+                } else {
+                    var factor = 1;
+                }
+                if (PanZoomTool.zoomMovieScale > 20) {
+                    var factor2 = 0.05;
+                } else if (PanZoomTool.zoomMovieScale > 1) {
+                    var factor2 = 1 / PanZoomTool.zoomMovieScale;
+                    ;
+                } else {
+                    var factor2 = 1;
+                }
 
                 var correction = document.getElementsByClassName("movieSelectionSVGGroup")[0];
                 correction.setAttributeNS(null, "transform", "translate(" +
@@ -416,7 +490,13 @@ $('#page1').live('pageinit', function () {
                 //PanZoomTool.zoomUserTranslate+")scale("+PanZoomTool.zoomUserScale+")")
                 correction2.setAttributeNS(null, "transform", "translate(" +
                     PanZoomTool.zoomMovieTranslate + ")scale(" + PanZoomTool.zoomMovieScale + ")")
+                svgMovieSelectionGroup.selectAll("circle").attr("r", function (d) {
+                    return rMovieScale(+d.numReview) * factor2
+                })
+                svgUserSelectionGroup.selectAll("circle").attr("r", function (d) {
 
+                    return rUserScale(+d.numReview) * factor
+                })
 
             }
 
@@ -428,13 +508,13 @@ $('#page1').live('pageinit', function () {
 
             var str;
             var Union;
-            if (isUnion){
+            if (isUnion) {
                 Union = "U"
-            }else{
+            } else {
                 Union = "C"
             }
-            if(typeof QueryManager.names[num] != 'undefined'){
-            //if (QueryManager.names[this.assignedClass].length ~= 0){
+            if (typeof QueryManager.names[num] != 'undefined') {
+                //if (QueryManager.names[this.assignedClass].length ~= 0){
                 str = PSmin + "-" + PSmax + "," + Union;
                 QueryManager.names[num].text(str)
             }
@@ -586,7 +666,7 @@ $('#page1').live('pageinit', function () {
                 }
 
                 var tempQuerySet = new QuerySets(querySpace, hits, union, num, 'union', PSmin, PSmax, "", $('input[name=contourMode]:checked').val(), isContourOn);
-                tempQuerySet.requery(PSmin,PSmax)
+                tempQuerySet.requery(PSmin, PSmax)
             } else {
                 var common = []
                 var first = tempGalaxy[0];
@@ -607,14 +687,32 @@ $('#page1').live('pageinit', function () {
                     VisDock.captured[num] = common;
                 }
                 var tempQuerySet = new QuerySets(querySpace, hits, common, num, 'common', PSmin, PSmax, "", $('input[name=contourMode]:checked').val(), isContourOn);
-                tempQuerySet.requery(PSmin,PSmax)
+                tempQuerySet.requery(PSmin, PSmax)
             }
 
             //  var textLegend = d.title + " (Ratings " + PSmin + "-" + PSmax + ") " + $('input[name=contourMode]:checked').val();
 
             if (isMovieSelected) {
+
+                if (PanZoomTool.zoomMovieScale > 20) {
+                    var factor = 0.05;
+                } else if (PanZoomTool.zoomMovieScale > 1) {
+                    var factor = 1 / PanZoomTool.zoomMovieScale;
+                    ;
+                } else {
+                    var factor = 1;
+                }
+                if (PanZoomTool.zoomUserScale > 20) {
+                    var factor2 = 0.05;
+                } else if (PanZoomTool.zoomUserScale > 1) {
+                    var factor2 = 1 / PanZoomTool.zoomUserScale;
+                    ;
+                } else {
+                    var factor2 = 1;
+                }
+
                 selectionStatesMovie.add(tempQuerySet);
-              //  selectionStatesMovie.requeryCriteria(PSmin, PSmax);
+                //  selectionStatesMovie.requeryCriteria(PSmin, PSmax);
                 x.domain(xDomainExtent);
                 y.domain(yDomainExtent);
                 //updateDisplay('movie', selectionStatesUser);
@@ -629,8 +727,33 @@ $('#page1').live('pageinit', function () {
                     //correction[0].setAttributeNS(null,"transform","translate(0,0)scale(1)")
                 }
                 //updateDisplay('user', selectionStatesMovie);
+                svgMovieSelectionGroup.selectAll("circle").attr("r", function (d) {
+                    return rMovieScale(+d.numReview) * factor
+                })
+                svgUserSelectionGroup.selectAll("circle").attr("r", function (d) {
 
+                    return rUserScale(+d.numReview) * factor2
+                })
             } else {
+
+                if (PanZoomTool.zoomUserScale > 20) {
+                    var factor = 0.05;
+                } else if (PanZoomTool.zoomUserScale > 1) {
+                    var factor = 1 / PanZoomTool.zoomUserScale;
+                    ;
+                } else {
+                    var factor = 1;
+                }
+                if (PanZoomTool.zoomMovieScale > 20) {
+                    var factor2 = 0.05;
+                } else if (PanZoomTool.zoomMovieScale > 1) {
+                    var factor2 = 1 / PanZoomTool.zoomMovieScale;
+                    ;
+                } else {
+                    var factor2 = 1;
+                }
+
+
                 selectionStatesUser.add(tempQuerySet);
                 //selectionStatesUser.requeryCriteria(PSmin, PSmax);
                 x.domain(xDomainExtent);
@@ -647,18 +770,24 @@ $('#page1').live('pageinit', function () {
                 updateDisplay('movie', selectionStatesUser);
 
                 //updateDisplay('user', selectionStatesMovie);
+                svgMovieSelectionGroup.selectAll("circle").attr("r", function (d) {
+                    return rMovieScale(+d.numReview) * factor2
+                })
+                svgUserSelectionGroup.selectAll("circle").attr("r", function (d) {
 
+                    return rUserScale(+d.numReview) * factor
+                })
             }
 
             var str;
             var Union;
-            if (isUnion){
+            if (isUnion) {
                 Union = "U"
-            }else{
+            } else {
                 Union = "C"
             }
-            if(typeof QueryManager.names[num] != 'undefined'){
-            //if (QueryManager.names[this.assignedClass].length ~= 0){
+            if (typeof QueryManager.names[num] != 'undefined') {
+                //if (QueryManager.names[this.assignedClass].length ~= 0){
                 str = PSmin + "-" + PSmax + "," + Union;
                 QueryManager.names[num].text(str)
             }
@@ -862,6 +991,96 @@ $('#page1').live('pageinit', function () {
         }
     }
 
+function CorrectZoom(){
+            if (isMovieSelected) {
+
+                if (PanZoomTool.zoomMovieScale > 20) {
+                    var factor = 0.05;
+                } else if (PanZoomTool.zoomMovieScale > 1) {
+                    var factor = 1 / PanZoomTool.zoomMovieScale;
+                    ;
+                } else {
+                    var factor = 1;
+                }
+                if (PanZoomTool.zoomUserScale > 20) {
+                    var factor2 = 0.05;
+                } else if (PanZoomTool.zoomUserScale > 1) {
+                    var factor2 = 1 / PanZoomTool.zoomUserScale;
+                    ;
+                } else {
+                    var factor2 = 1;
+                }
+
+                var correction = document.getElementsByClassName("movieSelectionSVGGroup")[0];
+                correction.setAttributeNS(null, "transform", "translate(" +
+                    PanZoomTool.zoomMovieTranslate + ")scale(" + PanZoomTool.zoomMovieScale + ")")
+                //updateDisplay('movie', selectionStatesUser);
+                //updateDisplay('user', selectionStatesMovie);
+
+                svgMovie.select(".x.axis").call(xAxis);
+                svgMovie.select(".y.axis").call(yAxis);
+                svgUserGroup.attr("transform", "translate(" + PanZoomTool.zoomUserTranslate
+                    + ")scale(" + PanZoomTool.zoomUserScale + ")");
+                svgUser.select(".x.axis").call(xAxisUser);
+                svgUser.select(".y.axis").call(yAxisUser);
+                svgMovieSelectionGroup.selectAll("circle").attr("r", function (d) {
+                    return rMovieScale(+d.numReview) * factor
+                })
+                svgUserSelectionGroup.selectAll("circle").attr("r", function (d) {
+                    return rUserScale(+d.numReview) * factor2
+                })
+
+
+                //updateDisplay('user', selectionStatesMovie);
+
+            } else {
+                //selectionStatesUser.add(tempQuerySet);
+                //selectionStatesUser.requeryCriteria(PSmin, PSmax);
+                //x.domain(xDomainExtent);
+                //y.domain(yDomainExtent);
+
+                if (PanZoomTool.zoomUserScale > 20) {
+                    var factor = 0.05;
+                } else if (PanZoomTool.zoomUserScale > 1) {
+                    var factor = 1 / PanZoomTool.zoomUserScale;
+
+                } else {
+                    var factor = 1;
+                }
+                if (PanZoomTool.zoomMovieScale > 20) {
+                    var factor2 = 0.05;
+                } else if (PanZoomTool.zoomMovieScale > 1) {
+                    var factor2 = 1 / PanZoomTool.zoomMovieScale;
+
+                } else {
+                    var factor2 = 1;
+                }
+
+                var correction = document.getElementsByClassName("movieSelectionSVGGroup")[0];
+                correction.setAttributeNS(null, "transform", "translate(" +
+                    PanZoomTool.zoomMovieTranslate + ")scale(" + PanZoomTool.zoomMovieScale + ")")
+
+                // updateDisplay('user', selectionStatesMovie);
+                //updateDisplay('movie', selectionStatesUser);
+
+                var correction = document.getElementsByClassName("userSelectionSVGGroup")[0]
+                var correction2 = document.getElementsByClassName("movieSelectionSVGGroup")[0]
+                //correction.setAttributeNS(null,"transform","translate("+
+                //PanZoomTool.zoomUserTranslate+")scale("+PanZoomTool.zoomUserScale+")")
+
+                correction2.setAttributeNS(null, "transform", "translate(" +
+                    PanZoomTool.zoomMovieTranslate + ")scale(" + PanZoomTool.zoomMovieScale + ")")
+                svgMovieSelectionGroup.selectAll("circle").attr("r", function (d) {
+                    return rMovieScale(+d.numReview) * factor2
+                })
+                svgUserSelectionGroup.selectAll("circle").attr("r", function (d) {
+
+                    return rUserScale(+d.numReview) * factor
+                })
+
+            }
+}
+
     function updateDisplay(space, selectionState) {
 
         var mySelectionState = selectionState;
@@ -999,6 +1218,16 @@ $('#page1').live('pageinit', function () {
                 //Bind
                 var selectionCircle = d3.select(this).selectAll("circle").data(d.selection);
 
+                var factor;
+
+                if (scalSxy > 20) {
+                    factor = 0.05;
+                } else if (scalSxy > 1) {
+                    factor = 1 / scalSxy;
+                } else {
+                    factor = 1;
+                }
+
                 //Enter Append
                 selectionCircle.enter().append("circle");
                 //selectionCircle.attr("transform","translate(0,0)scale(1)")
@@ -1010,11 +1239,12 @@ $('#page1').live('pageinit', function () {
                         return (ySelect(d))//+transSy);
                     }).attr("r",function (d) {
 
-                        return rSelect(+d.numReview);
+
+                        return rSelect(+d.numReview) * 1;//factor;
                     }).attr("fill", color).attr("stroke", color).classed("selectedCircle", true)
                     .attr("opacity", "0.5")
-                    .attr("stroke-width", "5")
-                    .attr("stroke-opacity", "0.5")
+                    .attr("stroke-width", String(5 * factor))
+                    .attr("stroke-opacity", "0.5");
                 //.attr("transform","scale("+scalSxy+")")
                 //.attr("style","opacity: 0.5; stroke-width: 5; stroke-opacity: 0.5")
                 //.attr("transform","translate(" + ((transx)/PanZoomTool.zoomMovieScale)
@@ -1072,14 +1302,18 @@ $('#page1').live('pageinit', function () {
                         //return yQuery(d);
                         //return d.getAttributeNS(null,"cy")
                     }).attr("r",function (d) {
-                        //return d.getAttributeNS(null,"r")
-                        //var k = rQuery(+d.numReview);
-                        //return 1/k;
-                        return rQuery(+d.numReview);
+                        if (scalQxy > 20) {
+                            var factor = 0.05;
+                        } else if (scalQxy > 1) {
+                            var factor = 1 / scalQxy;
+                        } else {
+                            var factor = 1;
+                        }
+                        return rQuery(+d.numReview) * 1//factor;
                     }).attr("fill", color).attr("stroke", color).classed("selectedCircle", true)
-                    .attr("opacity", "0.5")
-                    .attr("stroke-width", "5")
-                    .attr("stroke-opacity", "0.5")
+                    .attr("opacity", "0.5");
+//                    .attr("stroke-width", "5")
+//                    .attr("stroke-opacity", "0.5")
                 //.attr("transform","scale("+scalQxy+")")
                 /*.attr("transform", function(d){
                  return "translate("+(PanZoomTool.zoomMovieTranslate[0]/PanZoomTool.zoomMovieScale)
@@ -1142,6 +1376,8 @@ $('#page1').live('pageinit', function () {
             yQuery = yValueUser;
             rQuery = rUserScale;
 
+            scalSxy = PanZoomTool.zoomMovieScale;
+
         } else {
             mySelectionGroup = svgUserSelectionGroup;
             myQueryGroup = svgMovieSelectionGroup;
@@ -1154,6 +1390,7 @@ $('#page1').live('pageinit', function () {
             yQuery = yValue;
             rQuery = rMovieScale;
 
+            scalSxy = PanZoomTool.zoomUserScale;
         }
 
 
@@ -1188,12 +1425,18 @@ $('#page1').live('pageinit', function () {
                 }).attr("cy",function (d) {
                         return (ySelect(d))//+transSy);
                     }).attr("r",function (d) {
-
-                        return rSelect(+d.numReview);
+                        if (scalSxy > 20) {
+                            var factor = 0.05;
+                        } else if (scalSxy > 1) {
+                            var factor = 1 / scalSxy;
+                        } else {
+                            var factor = 1;
+                        }
+                        return rSelect(+d.numReview) * factor;
                     }).attr("fill", color).attr("stroke", color).classed("selectedCircle", true)
-                    .attr("opacity", "0.5")
-                    .attr("stroke-width", "5")
-                    .attr("stroke-opacity", "0.5")
+                    .attr("opacity", "0.5");
+//                    .attr("stroke-width", "5")
+//                    .attr("stroke-opacity", "0.5")
 
 
                 selectionCircle.exit().remove();
@@ -1330,13 +1573,13 @@ $('#page1').live('pageinit', function () {
 
             var str;
             var Union;
-            if (isUnion){
+            if (isUnion) {
                 Union = "U"
-            }else{
+            } else {
                 Union = "C"
             }
-            if(typeof QueryManager.names[this.assignedClass] != 'undefined'){
-            //if (QueryManager.names[this.assignedClass].length ~= 0){
+            if (typeof QueryManager.names[this.assignedClass] != 'undefined') {
+                //if (QueryManager.names[this.assignedClass].length ~= 0){
                 str = this.relationMin + "-" + this.relationMax + "," + Union;
                 QueryManager.names[this.assignedClass].text(str)
             }
@@ -1430,8 +1673,8 @@ $('#page1').live('pageinit', function () {
                     //QueryManager.querytoggle = [];
                     /*for (var i = 0; i < num; i++) {
 
-                        QueryManager.querybox[i].attr("style", "fill: white;stroke:black")
-                    }*/
+                     QueryManager.querybox[i].attr("style", "fill: white;stroke:black")
+                     }*/
 
                     //var tempQuerySet = new QuerySets(querySpace, hits, union, num, 'union', PSmin, PSmax, "", $('input[name=contourMode]:checked').val(), isContourOn);
                     this.selection = union;
@@ -1451,12 +1694,12 @@ $('#page1').live('pageinit', function () {
 
                     }
                     /*if (common.length != 0) {
-                        //num++;
-                        //QueryManager.addQuery();
-                        VisDock.captured[num] = common;
-                    }
-                    var tempQuerySet = new QuerySets(querySpace, hits, common, num, 'common', PSmin, PSmax, "", $('input[name=contourMode]:checked').val(), isContourOn);
-*/
+                     //num++;
+                     //QueryManager.addQuery();
+                     VisDock.captured[num] = common;
+                     }
+                     var tempQuerySet = new QuerySets(querySpace, hits, common, num, 'common', PSmin, PSmax, "", $('input[name=contourMode]:checked').val(), isContourOn);
+                     */
                     this.selection = common;
                 }
 
@@ -1466,8 +1709,7 @@ $('#page1').live('pageinit', function () {
     }
 
 
-        function SelectionStatesSpace()
-    {
+    function SelectionStatesSpace() {
 
         this.querySetsList = [];
 
@@ -1539,16 +1781,21 @@ $('#page1').live('pageinit', function () {
 
             var i;
 
+            if (QueryManager.querytoggle.length == 0) {
 
-            //for (i = 0; i < this.querySetsList.length; i++) {
-            for (i=0;i<QueryManager.querytoggle.length; i++){
-                //if (QueryManager.querytoggle[i]){
-                    this.querySetsList[i].requery(relMin, relMax);
-                //}
-
-
-
+                alert("No Query Selected!. Please select Query first!");
             }
+
+                //for (i = 0; i < this.querySetsList.length; i++) {
+                for (i = 0; i < QueryManager.querytoggle.length; i++) {
+                    //if (QueryManager.querytoggle[i]){
+                    this.querySetsList[i].requery(relMin, relMax);
+                    //}
+
+
+                }
+
+
 
         }
     }
@@ -1725,9 +1972,9 @@ $('#page1').live('pageinit', function () {
             }).attr("fill", function (d) {
                 return fillMovieScale(+d.avgReview);
             })
-            .attr("opacity", "0.5")
-            .attr("stroke-width", "5")
-            .attr("stroke-opacity", "0.5");
+            .attr("opacity", "0.5");
+//            .attr("stroke-width", "5")
+//            .attr("stroke-opacity", "0.5");
 
         $('.movieCircle').tipsy({
             gravity: 'w',
@@ -1878,19 +2125,40 @@ $('#page1').live('pageinit', function () {
         }
 
         svgMovieGroup.attr("transform", "translate(" + PanZoomTool.zoomMovieTranslate + "),scale(" + PanZoomTool.zoomMovieScale + ")");
-
-        svgMovie.select(".x.axis").call(xAxis);
-        svgMovie.select(".y.axis").call(yAxis);
-
+        if (PanZoomTool.zoomMovieScale > 20) {
+            var factor = 0.05;
+        } else if (PanZoomTool.zoomMovieScale > 1) {
+            var factor = 1 / PanZoomTool.zoomMovieScale;
+            ;
+        } else {
+            var factor = 1;
+        }
 
         if (~isMovieSelected) {
             updateZoom('user', selectionStatesMovie);
         } else {
             updateZoom('movie', selectionStatesUser)
         }
+
+        svgMovieGroup.selectAll(".movieCircle").attr("r", function (d) {
+            return rMovieScale(+d.numReview) * factor
+        })
+
+        //svgMovieGroup.selectAll(".movieSVGGroup .star")[0].attr("r");
+
+        svgMovie.select(".x.axis").call(xAxis);
+        svgMovie.select(".y.axis").call(yAxis);
+
+
+
         var svgMovieSelection = document.getElementsByClassName("movieSelectionSVGGroup")[0]
         svgMovieSelection.setAttributeNS(null, "transform", "translate(" +
             PanZoomTool.zoomMovieTranslate + ")scale(" + PanZoomTool.zoomMovieScale + ")");
+
+
+        svgMovieSelectionGroup.selectAll("circle").attr("r", function (d) {
+            return rMovieScale(+d.numReview) * factor
+        })
         isPanZoom = 1;
         //updateDisplay('user', selectionStatesMovie);
         //updateDisplay('movie', selectionStatesUser);
@@ -1949,11 +2217,14 @@ $('#page1').live('pageinit', function () {
         //d3.selectAll(".userSelectionSVGGroup").attr("transform", "translate(0,0)scale(" + 1 + ")")
         svgUserGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
 
-        svgUser.select(".x.axis").call(xAxisUser);
-        svgUser.select(".y.axis").call(yAxisUser);
+        if (PanZoomTool.zoomUserScale > 20) {
+            var factor = 0.05;
 
-        isPanZoom = 1;
-        //updateDisplay('movie', selectionStatesUser);
+        } else if (PanZoomTool.zoomUserScale > 1) {
+            var factor = 1 / PanZoomTool.zoomUserScale;
+        } else {
+            var factor = 1;
+        }
 
         if (~isMovieSelected) {
             updateZoom('user', selectionStatesMovie)
@@ -1961,12 +2232,33 @@ $('#page1').live('pageinit', function () {
             updateZoom('movie', selectionStatesUser)
         }
 
+        svgUserGroup.selectAll(".userCircle").attr("r", function (d) {
+
+            return rUserScale(+d.numReview) * factor
+        })
+
+
+
+        svgUser.select(".x.axis").call(xAxisUser);
+        svgUser.select(".y.axis").call(yAxisUser);
+
+        isPanZoom = 1;
+        //updateDisplay('movie', selectionStatesUser);
+
+
+
         //updateDisplay('user', selectionStatesMovie);
         isPanZoom = 0;
         var svgUserSelection = document.getElementsByClassName("userSelectionSVGGroup")[0]
 
         svgUserSelection.setAttributeNS(null, "transform", "translate(" +
             PanZoomTool.zoomUserTranslate + ")scale(" + PanZoomTool.zoomUserScale + ")");
+
+        svgUserSelectionGroup.selectAll("circle").attr("r", function (d) {
+
+            return rUserScale(+d.numReview) * factor
+        })
+
 
     }
 
@@ -2219,7 +2511,7 @@ $('#page1').live('pageinit', function () {
                     return i === index ? this : null;
                 });
 
-                 //targetObject.on("click")(movieData[index], index);
+                //targetObject.on("click")(movieData[index], index);
                 var count;
                 var tempGalaxy = [];
                 for (count = 0; count < userLength; count++) {
@@ -2230,9 +2522,9 @@ $('#page1').live('pageinit', function () {
                     }
                 }
 
-                var tempQuerySet = new QuerySets('movie', [movieData[index]] , tempGalaxy, num, 'common', PSmin, PSmax, "", $('input[name=contourMode]:checked').val(), isContourOn);
+                var tempQuerySet = new QuerySets('movie', [movieData[index]], tempGalaxy, num, 'common', PSmin, PSmax, "", $('input[name=contourMode]:checked').val(), isContourOn);
                 selectionStatesMovie.add(tempQuerySet);
-                tempQuerySet.requery(PSmin,PSmax)
+                tempQuerySet.requery(PSmin, PSmax)
                 //updateDisplay('user', selectionStatesMovie);
                 //selectionStatesMovie.legend = this.query[0].title + " (Ratings " + this.relationMin + "-" + this.relationMax + ") " + $('input[name=contourMode]:checked').val();
 
@@ -2241,17 +2533,17 @@ $('#page1').live('pageinit', function () {
                 y.domain(yDomainExtent);
 
                 var correction = document.getElementsByClassName("movieSelectionSVGGroup")[0];
-                correction.setAttributeNS(null,"transform","translate("+
-                PanZoomTool.zoomMovieTranslate+")scale("+PanZoomTool.zoomMovieScale+")")
+                correction.setAttributeNS(null, "transform", "translate(" +
+                    PanZoomTool.zoomMovieTranslate + ")scale(" + PanZoomTool.zoomMovieScale + ")")
                 //updateDisplay('movie', selectionStatesUser);
                 updateDisplay('user', selectionStatesMovie);
 
-				svgMovie.select(".x.axis").call(xAxis);
-				svgMovie.select(".y.axis").call(yAxis);
-				svgUserGroup.attr("transform", "translate(" + PanZoomTool.zoomUserTranslate
-					 + ")scale(" + PanZoomTool.zoomUserScale + ")");
-				svgUser.select(".x.axis").call(xAxisUser);
-				svgUser.select(".y.axis").call(yAxisUser);
+                svgMovie.select(".x.axis").call(xAxis);
+                svgMovie.select(".y.axis").call(yAxis);
+                svgUserGroup.attr("transform", "translate(" + PanZoomTool.zoomUserTranslate
+                    + ")scale(" + PanZoomTool.zoomUserScale + ")");
+                svgUser.select(".x.axis").call(xAxisUser);
+                svgUser.select(".y.axis").call(yAxisUser);
 
 
                 //selection = tempGalaxy;
@@ -2768,9 +3060,11 @@ $('#page1').live('pageinit', function () {
 
         if (isMovieSelected) {
 
-            updateDisplay('user', selectionStatesMovie);
+            //updateDisplay('user', selectionStatesMovie);
+            updateContour('user', selectionStatesMovie)
         } else {
-            updateDisplay('movie', selectionStatesUser);
+            updateContour('movie', selectionStatesUser)
+            //updateDisplay('movie', selectionStatesUser);
         }
     });
 
@@ -2829,8 +3123,15 @@ $('#page1').live('pageinit', function () {
                 for (j = 0; j < selectionStatesMovie.querySetsList[i].query.length; j++) {
                     json_class.queryObject[i].push(selectionStatesMovie.querySetsList[i].query[j].index)
                 }
+                json_class.contourList.push(selectionStatesMovie.querySetsList[i].contourList)
+                json_class.mode.push(selectionStatesMovie.querySetsList[i].mode)
+                json_class.relationMin.push(selectionStatesMovie.querySetsList[i].relationMin)
+                json_class.relationMax.push(selectionStatesMovie.querySetsList[i].relationMax)
+                json_class.contourMode.push(selectionStatesMovie.querySetsList[i].contourMode)
+                json_class.contourOn.push(selectionStatesMovie.querySetsList[i].contourOn)
             }
 
+            //  json_class.contourList = selectionStatesMovie.contourList
         } else {
             json_class.querySpace = 'user';
             json_class.isMovie = false;
@@ -2847,9 +3148,17 @@ $('#page1').live('pageinit', function () {
                 for (j = 0; j < selectionStatesMovie.querySetsList[i].query.length; j++) {
                     json_class.queryObject[i].push(selectionStatesMovie.querySetsList[i].query[j].num)
                 }
+                json_class.contourList.push(selectionStatesMovie.querySetsList[i].contourList)
+                json_class.mode.push(selectionStatesMovie.querySetsList[i].mode)
+                json_class.relationMin.push(selectionStatesMovie.querySetsList[i].relationMin)
+                json_class.relationMax.push(selectionStatesMovie.querySetsList[i].relationMax)
+                json_class.contourMode.push(selectionStatesMovie.querySetsList[i].contourMode)
+                json_class.contourOn.push(selectionStatesMovie.querySetsList[i].contourOn)
             }
 
+
         }
+
         numAnno--;
         for (i = 0; i < AnnotatedByAreaTool.blasso.length; i++) {
             json_class.annotatedlasso[i] = AnnotatedByAreaTool.blasso[i][0][0].getAttributeNS(null, "points");

@@ -3387,10 +3387,10 @@ var QueryManager = {
         QueryManager.query[num - 1].append("svg:line")
             .attr("transform", "translate(" + x3 + "," + margin + ")")
             .attr("class", num - 1)
-            //.attr("x1",0)
-            //.attr("y1",0)
-            //.attr("x2",e_width)
-            //.attr("y2",query_box_height-margin*2) //query_box_height-margin*2)
+            .attr("x1",0)
+            .attr("y1",0)
+            .attr("x2",e_width)
+            .attr("y2",query_box_height-margin*2) //query_box_height-margin*2)
             .attr("style", "stroke: black; stroke-width:2")
             .on("click", function () {
                 var index = parseInt(this.getAttributeNS(null, "class"));
@@ -3473,10 +3473,10 @@ var QueryManager = {
         QueryManager.query[num - 1].append("svg:line")
             .attr("transform", "translate(" + x3 + "," + margin + ")")
             .attr("class", num - 1)
-            //.attr("x1",0)
-            //.attr("y1",query_box_height-margin*2)
-            //.attr("x2",e_width)
-            //.attr("y2",0) //query_box_height-margin*2)
+            .attr("x1",0)
+            .attr("y1",query_box_height-margin*2)
+            .attr("x2",e_width)
+            .attr("y2",0) //query_box_height-margin*2)
             .attr("style", "stroke: black; stroke-width:2")
             .on("click", function () {
                 var index = parseInt(this.getAttributeNS(null, "class"));

@@ -67,15 +67,15 @@ div.SpaceTitle {
 .selectedCircle {
 
 	opacity: 0.5;
-	stroke-width: 5;
+	/*stroke-width: 5;*/
 	stroke-opacity: 0.5;
 }
 
 svg .star {
 
 	
-	stroke-width: 5;
-	stroke-opacity: 0.5;
+	/*stroke-width: 5;*/
+	/*stroke-opacity: 0.5;*/
 	opacity:0.5;
 }
 
