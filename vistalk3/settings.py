@@ -146,6 +146,7 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'movievis',
     'yelpvis',
+    'jsonify',
 )
 
 # A sample logging configuration. The only tangible logging

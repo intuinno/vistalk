@@ -23,8 +23,11 @@
     <link href="{% static 'movievis/css/visdock.css' %}" rel="stylesheet" type="text/css"/>
 
     <script>
-        window.STATIC_URL = '{{ STATIC_PREFIX }}'
+        window.STATIC_URL = '{{ STATIC_PREFIX }}';
+        var isLoadJson = false;
     </script>
+
+    {% block comment_block %}{% endblock %}
 
     <script type="text/javascript" src="{% static 'movievis/js/d3.v3.js' %}"></script>
     <script type="text/javascript" src="{% static 'movievis/js/my.js' %}"></script>
@@ -404,6 +407,8 @@
     <a href="#" id="savejson">Save json</a>
     <a href="#" id="loadjson">Load json</a>
 </div>
+
+
 
 </div>
 
