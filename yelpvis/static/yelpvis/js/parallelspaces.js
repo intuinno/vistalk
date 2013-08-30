@@ -55,7 +55,7 @@ if (typeof Object.create !== 'function') {
 
 $('#page1').live('pageinit', function () {
 
-    var PSmin = 50, PSmax = 100;
+    var PSmin = 50, PSmax = 1000;
 
     $("#range-1a").on("change", function (event) {
 
