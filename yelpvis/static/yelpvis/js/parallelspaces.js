@@ -61,7 +61,7 @@ $('#page1').live('pageinit', function () {
 
         PSmin = +event.target.value;
 
-        if (QueryManager.querytoggle.length == 0) {
+        if (QueryManager.querytoggle.length == num) {
 
             alert("No Query Selected!. Please select Query first!");
             d3.event.preventDefault();
@@ -84,7 +84,7 @@ $('#page1').live('pageinit', function () {
 
         PSmax = +event.target.value;
 
-        if (QueryManager.querytoggle.length == 0) {
+        if (QueryManager.querytoggle.length == num) {
 
             alert("No Query Selected!. Please select Query first!");
             d3.event.preventDefault();
@@ -106,7 +106,7 @@ $('#page1').live('pageinit', function () {
 
         bandwidth = +event.target.value;
 
-        if (QueryManager.querytoggle.length == 0) {
+        if (QueryManager.querytoggle.length == num) {
 
             alert("No Query Selected!. Please select Query first!");
             $('#middle').focus();
@@ -128,7 +128,7 @@ $('#page1').live('pageinit', function () {
             isUnion = false;
         }
 
-        if (QueryManager.querytoggle.length == 0) {
+        if (QueryManager.querytoggle.length == num) {
 
             alert("No Query Selected!. Please select Query first!");
             $('#middle').focus();
@@ -1761,16 +1761,16 @@ $('#page1').live('pageinit', function () {
 
             var i;
 
-            if (QueryManager.querytoggle.length == 0) {
+            if (QueryManager.querytoggle.length == num) {
 
                 alert("No Query Selected!. Please select Query first!");
             }
 
-            //for (i = 0; i < this.querySetsList.length; i++) {
-            for (i = 0; i < QueryManager.querytoggle.length; i++) {
-                //if (QueryManager.querytoggle[i]){
-                this.querySetsList[i].requery(relMin, relMax);
-                //}
+            for (i = 0; i < this.querySetsList.length; i++) {
+            //for (i = 0; i < QueryManager.querytoggle.length; i++) {
+                if (QueryManager.querytoggle.indexOf(i) == -1){
+                    this.querySetsList[i].requery(relMin, relMax);
+                }
 
 
             }
@@ -3017,40 +3017,14 @@ $('#page1').live('pageinit', function () {
 
                 break;
 
-            case 'age':
-
-                yScaleUser = d3.scale.linear().range([h - margin, margin]);
-
-                yDomainExtentUser = d3.extent(userData, function (d) {
-                    return +d.age;
-                });
-
-                yValueUser = function (d) {
-                    return yScaleUser(+d.age);
-                }
-
-                break;
-
-            case 'gender':
+             case 'category':
 
                 yScaleUser = d3.scale.ordinal().rangePoints([h - margin, margin], 1);
 
-                yDomainExtentUser = ['M', 'F'];
+                yDomainExtentUser = categoryList;
 
                 yValueUser = function (d) {
-                    return yScaleUser(d.sex);
-                }
-
-                break;
-
-            case 'job':
-
-                yScaleUser = d3.scale.ordinal().rangePoints([h - margin, margin], 1);
-
-                yDomainExtentUser = jobList;
-
-                yValueUser = function (d) {
-                    return yScaleUser(d.job);
+                    return yScaleUser(d.category);
                 }
 
                 break;

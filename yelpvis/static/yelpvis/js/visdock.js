@@ -1394,12 +1394,21 @@ var AnnotatedByPointTool = {
         var index = QueryManager.addAnnotation("red", 1, "label " + numAnno);
         label.attr("class", index);
 
-        /*span.on("mousedown", function(){
-         d3.event.stopPropagation();
-         AnnotatedByPointTool.drawspace.on("mouseup",null);
-         annotation.remove();
-         QueryManager.annotation[index].remove();
-         });*/
+            var newText = window.prompt("Please enter the text you want to annotate");
+            if (newText != null && newText != "") {
+                div.text(newText);
+                json_class.annotationtext = newText;
+                VisDock.SaveAsJson();
+                AnnotatedByAreaTool.blasso[0].remove();
+                AnnotatedByAreaTool.blasso = [];
+                            //AnnotatedByAreaTool.lines[0].remove();
+                AnnotatedByAreaTool.lines = [];
+                document.getElementsByClassName("annotation-line")[0].remove();
+                div.remove();
+                NumAnno = 0;
+
+
+            }
 
         label.on("mousedown", function () {
             d3.event.stopPropagation();
@@ -1455,7 +1464,7 @@ var AnnotatedByPointTool = {
                          annotation.remove();
                          QueryManager.annotation[parseInt(this.getAttributeNS(null,"id"))].remove();
                          });*/
-json_class.annotationtext = newText;
+                        json_class.annotationtext = newText;
                         VisDock.SaveAsJson();
                         AnnotatedByAreaTool.blasso[0].remove();
                         AnnotatedByAreaTool.blasso = [];
@@ -1738,6 +1747,22 @@ var AnnotatedByAreaTool = {
            // var index = QueryManager.addAnnotation("red", 1, "label " + numAnno);
             var index = numAnno;
             label.attr("class", numAnno);
+            var newText = window.prompt("Please enter the text you want to annotate");
+            if (newText != null && newText != "") {
+                div.text(newText);
+                json_class.annotationtext = newText;
+                VisDock.SaveAsJson();
+                AnnotatedByAreaTool.blasso[0].remove();
+                AnnotatedByAreaTool.blasso = [];
+                            //AnnotatedByAreaTool.lines[0].remove();
+                AnnotatedByAreaTool.lines = [];
+                document.getElementsByClassName("annotation-line")[0].remove();
+                div.remove();
+                NumAnno = 0;
+
+
+            }
+
 
             /*span.on("mousedown", function(){
              d3.event.stopPropagation();
@@ -2328,7 +2353,12 @@ var Toolbox = {
              .attr("y", query_box_height / 2)
              .attr("text-anchor","middle")
              .text("Query " + num);*/
-            QueryManager.addQuery();
+            if (VisDock.captured[num-1].length >0){
+                QueryManager.addQuery();
+            } else {
+                num--;
+            }
+
         }
         // Set selection color for this set of ids
         //}

@@ -11,6 +11,7 @@ window.onload = function () {
 }
 
 //var json_class = null;
+var LoadMode = 0;
 var json_class = {
     num: 0,
     querySpace: 'movie',
@@ -63,7 +64,7 @@ $('#page1').live('pageinit', function () {
 
         PSmin = +event.target.value;
 
-        if (QueryManager.querytoggle.length == 0) {
+        if (QueryManager.querytoggle.length == num) {
 
             alert("No Query Selected!. Please select Query first!");
             d3.event.preventDefault();
@@ -86,9 +87,9 @@ $('#page1').live('pageinit', function () {
 
         PSmax = +event.target.value;
 
-        if (QueryManager.querytoggle.length == 0) {
+        if (QueryManager.querytoggle.length == num) {
 
-            alert("No Query Selected!. Please select Query first!");
+            alert("20 No Query Selected!. Please select Query first!");
             d3.event.preventDefault();
             $('#middle').focus();
         } else if (isMovieSelected) {
@@ -108,9 +109,9 @@ $('#page1').live('pageinit', function () {
 
         bandwidth = +event.target.value;
 
-        if (QueryManager.querytoggle.length == 0) {
+        if (QueryManager.querytoggle.length == num) {
 
-            alert("No Query Selected!. Please select Query first!");
+            alert("30 No Query Selected!. Please select Query first!");
             $('#middle').focus();
         } else if (isMovieSelected) {
 
@@ -130,9 +131,9 @@ $('#page1').live('pageinit', function () {
             isUnion = false;
         }
 
-        if (QueryManager.querytoggle.length == 0) {
+        if (QueryManager.querytoggle.length == num) {
 
-            alert("No Query Selected!. Please select Query first!");
+            alert("40 No Query Selected!. Please select Query first!");
             $('#middle').focus();
         } else if (isMovieSelected) {
 
@@ -408,7 +409,7 @@ $('#page1').live('pageinit', function () {
             //  var textLegend = d.title + " (Ratings " + PSmin + "-" + PSmax + ") " + $('input[name=contourMode]:checked').val();
 
 
-            if (isMovieSelected) {
+            if (isMovieSelected == true && hits.length > 0) {
                 selectionStatesMovie.add(tempQuerySet);
                 //selectionStatesMovie.requeryCriteria(PSmin, PSmax);
                 //svgMovieGroup.attr('transform','translate('+PanZoomTool.zoomMovieTranslate+")scale("+PanZoomTool.zoomMovieScale+")")
@@ -456,7 +457,7 @@ $('#page1').live('pageinit', function () {
 
                 //updateDisplay('user', selectionStatesMovie);
 
-            } else {
+            } else if (isMovieSelected == false && hits.length > 0){
                 selectionStatesUser.add(tempQuerySet);
                 //selectionStatesUser.requeryCriteria(PSmin, PSmax);
                 x.domain(xDomainExtent);
@@ -521,10 +522,10 @@ $('#page1').live('pageinit', function () {
                 QueryManager.names[num].text(str)
             }
 
+            return hits;
 
             //var correction2 = document.getElementsByClassName("movieSelectionSVGGroup");
             //correction2[0].setAttributeNS(null,"transform","translate(0,0)scale(1)")
-            return hits;
             //	updateDisplay('movie', selectionStatesMovie);;
 
         },
@@ -694,13 +695,13 @@ $('#page1').live('pageinit', function () {
 
             //  var textLegend = d.title + " (Ratings " + PSmin + "-" + PSmax + ") " + $('input[name=contourMode]:checked').val();
 
-            if (isMovieSelected) {
+            if (isMovieSelected && hits.length > 0) {
 
                 if (PanZoomTool.zoomMovieScale > 20) {
                     var factor = 0.05;
                 } else if (PanZoomTool.zoomMovieScale > 1) {
                     var factor = 1 / PanZoomTool.zoomMovieScale;
-                    ;
+
                 } else {
                     var factor = 1;
                 }
@@ -708,7 +709,7 @@ $('#page1').live('pageinit', function () {
                     var factor2 = 0.05;
                 } else if (PanZoomTool.zoomUserScale > 1) {
                     var factor2 = 1 / PanZoomTool.zoomUserScale;
-                    ;
+
                 } else {
                     var factor2 = 1;
                 }
@@ -736,7 +737,7 @@ $('#page1').live('pageinit', function () {
 
                     return rUserScale(+d.numReview) * factor2
                 })
-            } else {
+            } else if (isMovieSelected == false && hits.length > 0) {
 
                 if (PanZoomTool.zoomUserScale > 20) {
                     var factor = 0.05;
@@ -1783,19 +1784,31 @@ $('#page1').live('pageinit', function () {
 
             var i;
 
-            if (QueryManager.querytoggle.length == 0) {
+            if (QueryManager.querytoggle.length == num && LoadMode == 0) {
 
-                alert("No Query Selected!. Please select Query first!");
+                alert("50 No Query Selected!. Please select Query first!");
+            }
+            else {
+                if (LoadMode == 1){
+                    for (var i = 0; i < this.querySetsList.length; i++){
+                        this.querySetsList[i].requery(relMin, relMax)
+                    }
+                } else {
+                    for (i = 0; i < this.querySetsList.length; i++) {
+                //for (i = 0; i < QueryManager.querytoggle.length; i++) {
+
+                        if (QueryManager.querytoggle.indexOf(i) == -1)
+                        {
+
+                            this.querySetsList[i].requery(relMin, relMax);
+                        }
+
+
+                    }
+                }
+
             }
 
-            //for (i = 0; i < this.querySetsList.length; i++) {
-            for (i = 0; i < QueryManager.querytoggle.length; i++) {
-                //if (QueryManager.querytoggle[i]){
-                this.querySetsList[i].requery(relMin, relMax);
-                //}
-
-
-            }
 
 
         }
@@ -1940,7 +1953,6 @@ $('#page1').live('pageinit', function () {
         movieLength = d3.keys(ratings[0]).length;
 
 
-
     })
 
     d3.json(STATIC_URL + "movievis/data/us-states.geojson", function (states) {
@@ -2077,7 +2089,7 @@ $('#page1').live('pageinit', function () {
                 return d.age + ', ' + d.sex + ', ' + d.job;
             }
         });
-         if (isLoadJson == true) {
+        if (isLoadJson == true) {
 
             var json_loaded = jQuery.parseJSON(loaded_json);
 
@@ -2105,11 +2117,11 @@ $('#page1').live('pageinit', function () {
         //movieSelectionSVGgroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")")
 
         for (i = 0; i < AnnotatedByAreaTool.blasso.length; i++) {
-            var Translate = AnnotatedByAreaTool.translate[i];
+            var Translate = [0,0];//AnnotatedByAreaTool.translate[i];
             var Translate2 = d3.event.translate;
             //Translate[0] = Translate[0] + d3.event.translate[0]
             //Translate[1] = Translate[1] + d3.event.translate[1]
-            var Scale = AnnotatedByAreaTool.scale[i];
+            var Scale = 1;//AnnotatedByAreaTool.scale[i];
 
             var scale2 = d3.event.scale;
             Translate[0] = scale2 / Scale * Translate[0];
@@ -2494,7 +2506,6 @@ $('#page1').live('pageinit', function () {
         contourGroup.exit().remove();
 
     }
-
 
 
     $(function () {
@@ -3213,13 +3224,19 @@ $('#page1').live('pageinit', function () {
 
         if (json_class != null) {
 
+
+
+
+
+
+
             selectionStatesMovie = new SelectionStatesSpace();
             QueryManager.reset();
             UserXvar = json_class.UserXvar;
             UserYvar = json_class.UserYvar;
             MovieXvar = json_class.MovieXvar;
             MovieYvar = json_class.MovieYvar;
-
+            LoadMode = 1;
             $('#userXAxisMenu').val(UserXvar)
             $('#userXAxisMenu').change();
 
@@ -3231,6 +3248,7 @@ $('#page1').live('pageinit', function () {
 
             $('#movieYAxisMenu').val(MovieYvar)
             $('#movieYAxisMenu').change();
+
 
             if (~json_class.isMovie) {
                 for (i = 0; i < json_class.selectedObject.length; i++) {
@@ -3262,15 +3280,12 @@ $('#page1').live('pageinit', function () {
             }
 
 
-
-
-
             num = json_class.num;
             isUnion = json_class.isUnion;
             isMovieSelected = json_class.isMovie;
             if (isUnion) {
                 for (i = 0; i < json_class.selectedObject.length; i++) {
-                    var tempQuerySet = new QuerySets(json_class.querySpace, queried[i],
+                    var tempQuerySet = new QuerySets(json_class.querySpace, [queried[i]],
                         selected[i], num, 'union', PSmin, PSmax, "",
                         $('input[name=contourMode]:checked').val(), isContourOn);
                     //var tempQuerySet = new QuerySets(json_class.querySpace, json_class.selectedObject[i],
@@ -3279,55 +3294,56 @@ $('#page1').live('pageinit', function () {
                     //var tempQuerySet = new QuerySets(json_class.querySpace, json_class.queryObject[i],
                     // 	json_class.selectedObject, json_class.num, 'union', PSmin, PSmax, "",
                     //	$('input[name=contourMode]:checked').val(), isContourOn);
-                    tempQuerySet.requery(PSmin, PSmax)
+
                     if (isMovieSelected) {
                         //selectionStatesUser.add(tempQuerySet);
                         selectionStatesMovie.add(tempQuerySet);
 
                         x.domain(xDomainExtent);
                         y.domain(yDomainExtent);
-
+                        selectionStatesMovie.requeryCriteria(json_class.relationMin[i], json_class.relationMax[i])
                     } else {
                         selectionStatesUser.add(tempQuerySet);
                         //selectionStatesMovie.add(tempQuerySet);
                         x.domain(xDomainExtent);
                         y.domain(yDomainExtent);
-
+                        selectionStatesUser.requeryCriteria(json_class.relationMin[i], json_class.relationMax[i])
                     }
-
+                    tempQuerySet.requery(PSmin, PSmax)
                     updateDisplay('user', selectionStatesMovie);
-                    //updateDisplay('movie', selectionStatesUser);
+                    updateDisplay('movie', selectionStatesUser);
                     num++;
                     QueryManager.addQuery();
                 }
             } else {
                 for (i = 0; i < json_class.selectedObject.length; i++) {
                     var temp = [];
-                    temp = queried[i];
-                    queried[i] = selected[i];
-                    selected[i] = temp;
-                    var tempQuerySet = new QuerySets(json_class.querySpace, selected[i],
-                        queried[i], num, 'common', PSmin, PSmax, "",
+                    //temp = queried[i];
+                    //queried[i] = selected[i];
+                    //selected[i] = temp;
+                    var tempQuerySet = new QuerySets(json_class.querySpace, queried[i],
+                        selected[i], num, 'common', PSmin, PSmax, "",
                         $('input[name=contourMode]:checked').val(), isContourOn);
                     //var tempQuerySet = new QuerySets(json_class.querySpace, json_class.selectedObject[i],
                     // 	json_class.queryObject[i], num, 'common', PSmin, PSmax, "",
                     //	$('input[name=contourMode]:checked').val(), isContourOn);
-                    tempQuerySet.requery(PSmin, PSmax)
+
                     if (isMovieSelected) {
                         //selectionStatesUser.add(tempQuerySet);
                         selectionStatesMovie.add(tempQuerySet);
 
-                        x.domain(xDomainExtent);
-                        y.domain(yDomainExtent);
-
+                        //x.domain(xDomainExtent);
+                        //y.domain(yDomainExtent);
+                        selectionStatesMovie.requeryCriteria(json_class.relationMin[i], json_class.relationMax[i])
                     } else {
                         selectionStatesUser.add(tempQuerySet);
                         //selectionStatesMovie.add(tempQuerySet);
 
-                        x.domain(xDomainExtent);
-                        y.domain(yDomainExtent);
-
+                        //x.domain(xDomainExtent);
+                        //y.domain(yDomainExtent);
+                        selectionStatesUser.requeryCriteria(json_class.relationMin[i], json_class.relationMax[i])
                     }
+                    tempQuerySet.requery(PSmin, PSmax)
                     updateDisplay('user', selectionStatesMovie);
                     updateDisplay('movie', selectionStatesUser);
 
@@ -3337,8 +3353,6 @@ $('#page1').live('pageinit', function () {
 
 
             }
-
-
 
 
             PanZoomTool.zoomMovieScale = json_class.zoomMovieScale;
@@ -3368,11 +3382,10 @@ $('#page1').live('pageinit', function () {
             AnnotatedByAreaTool.panel1 = d3.selectAll("#IDsvgMovie")//document.getElementById("IDsvgMovie")
             AnnotatedByAreaTool.panel1.annotation = VisDock.panel1.append("g");
             AnnotatedByAreaTool.panel2 = d3.selectAll("#IDsvgUser")//document.getElementById("IDsvgUser")
-        //alert(VisDock.panel2)
+            //alert(VisDock.panel2)
             AnnotatedByAreaTool.panel2.annotation = VisDock.panel2.append("g");
 
             for (i = 0; i < json_class.annotatedlasso.length; i++) {
-
 
 
                 if (json_class.direction[i] == 'movie') {
@@ -3382,7 +3395,7 @@ $('#page1').live('pageinit', function () {
                 }
                 var points = json_class.annotatedlasso[i];
                 var points2 = points.split(" ")
-                var points3 = points2[points2.length-1].split(",");
+                var points3 = points2[points2.length - 1].split(",");
 
                 AnnotatedByAreaTool.blasso[i] = AnnotatedByAreaTool.drawspace.append("g")
                 AnnotatedByAreaTool.blasso[i].append("polygon")
@@ -3411,7 +3424,6 @@ $('#page1').live('pageinit', function () {
             // var index = QueryManager.addAnnotation("red", 1, "label " + numAnno);
             var index = numAnno;
             label.attr("class", numAnno);
-
 
 
         }
@@ -3573,7 +3585,7 @@ $('#page1').live('pageinit', function () {
 
     };
 
-$(window).bind('load', function () {
+    $(window).bind('load', function () {
         if (isLoadJson == true) {
 
             var json_loaded = jQuery.parseJSON(loaded_json);
