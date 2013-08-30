@@ -1694,10 +1694,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/wordconfuse/templates/wordconfuse.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/wordconfuse/templates/wordconfuse.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wordconfuse/Tutorial/wordconfuse" afterPath="$PROJECT_DIR$/wordconfuse/Tutorial/wordconfuse" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js" afterPath="$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js" afterPath="$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movievis/static/movievis/js/visdock.js" afterPath="$PROJECT_DIR$/movievis/static/movievis/js/visdock.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yelpvis/static/yelpvis/js/visdock.js" afterPath="$PROJECT_DIR$/yelpvis/static/yelpvis/js/visdock.js" />
     </list>
     <ignored path="vistalk3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1753,7 +1750,7 @@
       <file leaf-file-name="parallelspaces.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3026" column="48" selection-start="101815" selection-end="101815" vertical-scroll-proportion="0.35693642">
+            <state line="148" column="123" selection-start="3854" selection-end="3854" vertical-scroll-proportion="0.3598266">
               <folding />
             </state>
           </provider>
@@ -2450,7 +2447,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3026" column="48" selection-start="101815" selection-end="101815" vertical-scroll-proportion="0.35693642">
+        <state line="148" column="123" selection-start="3854" selection-end="3854" vertical-scroll-proportion="0.3598266">
           <folding />
         </state>
       </provider>

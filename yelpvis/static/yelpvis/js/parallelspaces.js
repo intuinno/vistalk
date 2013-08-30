@@ -146,7 +146,7 @@ $('#page1').live('pageinit', function () {
     var w = 600;
     var h = 600;
     var margin = 20;
-    var categoryList = ['Mexican', 'Vegetarian', 'Breakfast & Brunch', 'American', 'Asian', 'Italian', 'Hotels & Travel', 'Arts & Entertainment', 'Nightlife', 'etc'];
+    var categoryList = ['Mexican', 'Vegetarian', 'Breakfast & Brunch', 'American', 'Asian', 'Italian', 'Hotels & Travel', 'Entertainment', 'Nightlife', 'etc'];
 
     var drawspace = null;
 
