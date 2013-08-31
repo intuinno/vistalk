@@ -1694,8 +1694,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/wordconfuse/templates/wordconfuse.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/wordconfuse/templates/wordconfuse.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wordconfuse/Tutorial/wordconfuse" afterPath="$PROJECT_DIR$/wordconfuse/Tutorial/wordconfuse" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yelpvis/templates/yelpvis/base.html" afterPath="$PROJECT_DIR$/yelpvis/templates/yelpvis/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js" afterPath="$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js" />
     </list>
     <ignored path="vistalk3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -2423,27 +2421,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../YelpVis/YelpVis/3javascript/yelpvis-2space/public/js/visdock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1267" column="69" selection-start="38224" selection-end="38225" vertical-scroll-proportion="0.43548387">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../YelpVis/YelpVis/3javascript/yelpvis-2space/public/js/parallelspaces.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="701" column="38" selection-start="17870" selection-end="17873" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/movievis/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="31" selection-start="489" selection-end="489" vertical-scroll-proportion="0.5100671">
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2466,7 +2448,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="70" selection-start="614" selection-end="614" vertical-scroll-proportion="0.47818792">
           <folding>
-            <element signature="e#27#93#0" expanded="true" />
+            <element signature="e#27#93#0" expanded="false" />
           </folding>
         </state>
       </provider>
