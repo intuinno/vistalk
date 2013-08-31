@@ -3211,9 +3211,9 @@ $('#page1').live('pageinit', function () {
     d3.select("#loadjson").on("click", function () {
         if (isLoadJson == true) {
 
-            var json_loaded = jQuery.parseJSON(loaded_json);
+//            var json_loaded = jQuery.parseJSON(loaded_json);
 
-            LoadJson(json_loaded);
+            LoadJson(loaded_json);
 
         }
     });
