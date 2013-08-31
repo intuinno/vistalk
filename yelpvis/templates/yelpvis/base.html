@@ -24,7 +24,10 @@
 
      <script>
         window.STATIC_URL = '{{ STATIC_PREFIX }}'
+        var isLoadJson = false;
     </script>
+
+    {% block comment_block %}{% endblock %}
 
     <script type="text/javascript" src="{% static 'yelpvis/js/d3.v3.js' %}"></script>
     <script type="text/javascript" src="{% static 'yelpvis/js/my.js' %}"></script>

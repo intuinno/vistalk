@@ -13,7 +13,7 @@ def detail(request, comment_id):
     comment = get_object_or_404(YelpvisCommentState, pk=comment_id)
     # comment = json.dumps(CommentState.objects.get(pk=comment_id))
     # return HttpResponse(json.dumps(comment.content), content_type="application/json")
-    return HttpResponse(comment.vis_state, content_type="application/json")
+    return render(request,'yelpvis/detail.html',{'comment':comment})
 
 @csrf_exempt
 def save_comment(request):

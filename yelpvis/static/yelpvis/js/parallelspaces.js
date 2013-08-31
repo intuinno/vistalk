@@ -11,6 +11,7 @@ window.onload = function () {
 }
 
 //var json_class = null;
+var LoadMode = 0;
 var json_class = {
     num: 0,
     querySpace: 'movie',
@@ -36,7 +37,8 @@ var json_class = {
     contourOn: [],
     contourList: [],
     relationMin: [],
-    relationMax: []
+    relationMax: [],
+    mode: []
 
 }
 
@@ -443,7 +445,7 @@ $('#page1').live('pageinit', function () {
                     var factor = 0.05;
                 } else if (PanZoomTool.zoomUserScale > 1) {
                     var factor = 1 / PanZoomTool.zoomUserScale;
-                    ;
+
                 } else {
                     var factor = 1;
                 }
@@ -451,7 +453,7 @@ $('#page1').live('pageinit', function () {
                     var factor2 = 0.05;
                 } else if (PanZoomTool.zoomMovieScale > 1) {
                     var factor2 = 1 / PanZoomTool.zoomMovieScale;
-                    ;
+
                 } else {
                     var factor2 = 1;
                 }
@@ -677,7 +679,7 @@ $('#page1').live('pageinit', function () {
                     var factor = 0.05;
                 } else if (PanZoomTool.zoomMovieScale > 1) {
                     var factor = 1 / PanZoomTool.zoomMovieScale;
-                    ;
+
                 } else {
                     var factor = 1;
                 }
@@ -685,7 +687,7 @@ $('#page1').live('pageinit', function () {
                     var factor2 = 0.05;
                 } else if (PanZoomTool.zoomUserScale > 1) {
                     var factor2 = 1 / PanZoomTool.zoomUserScale;
-                    ;
+
                 } else {
                     var factor2 = 1;
                 }
@@ -1761,11 +1763,16 @@ $('#page1').live('pageinit', function () {
 
             var i;
 
-            if (QueryManager.querytoggle.length == num) {
+            if (QueryManager.querytoggle.length == num && LoadMode == 0) {
 
                 alert("No Query Selected!. Please select Query first!");
             }
-
+            else {
+                if (LoadMode == 1){
+                    for (var i = 0; i < this.querySetsList.length; i++){
+                        this.querySetsList[i].requery(relMin, relMax)
+                    }
+                } else {
             for (i = 0; i < this.querySetsList.length; i++) {
             //for (i = 0; i < QueryManager.querytoggle.length; i++) {
                 if (QueryManager.querytoggle.indexOf(i) == -1){
@@ -2054,6 +2061,13 @@ $('#page1').live('pageinit', function () {
                 return d.name;
             }
         });
+        if (isLoadJson == true) {
+
+            var json_loaded = jQuery.parseJSON(loaded_json);
+
+            LoadJson(json_loaded);
+
+        }
 
     })
     function zoomedMovie() {
@@ -2075,11 +2089,11 @@ $('#page1').live('pageinit', function () {
         //movieSelectionSVGgroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")")
 
         for (i = 0; i < AnnotatedByAreaTool.blasso.length; i++) {
-            var Translate = AnnotatedByAreaTool.translate[i];
+            var Translate = [0,0];//AnnotatedByAreaTool.translate[i];
             var Translate2 = d3.event.translate;
             //Translate[0] = Translate[0] + d3.event.translate[0]
             //Translate[1] = Translate[1] + d3.event.translate[1]
-            var Scale = AnnotatedByAreaTool.scale[i];
+            var Scale = 1;//AnnotatedByAreaTool.scale[i];
 
             var scale2 = d3.event.scale;
             Translate[0] = scale2 / Scale * Translate[0];
@@ -3180,10 +3194,10 @@ $('#page1').live('pageinit', function () {
 
         }
 
-//        for (i = 0; i < AnnotatedByAreaTool.lines.length; i++) {
-//            json_class.annotationlines[i] = AnnotatedByAreaTool.lines[i];
-//            json_class.annotationtext[i] = AnnotatedByAreaTool.text[i];
-//        }
+        for (i = 0; i < AnnotatedByAreaTool.lines.length; i++) {
+            json_class.annotationlines[i] = AnnotatedByAreaTool.lines[i];
+            json_class.annotationtext[i] = AnnotatedByAreaTool.text[i];
+        }
 
         $.ajax({
             url: "save_json",
@@ -3202,11 +3216,27 @@ $('#page1').live('pageinit', function () {
 
     };
 
-    d3.select("#loadjson").on("click", LoadJson);
-    function LoadJson() {
+    d3.select("#loadjson").on("click", function () {
+        if (isLoadJson == true) {
+
+//            var json_loaded = jQuery.parseJSON(loaded_json);
+
+            LoadJson(loaded_json);
+
+        }
+    });
+    function LoadJson(myJson) {
         var selected = [];
         var queried = [];
+        json_class = myJson;
+
         if (json_class != null) {
+
+
+
+
+
+
 
             selectionStatesMovie = new SelectionStatesSpace();
             QueryManager.reset();
@@ -3214,7 +3244,7 @@ $('#page1').live('pageinit', function () {
             UserYvar = json_class.UserYvar;
             MovieXvar = json_class.MovieXvar;
             MovieYvar = json_class.MovieYvar;
-
+            LoadMode = 1;
             $('#userXAxisMenu').val(UserXvar)
             $('#userXAxisMenu').change();
 
@@ -3227,21 +3257,8 @@ $('#page1').live('pageinit', function () {
             $('#movieYAxisMenu').val(MovieYvar)
             $('#movieYAxisMenu').change();
 
-            if (json_class.isMovie) {
-                for (i = 0; i < json_class.selectedObject.length; i++) {
-                    selected[i] = [];
-                    for (j = 0; j < json_class.selectedObject[i].length; j++) {
-                        selected[i].push(movieData[json_class.selectedObject[i][j]])
-                    }
-                }
-                for (i = 0; i < json_class.queryObject.length; i++) {
-                    queried[i] = [];
-                    for (j = 0; j < json_class.queryObject[i].length; j++) {
-                        queried[i].push(userData[json_class.queryObject[i][j]])
-                    }
-                }
 
-            } else {
+            if (~json_class.isMovie) {
                 for (i = 0; i < json_class.selectedObject.length; i++) {
                     selected[i] = [];
                     for (j = 0; j < json_class.selectedObject[i].length; j++) {
@@ -3254,6 +3271,20 @@ $('#page1').live('pageinit', function () {
                         queried[i].push(movieData[json_class.queryObject[i][j]])
                     }
                 }
+
+            } else {
+                for (i = 0; i < json_class.selectedObject.length; i++) {
+                    selected[i] = [];
+                    for (j = 0; j < json_class.selectedObject[i].length; j++) {
+                        selected[i].push(movieData[json_class.selectedObject[i][j]])
+                    }
+                }
+                for (i = 0; i < json_class.queryObject.length; i++) {
+                    queried[i] = [];
+                    for (j = 0; j < json_class.queryObject[i].length; j++) {
+                        queried[i].push(userData[json_class.queryObject[i][j]])
+                    }
+                }
             }
 
 
@@ -3262,8 +3293,8 @@ $('#page1').live('pageinit', function () {
             isMovieSelected = json_class.isMovie;
             if (isUnion) {
                 for (i = 0; i < json_class.selectedObject.length; i++) {
-                    var tempQuerySet = new QuerySets(json_class.querySpace, selected[i],
-                        queried[i], num, 'union', PSmin, PSmax, "",
+                    var tempQuerySet = new QuerySets(json_class.querySpace, [queried[i]],
+                        selected[i], num, 'union', PSmin, PSmax, "",
                         $('input[name=contourMode]:checked').val(), isContourOn);
                     //var tempQuerySet = new QuerySets(json_class.querySpace, json_class.selectedObject[i],
                     // 	json_class.queryObject[i], num, 'union', PSmin, PSmax, "",
@@ -3276,15 +3307,15 @@ $('#page1').live('pageinit', function () {
 
                         x.domain(xDomainExtent);
                         y.domain(yDomainExtent);
-
+                        selectionStatesMovie.requeryCriteria(json_class.relationMin[i], json_class.relationMax[i])
                     } else {
                         selectionStatesUser.add(tempQuerySet);
 
                         x.domain(xDomainExtent);
                         y.domain(yDomainExtent);
-
+                        selectionStatesUser.requeryCriteria(json_class.relationMin[i], json_class.relationMax[i])
                     }
-
+                    tempQuerySet.requery(PSmin, PSmax)
                     updateDisplay('user', selectionStatesMovie);
                     updateDisplay('movie', selectionStatesUser);
                     num++;
@@ -3292,8 +3323,12 @@ $('#page1').live('pageinit', function () {
                 }
             } else {
                 for (i = 0; i < json_class.selectedObject.length; i++) {
-                    var tempQuerySet = new QuerySets(json_class.querySpace, selected[i],
-                        queried[i], num, 'common', PSmin, PSmax, "",
+                    var temp = [];
+                    //temp = queried[i];
+                    //queried[i] = selected[i];
+                    //selected[i] = temp;
+                    var tempQuerySet = new QuerySets(json_class.querySpace, queried[i],
+                        selected[i], num, 'common', PSmin, PSmax, "",
                         $('input[name=contourMode]:checked').val(), isContourOn);
                     //var tempQuerySet = new QuerySets(json_class.querySpace, json_class.selectedObject[i],
                     // 	json_class.queryObject[i], num, 'common', PSmin, PSmax, "",
@@ -3301,16 +3336,17 @@ $('#page1').live('pageinit', function () {
                     if (isMovieSelected) {
                         selectionStatesMovie.add(tempQuerySet);
 
-                        x.domain(xDomainExtent);
-                        y.domain(yDomainExtent);
-
+                        //x.domain(xDomainExtent);
+                        //y.domain(yDomainExtent);
+                        selectionStatesMovie.requeryCriteria(json_class.relationMin[i], json_class.relationMax[i])
                     } else {
                         selectionStatesUser.add(tempQuerySet);
 
-                        x.domain(xDomainExtent);
-                        y.domain(yDomainExtent);
-
+                        //x.domain(xDomainExtent);
+                        //y.domain(yDomainExtent);
+                        selectionStatesUser.requeryCriteria(json_class.relationMin[i], json_class.relationMax[i])
                     }
+                    tempQuerySet.requery(PSmin, PSmax)
                     updateDisplay('user', selectionStatesMovie);
                     updateDisplay('movie', selectionStatesUser);
 
@@ -3345,14 +3381,26 @@ $('#page1').live('pageinit', function () {
                 AnnotatedByAreaTool.blasso[i][0][0].remove();
             }
             AnnotatedByAreaTool.blasso = [];
+            AnnotatedByAreaTool.panel1 = d3.selectAll("#IDsvgMovie")//document.getElementById("IDsvgMovie")
+            AnnotatedByAreaTool.panel1.annotation = VisDock.panel1.append("g");
+            AnnotatedByAreaTool.panel2 = d3.selectAll("#IDsvgUser")//document.getElementById("IDsvgUser")
+            //alert(VisDock.panel2)
+            AnnotatedByAreaTool.panel2.annotation = VisDock.panel2.append("g");
+
             for (i = 0; i < json_class.annotatedlasso.length; i++) {
+
+
                 if (json_class.direction[i] == 'movie') {
                     AnnotatedByAreaTool.drawspace = AnnotatedByAreaTool.panel1;
                 } else {
                     AnnotatedByAreaTool.drawspace = AnnotatedByAreaTool.panel2;
                 }
                 var points = json_class.annotatedlasso[i];
-                AnnotatedByAreaTool.blasso[i] = AnnotatedByAreaTool.drawspace.append("polygon")
+                var points2 = points.split(" ")
+                var points3 = points2[points2.length - 1].split(",");
+
+                AnnotatedByAreaTool.blasso[i] = AnnotatedByAreaTool.drawspace.append("g")
+                AnnotatedByAreaTool.blasso[i].append("polygon")
                     .attr("id", "selection")
                     .attr("points", points)
                     .attr("fill", "yellow")
@@ -3360,6 +3408,24 @@ $('#page1').live('pageinit', function () {
                     .attr("opacity", "0.5")
                     .attr("class", "selection");
             }
+
+            var label = AnnotatedByAreaTool.drawspace.append("g").attr("pointer-events", "visiblePainted")
+                .attr("font-size", "10px");
+
+            var foreignObject = label.append("foreignObject").attr("x", points3[0])
+                .attr("y", points3[1])
+                .attr("width", "120px").attr("height", "45px");
+            var div = foreignObject.append("xhtml:div")
+                .text(json_class.annotationtext)
+                .attr("font-size", "10px");
+            AnnotatedByAreaTool.text.push(json_class.annotationtext)
+            var divWidth = div.style("width");
+            var divHeight = div.style("height");
+            /*var span = div.append("xhtml:span").attr("class", "close-btn");
+             span.append("xhtml:a").attr("href", "#").text("x");*/
+            // var index = QueryManager.addAnnotation("red", 1, "label " + numAnno);
+            var index = numAnno;
+            label.attr("class", numAnno);
 
 
         }
@@ -3519,4 +3585,15 @@ $('#page1').live('pageinit', function () {
         });
 
     };
+
+    $(window).bind('load', function () {
+        if (isLoadJson == true) {
+
+            var json_loaded = jQuery.parseJSON(loaded_json);
+
+            LoadJson(json_loaded);
+
+        }
 });
+});
+
