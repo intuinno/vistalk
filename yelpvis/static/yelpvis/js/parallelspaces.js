@@ -1768,17 +1768,20 @@ $('#page1').live('pageinit', function () {
                 alert("No Query Selected!. Please select Query first!");
             }
             else {
-                if (LoadMode == 1){
-                    for (var i = 0; i < this.querySetsList.length; i++){
+                if (LoadMode == 1) {
+                    for (var i = 0; i < this.querySetsList.length; i++) {
                         this.querySetsList[i].requery(relMin, relMax)
                     }
                 } else {
-            for (i = 0; i < this.querySetsList.length; i++) {
-            //for (i = 0; i < QueryManager.querytoggle.length; i++) {
-                if (QueryManager.querytoggle.indexOf(i) == -1){
-                    this.querySetsList[i].requery(relMin, relMax);
-                }
+                    for (i = 0; i < this.querySetsList.length; i++) {
+                        //for (i = 0; i < QueryManager.querytoggle.length; i++) {
+                        if (QueryManager.querytoggle.indexOf(i) == -1) {
+                            this.querySetsList[i].requery(relMin, relMax);
+                        }
 
+
+                    }
+                }
 
             }
 
@@ -2089,7 +2092,7 @@ $('#page1').live('pageinit', function () {
         //movieSelectionSVGgroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")")
 
         for (i = 0; i < AnnotatedByAreaTool.blasso.length; i++) {
-            var Translate = [0,0];//AnnotatedByAreaTool.translate[i];
+            var Translate = [0, 0];//AnnotatedByAreaTool.translate[i];
             var Translate2 = d3.event.translate;
             //Translate[0] = Translate[0] + d3.event.translate[0]
             //Translate[1] = Translate[1] + d3.event.translate[1]
@@ -3031,7 +3034,7 @@ $('#page1').live('pageinit', function () {
 
                 break;
 
-             case 'category':
+            case 'category':
 
                 yScaleUser = d3.scale.ordinal().rangePoints([h - margin, margin], 1);
 
@@ -3231,11 +3234,6 @@ $('#page1').live('pageinit', function () {
         json_class = myJson;
 
         if (json_class != null) {
-
-
-
-
-
 
 
             selectionStatesMovie = new SelectionStatesSpace();
@@ -3594,6 +3592,7 @@ $('#page1').live('pageinit', function () {
             LoadJson(json_loaded);
 
         }
-});
+    });
+
 });
 
