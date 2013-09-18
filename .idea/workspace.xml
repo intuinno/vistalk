@@ -2,6 +2,90 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb854282-6c21-465a-a581-758ce6266812" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/AnA.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/AnP.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/AnnArea.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/AnnPoint.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/Delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/DownArrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/Ellipse.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/Lasso.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/Pan.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/Path.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/PolyLine.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/Rectangle.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/UpArrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/Zoom.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/ajax-loader.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/and.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/arrow.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/checkbox_no.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/checkbox_yes.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/cursor.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/free_select.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/icons-18-black.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/icons-18-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/icons-36-black.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/icons-36-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/icons.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/ios-pack-color.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/ios-pack-color@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/leftarrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/data/movieSpaceNoNormal.xlsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/navigation.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/or.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/polygon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/rightarrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/rotate.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/straight_line.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/xor.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/2D.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/IntersectionUtilities.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/Test.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/UtilitiesLibrary.js.conflict" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/UtilitiesLibrary.js.orig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/UtilitiesLibrary.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/admin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/templates/movievis/base.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/base64.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/canvas2image.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/canvg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/conrec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/d3.legend.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/d3.v3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/templates/movievis/detail.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/templates/movievis/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/jqm.autoComplete-1.5.1.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/jquery.mobile-1.3.0-rc.1.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/jquery.tipsy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/left_arrow_bg.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/models.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/data/movieSpaceNoNormal.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/css/my.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/my.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/css/parallelspaces.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/parallelspaces.js.conflict" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/parallelspaces.js.orig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/parallelspaces.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/pixel_canvas.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/queue.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/data/ratings.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/images/right_arrow_bg.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/science.v1.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/svg_to_canvas.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/svg_todataurl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/tests.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/css/tipsy.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/urls.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/data/us-states.geojson" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/data/userSpaceNoNormal.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/vector_svg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/views.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/css/visdock.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/visdock.js.conflict" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/visdock.js.orig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/js/visdock.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsvis/static/movievis/data/zips.tsv" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/movievis/static/movievis/data/business.csv" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/movievis/static/movievis/data/business_word.csv" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/movievis/static/movievis/data/word.csv" afterPath="" />
@@ -1694,15 +1778,17 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/wordconfuse/templates/wordconfuse.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/wordconfuse/templates/wordconfuse.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wordconfuse/Tutorial/wordconfuse" afterPath="$PROJECT_DIR$/wordconfuse/Tutorial/wordconfuse" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js" afterPath="$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistalk3/settings.py" afterPath="$PROJECT_DIR$/vistalk3/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistalk3/urls.py" afterPath="$PROJECT_DIR$/vistalk3/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="vistalk3.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377909430258" ignored="false" />
+    <file path="/Dummy.txt" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1379480252365" ignored="false" />
     <file path="/a.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376450499120" ignored="false" />
     <file path="/fragment.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376504152859" ignored="false" />
     <file path="/index.html" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376709411962" ignored="false" />
-    <file path="/urls.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377657302747" ignored="false" />
+    <file path="/urls.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1379480322224" ignored="false" />
     <file path="/Python Console" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376492615529" ignored="false" />
     <file path="/Django Console" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376451339270" ignored="false" />
     <file path="/wordconfuse.js" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376490153626" ignored="false" />
@@ -1712,7 +1798,7 @@
     <file path="/models.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377464568253" ignored="false" />
     <file path="/admin.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377464732964" ignored="false" />
     <file path="/post.html" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1376527961163" ignored="false" />
-    <file path="/settings.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377464019548" ignored="false" />
+    <file path="/settings.py" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1379480353413" ignored="false" />
     <file path="/parallelspaces.js" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377909997224" ignored="false" />
     <file path="/visdock.js" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377808842008" ignored="false" />
     <file path="/a.dummy" changelist="bb854282-6c21-465a-a581-758ce6266812" time="1377463825252" ignored="false" />
@@ -1737,18 +1823,96 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="parallelspaces.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js">
+        <entry file="file://$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3245" column="47" selection-start="108169" selection-end="108169" vertical-scroll-proportion="0.0">
+            <state line="2621" column="35" selection-start="91176" selection-end="91182" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parallelspaces.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js">
+      <file leaf-file-name="2D.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/newsvis/static/movievis/js/2D.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3573" column="43" selection-start="123685" selection-end="123685" vertical-scroll-proportion="0.43419787">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/newsvis/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/newsvis/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wordconfuse/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wordconfuse/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/newsvis/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/newsvis/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/newsvis/templates/movievis/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/newsvis/templates/movievis/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-12.037538">
               <folding />
             </state>
           </provider>
@@ -1772,11 +1936,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$USER_HOME$/Downloads/parallelspaces.js" />
         <option value="$PROJECT_DIR$/yelpvis/static/yelpvis/css/parallelspaces.css" />
         <option value="$PROJECT_DIR$/movievis/static/movievis/css/parallelspaces.css" />
         <option value="$PROJECT_DIR$/movievis/urls.py" />
-        <option value="$PROJECT_DIR$/vistalk3/settings.py" />
         <option value="$PROJECT_DIR$/movievis/views.py" />
         <option value="$PROJECT_DIR$/movievis/templates/movievis/base.html" />
         <option value="$PROJECT_DIR$/movievis/templates/movievis/detail.html" />
@@ -1788,13 +1950,16 @@
         <option value="$PROJECT_DIR$/yelpvis/templates/yelpvis/detail.html" />
         <option value="$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js" />
         <option value="$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js" />
+        <option value="$PROJECT_DIR$/vistalk3/urls.py" />
+        <option value="$PROJECT_DIR$/vistalk3/settings.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1440" />
-    <option name="width" value="1920" />
-    <option name="height" value="1200" />
+    <option name="x" value="44" />
+    <option name="y" value="22" />
+    <option name="width" value="1396" />
+    <option name="height" value="878" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1851,7 +2016,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="yelpvis" />
+              <option name="myItemId" value="wordconfuse" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1865,15 +2030,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="yelpvis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yelpvis" />
+              <option name="myItemId" value="vistalk3" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1887,19 +2044,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="yelpvis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yelpvis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="newsvis" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1913,69 +2058,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="yelpvis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yelpvis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vistalk3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vistalk3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yelpvis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yelpvis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vistalk3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vistalk3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="movievis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vistalk3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vistalk3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="movievis" />
+              <option name="myItemId" value="newsvis" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1994,40 +2077,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="vistalk3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="movievis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="movievis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vistalk3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vistalk3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="movievis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -2061,6 +2110,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/newsvis" />
       <recent name="$PROJECT_DIR$/yelpvis/templates/yelpvis" />
       <recent name="$PROJECT_DIR$/movievis" />
       <recent name="$PROJECT_DIR$/wordconfuse" />
@@ -2251,14 +2301,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="0" width="1920" height="1200" extended-state="6" />
+    <frame x="44" y="22" width="1396" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13500534" sideWeight="0.823219" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19037037" sideWeight="0.823219" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37780547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -2353,108 +2403,14 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vistalk3/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movievis/templates/movievis/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="131" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistalk3/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="27" selection-start="4473" selection-end="4473" vertical-scroll-proportion="0.43257442">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movievis/templates/movievis/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="14" selection-start="353" selection-end="353" vertical-scroll-proportion="0.53521127">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/visdock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1738" column="0" selection-start="63736" selection-end="64377" vertical-scroll-proportion="0.41473988">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yelpvis/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yelpvis/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yelpvis/static/yelpvis/js/visdock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1410" column="13" selection-start="48986" selection-end="48986" vertical-scroll-proportion="0.018251682">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movievis/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="410" selection-end="410" vertical-scroll-proportion="0.21631879">
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movievis/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="29" selection-start="899" selection-end="899" vertical-scroll-proportion="0.32447818">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movievis/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="10" selection-start="866" selection-end="866" vertical-scroll-proportion="0.54079694">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yelpvis/templates/yelpvis/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="130" selection-end="130" vertical-scroll-proportion="0.12962963">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/movievis/templates/movievis/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="31" selection-start="1296" selection-end="1296" vertical-scroll-proportion="0.01875617">
-          <folding />
-        </state>
+        <state line="26" column="31" selection-start="1296" selection-end="1296" vertical-scroll-proportion="0.01875617" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/yelpvis/templates/yelpvis/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="364" column="53" selection-start="14038" selection-end="14038" vertical-scroll-proportion="0.18756169">
-          <folding />
-        </state>
+        <state line="364" column="53" selection-start="14038" selection-end="14038" vertical-scroll-proportion="0.18756169" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/movievis/static/movievis/js/parallelspaces.js">
@@ -2464,9 +2420,99 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vistalk3/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistalk3/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="60" selection-start="1025" selection-end="1025" vertical-scroll-proportion="0.6246575">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistalk3/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="149" column="14" selection-start="5117" selection-end="5117" vertical-scroll-proportion="0.7517434">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/yelpvis/static/yelpvis/js/parallelspaces.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3573" column="43" selection-start="123685" selection-end="123685" vertical-scroll-proportion="0.43419787">
+        <state line="2621" column="35" selection-start="91176" selection-end="91182" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newsvis/static/movievis/js/2D.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newsvis/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newsvis/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wordconfuse/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wordconfuse/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newsvis/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newsvis/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newsvis/templates/movievis/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newsvis/templates/movievis/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-12.037538">
           <folding />
         </state>
       </provider>

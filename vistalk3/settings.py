@@ -147,6 +147,7 @@ INSTALLED_APPS = (
     'movievis',
     'yelpvis',
     'jsonify',
+    'newsvis',
 )
 
 # A sample logging configuration. The only tangible logging

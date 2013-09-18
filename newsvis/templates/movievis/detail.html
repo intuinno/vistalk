@@ -1,0 +1,17 @@
+{% extends 'movievis/base.html' %}
+
+{% load static from staticfiles %}
+{% load jsonify %}
+
+{% block comment_block %}
+
+{# <script>#}
+{#        window.loaded_json = '{{ comment.vis_state |jsonify }}';#}
+{#    </script>#}
+
+<script type="text/javascript">
+   var loaded_json = {{ comment.vis_state|jsonify }};
+   isLoadJson = true;
+</script>
+
+{% endblock %}
