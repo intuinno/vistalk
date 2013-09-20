@@ -68,7 +68,7 @@
 <script type="text/javascript" src="http://graphics8.nytimes.com/js/common.js"></script>
 <script type="text/javascript" src="http://graphics8.nytimes.com/js/common/screen/DropDown.js"></script>
 <script type="text/javascript" src="http://graphics8.nytimes.com/js/fileit.js"></script>
-<script type="text/javascript" src="http://graphics8.nytimes.com/js/util/tooltip.js"></script>
+<!-- <script type="text/javascript" src="http://graphics8.nytimes.com/js/util/tooltip.js"></script> -->
 <script type="text/javascript" src="http://graphics8.nytimes.com/js/common/sharetools/2.0/shareTools.js"></script>
 <script type="text/javascript" src="http://graphics8.nytimes.com/js/app/save/crossPlatformSave.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
@@ -550,8 +550,70 @@ var $j = jQuery.noConflict();
 </div>
 <br clear="all">
 </div>
+
+<script type="text/javascript" src="{% static 'newsvis/js/twitterFetcher_v10_min.js' %}"></script>
+
+<div id="vistwit">
+<!-- <blockquote class="twitter-tweet"><p>Q: How to explore hundreds, even thousands, of weird outfits from Fashion Week? A: <a href="http://t.co/NCxZQYAmpq">http://t.co/NCxZQYAmpq</a> /cc <a href="https://twitter.com/shancarter">@shancarter</a> <a href="https://twitter.com/erikhinton">@erikhinton</a></p>&mdash; Mike Bostock (@mbostock) <a href="https://twitter.com/mbostock/statuses/378535215095750657">September 13, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+<!-- <a class="twitter-timeline" href="https://twitter.com/search?q=alex+rodriguez" data-widget-id="380520352893259777">Tweets about "alex rodriguez"</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
+
+
+
+</div>
+
+ <h1>NEW TWEETS</h1>
+        <ol id="tweets"></ol>
+        <a href="#" id="submit">get tweets</a>
+        
 <script src="http://graphics8.nytimes.com/newsgraphics/2013/07/31/baseball-value/3b4a542290210cdf3c7bef61b1e7881124c4a572/lib.js"></script>
 <script>(function() {
+	
+	 twitterFetcher.fetch('380520352893259777', 'vistwit', 1, true);
+
+	
+	 $j('#submit').click(function(){
+          // create a simple array with one member key 
+          // this is the twitter search term, feel free to modify this
+          var search_term = {
+            q: 'bowery'
+          };
+          // pass the search term to the search function defined below
+          search(search_term);
+        });
+     
+      
+      function search(search_term) {
+        $j.ajax({
+          /* the 'param' function ensures that our search terms are properly encoded
+             see: http://api.jquery.com/jQuery.param/ */
+          url: 'https://api.twitter.com/1.1/search/tweets.json?q=alex%20rodriguez&src=tyah',
+
+          /* the data type should be set to jsonp. for more info on that see:
+             http://en.wikipedia.org/wiki/JSONP */
+          dataType: 'jsonp',
+
+          /* since the function runs asynchronously, we need to define what should happen
+             when the twitter API sends back a successful response (i.e. HTTP code 200)
+          */
+
+          success: function(data) {
+            // uncomment the below to see the data in the console
+            //console.dir(data);
+
+            /* loop through each item inside of data['results'] and
+               extract the 'text' property.
+               we then use that to create a list item tag (<li>) and append
+               that to the HTML element with id 'tweets'
+            */
+            for (item in data['results']) {
+              $j('#tweets').append(
+                '<li>' + data['results'][item]['text'] + '</li>');
+            }
+          }
+        });
+      }
 
 var margin = {top: 30, right: 65, bottom: 45, left: 65},
     width = 970 - margin.left - margin.right,
@@ -790,16 +852,7 @@ d3.tsv("http://graphics8.nytimes.com/newsgraphics/2013/07/31/baseball-value/3b4a
       .attr("class", "g-player-image-value")
       .text(function(d) { return formatHits(d.hits) + " hits\n" + formatSalary(d.salary); });
 
-   $j('.g-player-images').tipsy({
-            gravity: 'w',
-            html: true,
-            fade: false,
-            delayOut: 0,
-            title: function () {
-                var d = this.__data__, c = d.hits;
-                return '<a href="' + d.salary + '" target="_blank ">' + c + d.salary + "Hello" +'</a>';
-            }
-        });
+
 
   var teamImage = imagery.append("div")
       .attr("class", "g-team-images")
@@ -856,18 +909,40 @@ d3.tsv("http://graphics8.nytimes.com/newsgraphics/2013/07/31/baseball-value/3b4a
         .each(function() { this.parentNode.insertBefore(this, this._next); });
   }
 
+function mouseoverTooltip() {
+	tooltip.style("visibitilty","visible"); 
+}
+
+function mouseoutTooltip() {
+	tooltip.style("visibitilty","hidden"); 
+}
+
+var tooltip = d3.select("#vistwit")
+	.style("position", "absolute")
+	.style("z-index", "10")
+	.style("visibility", "hidden")
+	.on("mouseover", mouseoverTooltip())
+	.on("mouseout",mouseoutTooltip());
+	
+	
   function mouseoverPlayer(p) {
+  	// tooltip.text("Hello"+p.name +"");
+  	tooltip.transition().delay(800).style("visibility","visible");
     playerImage.filter(function(d) { return d === p; })
         .classed("g-player-hovered", true)
         .each(function() { this._next = this.nextSibling; this.parentNode.appendChild(this); });
   }
 
   function mouseoutPlayer(p) {
+  	tooltip.transition().delay(800).style("visibility","hidden");
+   return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px"); }
+
+	function mousemovePlayer(p) {
     playerImage.filter(function(d) { return d === p; })
         .classed("g-player-hovered", false)
         .each(function() { this.parentNode.insertBefore(this, this._next); });
   }
-
+  
   function clickBackground() {
     if (selectedView === "player") {
       selectedView = "team";
@@ -982,8 +1057,10 @@ d3.tsv("http://graphics8.nytimes.com/newsgraphics/2013/07/31/baseball-value/3b4a
         .datum(function(d) { return d.point; })
         .attr("clip-path", function(d) { return "url(#g-clip-player-" + d.id + ")"; })
         .on("mouseover", mouseoverPlayer)
+        .on("mousemove",mousemovePlayer)
         .on("mouseout", mouseoutPlayer)
         .on("click", clickPlayer);
+
 
     var transition = d3.transition()
         .each("end", function() { svgVoronoi.style("display", null); })

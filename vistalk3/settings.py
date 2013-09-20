@@ -148,6 +148,7 @@ INSTALLED_APPS = (
     'yelpvis',
     'jsonify',
     'newsvis',
+    'social_auth',
 )
 
 # A sample logging configuration. The only tangible logging
