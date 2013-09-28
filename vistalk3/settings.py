@@ -149,6 +149,7 @@ INSTALLED_APPS = (
     'jsonify',
     'newsvis',
     'social_auth',
+    'ribbit',
 )
 
 # A sample logging configuration. The only tangible logging
