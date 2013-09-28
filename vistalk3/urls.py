@@ -23,6 +23,7 @@ urlpatterns = patterns('',
      url(r'^movievis/',include('movievis.urls',namespace="movievis")),
      url(r'^yelpvis/',include('yelpvis.urls',namespace='yelpvis')),
      url(r'^newsvis/',include('newsvis.urls',namespace='newsvis')),
+     url(r'', include('social_auth.urls')),
 
      # url(r'^$','blog.views.index'),
      # url(r'^(?P<slug>[\w\-]+)/$','blog.views.post'),
