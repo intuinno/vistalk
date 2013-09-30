@@ -22,6 +22,7 @@ urlpatterns = patterns('',
      url(r'^comments/',include('django.contrib.comments.urls')),
      url(r'^movievis/',include('movievis.urls',namespace="movievis")),
      url(r'^yelpvis/',include('yelpvis.urls',namespace='yelpvis')),
+     url(r'^ribbit/',include('ribbit.urls',namespace='ribit')),
      url(r'^newsvis/',include('newsvis.urls',namespace='newsvis')),
      url(r'', include('social_auth.urls')),
 
