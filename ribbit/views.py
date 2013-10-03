@@ -6,7 +6,7 @@ from ribbit.forms import AuthenticateForm, UserCreateForm, RibbitForm
 from ribbit.models import Ribbit
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count
-from djagno.http import Http404
+from django.http import Http404
 from django.core.exceptions import ObjectDoesNotExist
 
 def index(request, auth_form=None, user_form=None):
