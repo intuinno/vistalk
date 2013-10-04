@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "ribbit/base.html" %}
 {% block login %}
     {% with user.username as username %}
         {{ block.super }}
@@ -9,7 +9,7 @@
     <div class="panel left">
         <h1>{{ user.first_name }}'s Profile</h1>
         <div class="ribbitWrapper">
-            <a href="/users/{{ user.username }}">
+            <a href="/ribbit/users/{{ user.username }}">
                 <img class="avatar" src="{{ user.profile.gravatar_url }}">
                 <span class="name">{{ user.first_name }}</span>
             </a>
@@ -20,7 +20,7 @@
                 <span class="spacing">{{ user.profile.followed_by.all.count }} Followers</span>
             </p>
             {% if follow %}
-            <form action="/follow" method="post">
+            <form action="/ribbit/follow" method="post">
                 {% csrf_token %}
                 <input type="hidden" name="follow" value="{{ user.id }}">
                 <input type="submit" value="Follow">
@@ -33,7 +33,7 @@
         <h1>{{ user.first_name }}'s Ribbits</h1>
         {% for ribbit in ribbits %}
         <div class="ribbitWrapper">
-            <a href="/users/{{ user.username }}">
+            <a href="/ribbit/users/{{ user.username }}">
                 <img class="avatar" src="{{ user.profile.gravatar_url }}">
                 <span class="name">{{ ribbit.user.first_name }}</span>
             </a>

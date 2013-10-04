@@ -22,7 +22,7 @@
         <h1>Buddies' Ribbits</h1>
         {% for ribbit in ribbits %}
         <div class="ribbitWrapper">
-            <a href="/users/{{ ribbit.user.username }}">
+            <a href="ribbit/users/{{ ribbit.user.username }}">
                 <img class="avatar" src="{{ ribbit.user.profile.gravatar_url }}">
                 <span class="name">{{ ribbit.user.first_name }}</span>
             </a>

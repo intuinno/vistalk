@@ -22,7 +22,7 @@ def index(request, auth_form=None, user_form=None):
                       'ribbit/buddies.html',
                       {'ribbit_form': ribbit_form, 'user': user,
                        'ribbits': ribbits,
-                       'next_url': '/', })
+                       'next_url': '/ribbit', })
     else:
         # User is not logged in
         auth_form = auth_form or AuthenticateForm()
@@ -38,15 +38,15 @@ def login_view(request):
         if form.is_valid():
             login(request, form.get_user())
             # Success
-            return redirect('/')
+            return redirect('/ribbit')
         else:
             # Failure
             return index(request, auth_form=form)
-    return redirect('/')
+    return redirect('/ribbit')
 
 def logout_view(request):
     logout(request)
-    return redirect('/')
+    return redirect('/ribbit')
 
 def signup(request):
     user_form = UserCreateForm(data=request.POST)
@@ -57,16 +57,16 @@ def signup(request):
             user_form.save()
             user = authenticate(username=username, password=password)
             login(request, user)
-            return redirect('/')
+            return redirect('/ribbit')
         else:
             return index(request, user_form=user_form)
-    return redirect('/')
+    return redirect('/ribbit')
 
 @login_required
 def submit(request):
     if request.method == "POST":
         ribbit_form = RibbitForm(data=request.POST)
-        next_url = request.POST.get("next_url", "/")
+        next_url = request.POST.get("next_url", "/ribbit")
         if ribbit_form.is_valid():
             ribbit = ribbit_form.save(commit=False)
             ribbit.user = request.user
@@ -74,15 +74,15 @@ def submit(request):
             return redirect(next_url)
         else:
             return public(request, ribbit_form)
-    return redirect('/')
+    return redirect('/ribbit')
 
 @login_required
 def public(request, ribbit_form=None):
     ribbit_form = ribbit_form or RibbitForm()
     ribbits = Ribbit.objects.reverse()[:10]
     return render(request,
-                  'public.html',
-                  {'ribbit_form': ribbit_form, 'next_url': '/ribbits',
+                  'ribbit/public.html',
+                  {'ribbit_form': ribbit_form, 'next_url': '/ribbit/ribbits',
                    'ribbits': ribbits, 'username': request.user.username})
 
 def get_latest(user):
@@ -102,15 +102,15 @@ def users(request, username="", ribbit_form=None):
         ribbits = Ribbit.objects.filter(user=user.id)
         if username == request.user.username or request.user.profile.follows.filter(user__username=username):
             # Self Profile or buddies' profile
-            return render(request, 'user.html', {'user': user, 'ribbits': ribbits, })
-        return render(request, 'user.html', {'user': user, 'ribbits': ribbits, 'follow': True, })
+            return render(request, 'ribbit/user.html', {'user': user, 'ribbits': ribbits, })
+        return render(request, 'ribbit/user.html', {'user': user, 'ribbits': ribbits, 'follow': True, })
     users = User.objects.all().annotate(ribbit_count=Count('ribbit'))
     ribbits = map(get_latest, users)
     obj = zip(users, ribbits)
     ribbit_form = ribbit_form or RibbitForm()
     return render(request,
                   'ribbit/profiles.html',
-                  {'obj': obj, 'next_url': '/users/',
+                  {'obj': obj, 'next_url': '/ribbit/users/',
                    'ribbit_form': ribbit_form,
                    'username': request.user.username, })
 
@@ -124,5 +124,5 @@ def follow(request):
                 user = User.objects.get(id=follow_id)
                 request.user.profile.follows.add(user.profile)
             except ObjectDoesNotExist:
-                return redirect('/users/')
-    return redirect('/users/')
+                return redirect('/ribbit/users/')
+    return redirect('/ribbit/users/')

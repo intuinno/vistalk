@@ -4,7 +4,7 @@
     <div class="panel right">
         <h1>Create a Ribbit</h1>
         <p>
-            <form action="/submit" method="post">
+            <form action="/ribbit/submit" method="post">
             {% for field in ribbit_form %}{% csrf_token %}
             {{ field }}
             {% endfor %}
@@ -17,7 +17,7 @@
         <h1>Public Profiles</h1>
         {% for user, ribbit in obj %}
         <div class="ribbitWrapper">
-            <a href="/users/{{ user.username }}">
+            <a href="/ribbit/users/{{ user.username }}">
                 <img class="avatar" src="{{ user.profile.gravatar_url }}">
                 <span class="name">{{ user.first_name }}</span>
             </a>
