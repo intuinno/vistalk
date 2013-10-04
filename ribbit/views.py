@@ -19,7 +19,7 @@ def index(request, auth_form=None, user_form=None):
         ribbits = ribbits_self | ribbits_buddies
  
         return render(request,
-                      'buddies.html',
+                      'ribbit/buddies.html',
                       {'ribbit_form': ribbit_form, 'user': user,
                        'ribbits': ribbits,
                        'next_url': '/', })
@@ -29,7 +29,7 @@ def index(request, auth_form=None, user_form=None):
         user_form = user_form or UserCreateForm()
  
         return render(request,
-                      'home.html',
+                      'ribbit/home.html',
                       {'auth_form': auth_form, 'user_form': user_form, })
 
 def login_view(request):
@@ -109,7 +109,7 @@ def users(request, username="", ribbit_form=None):
     obj = zip(users, ribbits)
     ribbit_form = ribbit_form or RibbitForm()
     return render(request,
-                  'profiles.html',
+                  'ribbit/profiles.html',
                   {'obj': obj, 'next_url': '/users/',
                    'ribbit_form': ribbit_form,
                    'username': request.user.username, })
