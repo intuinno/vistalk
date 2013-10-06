@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/home/intuinno/Env/vistalk/bin/env python
 import os
 import sys
 
