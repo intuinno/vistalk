@@ -24,7 +24,10 @@ urlpatterns = patterns('',
      url(r'^yelpvis/',include('yelpvis.urls',namespace='yelpvis')),
      url(r'^ribbit/',include('ribbit.urls',namespace='ribbit')),
      url(r'^newsvis/',include('newsvis.urls',namespace='newsvis')),
+     url(r'^newsvis2/',include('newsvis2.urls',namespace='newsvis2')),
+     url(r'^todo/',include('todo.urls',namespace='todo')),
      url(r'', include('social_auth.urls')),
+
 
      # url(r'^$','blog.views.index'),
      # url(r'^(?P<slug>[\w\-]+)/$','blog.views.post'),
