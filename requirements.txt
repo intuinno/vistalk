@@ -1,6 +1,7 @@
 Django==1.5.1
 dj-database-url==0.2.2
 dj-static==0.0.5
+django-activitysync==0.2.2
 django-jsonify==0.2.1
 django-social-auth==0.7.28
 django-toolbelt==0.0.1
@@ -8,7 +9,12 @@ gunicorn==17.5
 httplib2==0.8
 jsonfield==0.9.17
 oauth2==1.5.211
+oauthlib==0.6.0
 psycopg2==2.5.1
 python-openid==2.2.5
+python-twitter==1.1
+requests==2.0.1
+requests-oauthlib==0.4.0
+simplejson==3.3.1
 static==0.4
 wsgiref==0.1.2
