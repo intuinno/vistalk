@@ -153,7 +153,18 @@ INSTALLED_APPS = (
     'social_auth',
     'ribbit',
     'todo',
+    'activitysync',
 )
+
+ACTIVITYSYNC_PROVIDERS = (
+    'activitysync.providers.twitterprovider.TwitterUserProvider', 
+    'activitysync.providers.twitterprovider.TwitterSearchProvider',
+)
+
+ACTIVITYSYNC_SETTINGS = {
+    'TWITTER_USERNAME' : 'intuinno',
+    'TWITTER_SEARCHTERM': '#THICKE',
+}
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
