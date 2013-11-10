@@ -1,11 +1,19 @@
-# Django settings for vistalk3 project.
+# Django settings for vistalk3 project
+
+
+# Django settings for Django celery
+import djcelery
+djcelery.setup_loader()
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
+
 
 MANAGERS = ADMINS
 
@@ -154,6 +162,8 @@ INSTALLED_APPS = (
     'ribbit',
     'todo',
     'activitysync',
+    'djcelery',
+    'celerytest',
 )
 
 ACTIVITYSYNC_PROVIDERS = (

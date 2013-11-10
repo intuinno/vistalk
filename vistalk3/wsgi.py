@@ -32,3 +32,8 @@ application = Cling(get_wsgi_application())
 # Apply WSGI middleware here.
 # from helloworld.wsgi import HelloWorldApplication
 # application = HelloWorldApplication(application)
+
+# Settings for django celery
+import djcelery
+djcelery.setup_loader()
+
