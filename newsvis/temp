@@ -1,0 +1,70 @@
+// I changed the definition of the getis-ord function slightly
+// The getis-ord (listECO , j) receives listECO, which is list as input
+// The function calculates the value of Getis-ord G static
+// for the new list which combines listECO and j
+
+// Data structure for the ecotop is a list
+// of locations.
+// Locations are represented by the index number beginning from 1
+
+
+function AMOEBA_Cluster ()
+
+    n = Number of Locations
+
+    for i = 1 to n do
+        (G, ecotop) = ECOTOP (i)
+        listOfEcotop.push (G, ecotop)
+
+    sortedListOfEcotop = sort(listOfEcotop, 1)
+
+    while isNotEmpty(sortedListOfEcotop)
+        //Sort listOfEcotop by the value of
+        // Getis-ord value in descending order
+
+        //t is ECOTOP with maximum Getis-ord statistic value
+        t = sortedListOfEcotop.pop()
+
+        //Eliminate intersetcting ecotopes
+        sortedListOfEcotop = eliminate_intersecting_ecotopes(sortedListOfEcotop, t)
+
+        finalCluster.push(t)
+
+    return finalCluster
+
+//function eliminate_intersecting_ecotopes receives
+//List of ecotopes and target ecotop
+//It searches List of ecotopes for the intersecting
+//ecotope and removes it from the list
+//and returns the resulting list of ecotopes
+
+function eliminate_intersecting_ecotopes (listOfEcotop, target)
+
+    for i in listOfEcotop
+        if isIntersecting(i,t)
+            listOfEcotop.remove(i)
+
+    return listOfEcotop
+
+
+
+
+
+//function ECOTOP receives location as seed location
+//and returns tuple of Getis-ord statistic value and
+//Ecotop as array
+function ECOTOP (location)
+
+    G = getis-ord(location)
+
+    ecotop.push(G)
+
+    while(newMember)
+        newMember = false
+        for j in neighbor(location)
+            if getis-ord(ecotop,j) > G
+                ecotop.push(j)
+                newMember = true
+                G = getis-ord(ecotop,j)
+
+    return (G, ecotop)

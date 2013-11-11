@@ -164,6 +164,7 @@ INSTALLED_APPS = (
     'activitysync',
     'djcelery',
     'celerytest',
+    'carson',
 )
 
 ACTIVITYSYNC_PROVIDERS = (
@@ -228,3 +229,11 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.OpenIDBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+# Settings for the django-carson 
+CONSUMER_KEY='AtDvumv2XT7iAbzsPEInQ'
+CONSUMER_SECRET='z5atyQUwygHxSuSlBGTUMgflzudWzYBkSalPLx5FF4U'
+TOKEN_KEY='38975687-rBGM5Wj23VNdYz8n8Gg8zMqgOBKfZ4uHaZ5uCH8MD'
+TOKEN_SECRET='qpPMWwzMgWt2kYocyLM6nI3NUEcyWK2FHw8MlT8j90'
+
+
